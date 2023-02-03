@@ -41,14 +41,14 @@
 			containerPortal = 653A2545283387FE005D4D48 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 653A254C283387FE005D4D48;
-			remoteInfo = TemplateApplication;
+			remoteInfo = Allergy;
 		};
 		653A256828338800005D4D48 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 653A2545283387FE005D4D48 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 653A254C283387FE005D4D48;
-			remoteInfo = TemplateApplication;
+			remoteInfo = Allergy;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -225,7 +225,7 @@
 				2F59B942298C628800C5107F /* AllergySchedule */,
 				2F59B944298C628800C5107F /* AllergySharedContext */,
 			);
-			productName = TemplateApplication;
+			productName = Allergy;
 			productReference = 653A254D283387FE005D4D48 /* Allergy.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -243,7 +243,7 @@
 				653A255F28338800005D4D48 /* PBXTargetDependency */,
 			);
 			name = AllergyTests;
-			productName = TemplateApplicationTests;
+			productName = AllergyTests;
 			productReference = 653A255D28338800005D4D48 /* AllergyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -264,7 +264,7 @@
 			packageProductDependencies = (
 				2F4E23802989C5930013F3D9 /* XCTHealthKit */,
 			);
-			productName = TemplateApplicationUITests;
+			productName = AllergyUITests;
 			productReference = 653A256728338800005D4D48 /* AllergyUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
@@ -608,7 +608,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cardinalkittemplateapplicationtests;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs342.2023.allergy.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_ELicenseRef-TemplateApplication_LOC_STRINGS" = NO;
 				SWIFT_VERSION = 5.0;
@@ -628,7 +628,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cardinalkittemplateapplicationtests;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs342.2023.allergy.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_ELicenseRef-TemplateApplication_LOC_STRINGS" = NO;
 				SWIFT_VERSION = 5.0;
@@ -647,12 +647,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cardinalkittemplateapplicationuitests;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs342.2023.allergy.uitests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_ELicenseRef-TemplateApplication_LOC_STRINGS" = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TemplateApplication;
+				TEST_TARGET_NAME = Allergy;
 			};
 			name = Debug;
 		};
@@ -666,12 +666,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cardinalkittemplateapplicationuitests;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs342.2023.allergy.uitests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_ELicenseRef-TemplateApplication_LOC_STRINGS" = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TemplateApplication;
+				TEST_TARGET_NAME = Allergy;
 			};
 			name = Release;
 		};
