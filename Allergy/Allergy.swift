@@ -21,7 +21,7 @@ struct Allergy: App {
     var body: some Scene {
         WindowGroup {
             HomeView()
-                .sheet(isPresented: !$completedOnboardingFlow) {
+                .sheet(isPresented: $completedOnboardingFlow) {
                     OnboardingFlow()
                 }
                 .testingSetup()

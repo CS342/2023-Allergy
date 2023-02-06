@@ -9,19 +9,22 @@
 // MARK: - Onboarding
 
 // MARK: Welcome
-"WELCOME_TITLE" = "CardinalKit\nAllergy Application";
-"WELCOME_SUBTITLE" = "This application demonstrates several CardinalKit features & modules.";
+"WELCOME_TITLE" = "Allergy Patch Testing";
+"WELCOME_SUBTITLE" = "This is an all in one platform where you can upload pictures of your patch tests so your dermatologist can have instant access.";
 
-"WELCOME_AREA1_TITLE" = "The CardinalKit Framework";
-"WELCOME_AREA1_DESCRIPTION" = "The CardinalKit Framework builds the foundation of this template application.";
 
-"WELCOME_AREA2_TITLE" = "Swift Package Manager";
-"WELCOME_AREA2_DESCRIPTION" = "CardinalKit uses the Swift Package Manager to import it as a dependency.";
+"WELCOME_AREA1_TITLE" = "User Registration & Consent";
+"WELCOME_AREA1_DESCRIPTION" = "This app is HIPAA-compliant, and we will ask for consent for your personal information and access to images, as well as register you with our system.";
 
-"WELCOME_AREA3_TITLE" = "CardinalKit Modules";
-"WELCOME_AREA3_DESCRIPTION" = "CardinalKit offers several modules including HealthKit integration, questionnaires, and more ...";
 
-"WELCOME_BUTTON" = "Learn More";
+"WELCOME_AREA2_TITLE" = "Patient Survey";
+"WELCOME_AREA2_DESCRIPTION" = "You will need to take a survey regarding your medical history, symptoms, and other important information about your eczema.";
+
+
+"WELCOME_AREA3_TITLE" = "Take Pictures";
+"WELCOME_AREA3_DESCRIPTION" = "Our platform allows you to effortlessly and securely take pictures of your patch test, from which your results and information can be processed by your dermatologist.";
+
+"WELCOME_BUTTON" = "Register";
 
 // MARK: Interesting Modules
 "INTERESTING_MODULES_TITLE" = "Interesting Modules";
