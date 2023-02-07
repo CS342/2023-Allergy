@@ -22,14 +22,27 @@ struct HomeView: View {
     
     
     @AppStorage(StorageKeys.homeTabSelection) var selectedTab = Tabs.schedule
-    
+    @State var cameraPresented: Bool = false
     
     var body: some View {
         TabView(selection: $selectedTab) {
+            VStack {
+                Button("Use Camera") {
+                    cameraPresented = true
+                }
             ScheduleView()
+            }
                 .tag(Tabs.schedule)
                 .tabItem {
                     Label("SCHEDULE_TAB_TITLE", systemImage: "list.clipboard")
+                }
+                .fullScreenCover(isPresented: $cameraPresented) {
+                    VStack {
+                        Button("Close Camera") {
+                            cameraPresented = false
+                        }
+                        CameraView()
+                    }
                 }
             Contacts()
                 .tag(Tabs.contact)
