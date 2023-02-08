@@ -46,10 +46,10 @@
 
 
 // MARK: Consent
-"CONSENT_TITLE" = "Consent Example";
-"CONSENT_SUBTITLE" = "CardinalKit can collect consent from a user. You can provide the consent document using a markdown file.";
+"CONSENT_TITLE" = "User Consent Form";
+"CONSENT_SUBTITLE" = "Example text of the consent form to be completed later";
 
-"CONSENT_LOADING_ERROR" = "Please include a markdown based document named \"ConsentDocument\" in your module Bundle.";
+"CONSENT_LOADING_ERROR" = "The consent form text will go here";
 
 
 // MARK: HealthKit
