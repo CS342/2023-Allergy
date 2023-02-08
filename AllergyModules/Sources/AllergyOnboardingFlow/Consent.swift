@@ -36,7 +36,7 @@ struct Consent: View {
                 consentDocument
             },
             action: {
-                completedOnboardingFlow = true
+                onboardingSteps.append(.interestingModules)
             }
         )
     }
