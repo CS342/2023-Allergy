@@ -6,11 +6,10 @@
 // SPDX-License-Identifier: MIT
 //
 
-import Photos
 import os.log
+import Photos
 
 class PhotoLibrary {
-
     static func checkAuthorization() async -> Bool {
         switch PHPhotoLibrary.authorizationStatus(for: .readWrite) {
         case .authorized:
@@ -34,5 +33,4 @@ class PhotoLibrary {
     }
 }
 
-fileprivate let logger = Logger(subsystem: "com.apple.swiftplaygroundscontent.capturingphotos", category: "PhotoLibrary")
-
+private let logger = Logger(subsystem: "com.apple.swiftplaygroundscontent.capturingphotos", category: "PhotoLibrary")

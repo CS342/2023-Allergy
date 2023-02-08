@@ -7,8 +7,8 @@
 //
 
 import AVFoundation
-import SwiftUI
 import os.log
+import SwiftUI
 
 final class DataModel: ObservableObject {
     let camera = Camera()
@@ -74,7 +74,7 @@ final class DataModel: ObservableObject {
             do {
                 try await photoCollection.addImage(imageData)
                 logger.debug("Added image data to photo collection.")
-            } catch let error {
+            } catch {
                 logger.error("Failed to add image to photo collection: \(error.localizedDescription)")
             }
         }
@@ -93,7 +93,7 @@ final class DataModel: ObservableObject {
             do {
                 try await self.photoCollection.load()
                 await self.loadThumbnail()
-            } catch let error {
+            } catch {
                 logger.error("Failed to load photo collection: \(error.localizedDescription)")
             }
             self.isPhotosLoaded = true
@@ -102,7 +102,7 @@ final class DataModel: ObservableObject {
     
     func loadThumbnail() async {
         guard let asset = photoCollection.photoAssets.first  else { return }
-        await photoCollection.cache.requestImage(for: asset, targetSize: CGSize(width: 256, height: 256))  { result in
+        await photoCollection.cache.requestImage(for: asset, targetSize: CGSize(width: 256, height: 256)) { result in
             if let result = result {
                 Task { @MainActor in
                     self.thumbnailImage = result.image
@@ -112,7 +112,7 @@ final class DataModel: ObservableObject {
     }
 }
 
-fileprivate struct PhotoData {
+private struct PhotoData {
     var thumbnailImage: Image
     var thumbnailSize: (width: Int, height: Int)
     var imageData: Data
@@ -128,7 +128,6 @@ fileprivate extension CIImage {
 }
 
 fileprivate extension Image.Orientation {
-
     init(_ cgImageOrientation: CGImagePropertyOrientation) {
         switch cgImageOrientation {
         case .up: self = .up
@@ -143,4 +142,4 @@ fileprivate extension Image.Orientation {
     }
 }
 
-fileprivate let logger = Logger(subsystem: "com.apple.swiftplaygroundscontent.capturingphotos", category: "DataModel")
+private let logger = Logger(subsystem: "com.apple.swiftplaygroundscontent.capturingphotos", category: "DataModel")

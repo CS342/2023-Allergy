@@ -6,13 +6,12 @@
 // SPDX-License-Identifier: MIT
 //
 
-import UIKit
+import os.log
 import Photos
 import SwiftUI
-import os.log
+import UIKit
 
 actor CachedImageManager {
-    
     private let imageManager = PHCachingImageManager()
     
     private var imageContentMode = PHImageContentMode.aspectFit
@@ -23,7 +22,7 @@ actor CachedImageManager {
         case failed
     }
     
-    private var cachedAssetIdentifiers = [String : Bool]()
+    private var cachedAssetIdentifiers = [String: Bool]()
     
     private lazy var requestOptions: PHImageRequestOptions = {
         let options = PHImageRequestOptions()
@@ -89,5 +88,4 @@ actor CachedImageManager {
     }
 }
 
-fileprivate let logger = Logger(subsystem: "com.apple.swiftplaygroundscontent.capturingphotos", category: "CachedImageManager")
-
+private let logger = Logger(subsystem: "com.apple.swiftplaygroundscontent.capturingphotos", category: "CachedImageManager")

@@ -22,7 +22,7 @@ struct HomeView: View {
     
     
     @AppStorage(StorageKeys.homeTabSelection) var selectedTab = Tabs.schedule
-    @State var cameraPresented: Bool = false
+    @State var cameraPresented = false
     
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -64,4 +64,3 @@ struct MainView_Previews: PreviewProvider {
         HomeView()
     }
 }
-

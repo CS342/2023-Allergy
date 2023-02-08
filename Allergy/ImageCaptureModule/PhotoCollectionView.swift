@@ -6,11 +6,11 @@
 // SPDX-License-Identifier: MIT
 //
 
-import SwiftUI
 import os.log
+import SwiftUI
 
 struct PhotoCollectionView: View {
-    @ObservedObject var photoCollection : PhotoCollection
+    @ObservedObject var photoCollection: PhotoCollection
     
     @Environment(\.displayScale) private var displayScale
         
@@ -19,7 +19,7 @@ struct PhotoCollectionView: View {
     private static let itemSize = CGSize(width: 90, height: 90)
     
     private var imageSize: CGSize {
-        return CGSize(width: Self.itemSize.width * min(displayScale, 2), height: Self.itemSize.height * min(displayScale, 2))
+        CGSize(width: Self.itemSize.width * min(displayScale, 2), height: Self.itemSize.height * min(displayScale, 2))
     }
     
     private let columns = [

@@ -6,8 +6,8 @@
 // SPDX-License-Identifier: MIT
 //
 
-import SwiftUI
 import Photos
+import SwiftUI
 
 struct PhotoItemView: View {
     var asset: PhotoAsset
@@ -18,7 +18,6 @@ struct PhotoItemView: View {
     @State private var imageRequestID: PHImageRequestID?
 
     var body: some View {
-        
         Group {
             if let image = image {
                 image

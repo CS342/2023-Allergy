@@ -6,8 +6,8 @@
 // SPDX-License-Identifier: MIT
 //
 
-import SwiftUI
 import Photos
+import SwiftUI
 
 struct PhotoView: View {
     var asset: PhotoAsset
@@ -51,7 +51,6 @@ struct PhotoView: View {
     
     private func buttonsView() -> some View {
         HStack(spacing: 60) {
-            
             Button {
                 Task {
                     await asset.setIsFavorite(!asset.isFavorite)

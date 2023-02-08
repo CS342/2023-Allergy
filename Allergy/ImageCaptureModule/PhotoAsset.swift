@@ -6,8 +6,8 @@
 // SPDX-License-Identifier: MIT
 //
 
-import Photos
 import os.log
+import Photos
 
 struct PhotoAsset: Identifiable {
     var id: String { identifier }
@@ -49,7 +49,7 @@ struct PhotoAsset: Identifiable {
                     let request = PHAssetChangeRequest(for: phAsset)
                     request.isFavorite = isFavorite
                 }
-            } catch (let error) {
+            } catch {
                 logger.error("Failed to change isFavorite: \(error.localizedDescription)")
             }
         }
@@ -62,7 +62,7 @@ struct PhotoAsset: Identifiable {
                 PHAssetChangeRequest.deleteAssets([phAsset] as NSArray)
             }
             logger.debug("PhotoAsset asset deleted: \(index ?? -1)")
-        } catch (let error) {
+        } catch {
             logger.error("Failed to delete photo: \(error.localizedDescription)")
         }
     }
@@ -84,5 +84,4 @@ extension PHObject: Identifiable {
     public var id: String { localIdentifier }
 }
 
-fileprivate let logger = Logger(subsystem: "com.apple.swiftplaygroundscontent.capturingphotos", category: "PhotoAsset")
-
+private let logger = Logger(subsystem: "com.apple.swiftplaygroundscontent.capturingphotos", category: "PhotoAsset")
