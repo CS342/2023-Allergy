@@ -13,7 +13,6 @@ import SwiftUI
 /// Displays an multi-step onboarding flow for the CS342 2023 Allergy Team Application.
 public struct OnboardingFlow: View {
     enum Step: String, Codable {
-        case interestingModules
         case consent
         case healthKitPermissions
         case questionnaire
@@ -28,8 +27,6 @@ public struct OnboardingFlow: View {
             Welcome(onboardingSteps: $onboardingSteps)
                 .navigationDestination(for: Step.self) { onboardingStep in
                     switch onboardingStep {
-                    case .interestingModules:
-                        InterestingModules(onboardingSteps: $onboardingSteps)
                     case .consent:
                         Consent(onboardingSteps: $onboardingSteps)
                     case .healthKitPermissions:

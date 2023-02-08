@@ -8,11 +8,12 @@
 
 import Onboarding
 import SwiftUI
+import AllergySharedContext
 
 
 struct InterestingModules: View {
     @Binding private var onboardingSteps: [OnboardingFlow.Step]
-    
+    @AppStorage(StorageKeys.onboardingFlowComplete) var completedOnboardingFlow = false
     
     var body: some View {
         SequentialOnboardingView(
@@ -40,10 +41,11 @@ struct InterestingModules: View {
             action: {
                 #if targetEnvironment(simulator) && (arch(i386) || arch(x86_64))
                 print("PKCanvas view-related views are currently skipped on Intel-based iOS simulators due to a metal bug on the simulator.")
-                onboardingSteps.append(.healthKitPermissions)
-                #else
-                onboardingSteps.append(.consent)
+                
+                #else      
+                completedOnboardingFlow = true
                 #endif
+                completedOnboardingFlow = true
             }
         )
     }
