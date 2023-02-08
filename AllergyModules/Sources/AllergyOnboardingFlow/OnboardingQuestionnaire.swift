@@ -6,26 +6,41 @@
 // SPDX-License-Identifier: MIT
 //
 
+import Onboarding
 import SwiftUI
 import FHIR
 import Questionnaires
 import AllergySharedContext
 
+
 struct OnboardingQuestionnaire: View {
+    @Binding var onboardingSteps: [OnboardingFlow.Step]
     @AppStorage(StorageKeys.onboardingFlowComplete) var completedOnboardingFlow = false
+    
     
     var onboardingQuestionnaire: Questionnaire {
         Bundle.module.questionnaire(withName: "AllergenTesting")
     }
+    
+    
     var body: some View {
         QuestionnaireView(questionnaire: onboardingQuestionnaire) {_ in
             completedOnboardingFlow = true
         }
     }
+    
+    
+    init(onboardingSteps: Binding<[OnboardingFlow.Step]>) {
+        self._onboardingSteps = onboardingSteps
+    }
 }
 
+
 struct OnboardingQuestionnaire_Previews: PreviewProvider {
+    @State private static var path: [OnboardingFlow.Step] = []
+    
+    
     static var previews: some View {
-        OnboardingQuestionnaire()
+        OnboardingQuestionnaire(onboardingSteps: $path)
     }
 }
