@@ -55,7 +55,8 @@ let package = Package(
                 .target(name: "AllergySharedContext"),
                 .product(name: "FHIR", package: "CardinalKit"),
                 .product(name: "HealthKitDataSource", package: "CardinalKit"),
-                .product(name: "Onboarding", package: "CardinalKit")
+                .product(name: "Onboarding", package: "CardinalKit"),
+                .product(name: "Questionnaires", package: "CardinalKit")
             ],
             resources: [
                 .process("Resources")
