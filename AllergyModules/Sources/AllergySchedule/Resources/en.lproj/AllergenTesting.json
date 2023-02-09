@@ -46,7 +46,6 @@
     {
       "linkId": "661e8930-a2ba-4791-914b-f989327a8cc4",
       "type": "choice",
-      "required": false,
       "answerOption": [
         {
           "valueCoding": {
@@ -73,13 +72,14 @@
           }
         }
       ],
-      "text": "Please let us know if this account is for you or another individual."
+      "text": "Please let us know if this account is for you or another individual.",
+      "required": true
     },
     {
       "linkId": "d09b5b5b-f561-4222-9f83-5b7c1ae4731d",
       "type": "choice",
       "text": "What is your gender?",
-      "required": false,
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -119,13 +119,13 @@
       "linkId": "d101bb2c-a7cf-4086-90f6-fc93bd08dd5e",
       "type": "string",
       "text": "What year were you born?",
-      "required": false
+      "required": true
     },
     {
       "linkId": "9f860104-9522-41a0-8afa-914f4020a3fe",
       "type": "choice",
       "text": "Do you identify as:",
-      "required": false,
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -197,7 +197,7 @@
       "linkId": "e9253887-296a-40ee-f672-7abb0d7da17c",
       "type": "string",
       "text": "Your zipcode",
-      "required": false
+      "required": true
     },
     {
       "linkId": "c92e24da-fb82-4fd3-8d6f-68dc2f31921c",
@@ -221,7 +221,7 @@
           ]
         }
       ],
-      "required": false,
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -253,7 +253,7 @@
       "linkId": "7041d8f9-d603-4d5a-8a03-d3933aae9bfd",
       "type": "choice",
       "text": "How do you describe your skin condition:  ",
-      "required": false,
+      "required": true,
       "answerOption": [
         {
           "valueCoding": {
@@ -895,7 +895,6 @@
       "linkId": "b59d7bdb-7432-4a53-9f37-ca08ac4b7242",
       "type": "choice",
       "text": "Are you willing to tell us about some of your personal habits and interests (It can help us review your exposures to potential allergens and or irritants)?",
-      "required": false,
       "answerOption": [
         {
           "valueCoding": {
@@ -913,7 +912,8 @@
             "display": "No"
           }
         }
-      ]
+      ],
+      "required": true
     },
     {
       "linkId": "9c4c1e7b-b7e9-4342-869b-4686615b7f30",
