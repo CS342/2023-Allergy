@@ -33,6 +33,7 @@
 		653A255528338800005D4D48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 653A255428338800005D4D48 /* Assets.xcassets */; };
 		653A256228338800005D4D48 /* AllergyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A256128338800005D4D48 /* AllergyTests.swift */; };
 		653A256C28338800005D4D48 /* SchedulerAndQuestionnaireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A256B28338800005D4D48 /* SchedulerAndQuestionnaireTests.swift */; };
+		723BE16729A425A600CB5838 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 723BE16629A425A600CB5838 /* LICENSE.txt */; };
 		72D8E639298C7E8600477F0A /* PhotoAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D8E62B298C7E8600477F0A /* PhotoAsset.swift */; };
 		72D8E63A298C7E8600477F0A /* PhotoAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D8E62B298C7E8600477F0A /* PhotoAsset.swift */; };
 		72D8E63B298C7E8600477F0A /* PhotoAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D8E62B298C7E8600477F0A /* PhotoAsset.swift */; };
@@ -114,6 +115,7 @@
 		653A256728338800005D4D48 /* AllergyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AllergyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		653A256B28338800005D4D48 /* SchedulerAndQuestionnaireTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulerAndQuestionnaireTests.swift; sourceTree = "<group>"; };
 		653A258928339462005D4D48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		723BE16629A425A600CB5838 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		72D8E62B298C7E8600477F0A /* PhotoAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAsset.swift; sourceTree = "<group>"; };
 		72D8E62C298C7E8600477F0A /* ThumbnailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailView.swift; sourceTree = "<group>"; };
 		72D8E62D298C7E8600477F0A /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 		72D8E62A298C7B5D00477F0A /* ImageCaptureModule */ = {
 			isa = PBXGroup;
 			children = (
+				723BE16629A425A600CB5838 /* LICENSE.txt */,
 				72D8E636298C7E8600477F0A /* CachedImageManager.swift */,
 				72D8E62D298C7E8600477F0A /* Camera.swift */,
 				72D8E631298C7E8600477F0A /* CameraApp.swift */,
@@ -398,6 +401,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				723BE16729A425A600CB5838 /* LICENSE.txt in Resources */,
 				653A255528338800005D4D48 /* Assets.xcassets in Resources */,
 				2FC9759F2978E39600BA99FE /* Localizable.strings in Resources */,
 			);
