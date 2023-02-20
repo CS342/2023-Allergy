@@ -1,6 +1,10 @@
-/*
-See the License.txt file for this sample’s licensing information.
-*/
+//
+// This source file is part of the CS342 2023 Allergy Team Application project
+//
+// SPDX-FileCopyrightText: 2023 Stanford University
+//
+// SPDX-License-Identifier: MIT
+//
 
 import SwiftUI
 
@@ -11,10 +15,9 @@ struct CameraView: View {
     
     
     var body: some View {
-        
         NavigationStack {
             GeometryReader { geometry in
-                ViewfinderView(image:  $model.viewfinderImage )
+                ViewfinderView(image: $model.viewfinderImage )
                     .overlay(alignment: .top) {
                         Color.black
                             .opacity(0.75)
@@ -25,7 +28,7 @@ struct CameraView: View {
                             .frame(height: geometry.size.height * Self.barHeightFactor)
                             .background(.black.opacity(0.75))
                     }
-                    .overlay(alignment: .center)  {
+                    .overlay(alignment: .center) {
                         Color.clear
                             .frame(height: geometry.size.height * (1 - (Self.barHeightFactor * 2)))
                             .accessibilityElement()
@@ -49,7 +52,6 @@ struct CameraView: View {
     
     private func buttonsView() -> some View {
         HStack(spacing: 60) {
-            
             Spacer()
             
             NavigationLink {
@@ -94,11 +96,9 @@ struct CameraView: View {
             }
             
             Spacer()
-        
         }
         .buttonStyle(.plain)
         .labelStyle(.iconOnly)
         .padding()
     }
-    
 }

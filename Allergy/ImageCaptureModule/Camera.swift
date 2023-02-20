@@ -1,11 +1,14 @@
-/*
-See the License.txt file for this sample’s licensing information.
-*/
-
+//
+// This source file is part of the CS342 2023 Allergy Team Application project
+//
+// SPDX-FileCopyrightText: 2023 Stanford University
+//
+// SPDX-License-Identifier: MIT
+//
 import AVFoundation
 import CoreImage
-import UIKit
 import os.log
+import UIKit
 
 class Camera: NSObject {
     private let captureSession = AVCaptureSession()
@@ -46,8 +49,8 @@ class Camera: NSObject {
     
     private var availableCaptureDevices: [AVCaptureDevice] {
         captureDevices
-            .filter( { $0.isConnected } )
-            .filter( { !$0.isSuspended } )
+            .filter({ $0.isConnected })
+            .filter({ !$0.isSuspended })
     }
     
     private var captureDevice: AVCaptureDevice? {
@@ -113,7 +116,6 @@ class Camera: NSObject {
     }
     
     private func configureCaptureSession(completionHandler: (_ success: Bool) -> Void) {
-        
         var success = false
         
         self.captureSession.beginConfiguration()
@@ -195,7 +197,7 @@ class Camera: NSObject {
         guard let validDevice = device else { return nil }
         do {
             return try AVCaptureDeviceInput(device: validDevice)
-        } catch let error {
+        } catch {
             logger.error("Error getting capture device input: \(error.localizedDescription)")
             return nil
         }
@@ -283,7 +285,7 @@ class Camera: NSObject {
     
     @objc
     func updateForDeviceOrientation() {
-        //TODO: Figure out if we need this for anything.
+        // TODO: Figure out if we need this for anything.
     }
     
     private func videoOrientationFor(_ deviceOrientation: UIDeviceOrientation) -> AVCaptureVideoOrientation? {
@@ -300,7 +302,6 @@ class Camera: NSObject {
         guard let photoOutput = self.photoOutput else { return }
         
         sessionQueue.async {
-        
             var photoSettings = AVCapturePhotoSettings()
 
             if photoOutput.availablePhotoCodecTypes.contains(.hevc) {
@@ -328,9 +329,7 @@ class Camera: NSObject {
 }
 
 extension Camera: AVCapturePhotoCaptureDelegate {
-    
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        
         if let error = error {
             logger.error("Error capturing photo: \(error.localizedDescription)")
             return
@@ -341,7 +340,6 @@ extension Camera: AVCapturePhotoCaptureDelegate {
 }
 
 extension Camera: AVCaptureVideoDataOutputSampleBufferDelegate {
-    
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard let pixelBuffer = sampleBuffer.imageBuffer else { return }
         
@@ -355,7 +353,6 @@ extension Camera: AVCaptureVideoDataOutputSampleBufferDelegate {
 }
 
 fileprivate extension UIScreen {
-
     var orientation: UIDeviceOrientation {
         let point = coordinateSpace.convert(CGPoint.zero, to: fixedCoordinateSpace)
         if point == CGPoint.zero {
@@ -363,14 +360,13 @@ fileprivate extension UIScreen {
         } else if point.x != 0 && point.y != 0 {
             return .portraitUpsideDown
         } else if point.x == 0 && point.y != 0 {
-            return .landscapeRight //.landscapeLeft
+            return .landscapeRight // .landscapeLeft
         } else if point.x != 0 && point.y == 0 {
-            return .landscapeLeft //.landscapeRight
+            return .landscapeLeft // .landscapeRight
         } else {
             return .unknown
         }
     }
 }
 
-fileprivate let logger = Logger(subsystem: "com.apple.swiftplaygroundscontent.capturingphotos", category: "Camera")
-
+private let logger = Logger(subsystem: "com.apple.swiftplaygroundscontent.capturingphotos", category: "Camera")

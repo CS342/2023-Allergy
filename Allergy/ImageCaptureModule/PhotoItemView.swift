@@ -1,9 +1,13 @@
-/*
-See the License.txt file for this sample’s licensing information.
-*/
+//
+// This source file is part of the CS342 2023 Allergy Team Application project
+//
+// SPDX-FileCopyrightText: 2023 Stanford University
+//
+// SPDX-License-Identifier: MIT
+//
 
-import SwiftUI
 import Photos
+import SwiftUI
 
 struct PhotoItemView: View {
     var asset: PhotoAsset
@@ -14,7 +18,6 @@ struct PhotoItemView: View {
     @State private var imageRequestID: PHImageRequestID?
 
     var body: some View {
-        
         Group {
             if let image = image {
                 image

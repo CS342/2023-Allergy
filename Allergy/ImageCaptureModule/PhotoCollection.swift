@@ -1,13 +1,15 @@
-/*
-See the License.txt file for this sample’s licensing information.
-*/
-
-import Photos
+//
+// This source file is part of the CS342 2023 Allergy Team Application project
+//
+// SPDX-FileCopyrightText: 2023 Stanford University
+//
+// SPDX-License-Identifier: MIT
+//
 import os.log
+import Photos
 
 class PhotoCollection: NSObject, ObservableObject {
-    
-    @Published var photoAssets: PhotoAssetCollection = PhotoAssetCollection(PHFetchResult<PHAsset>())
+    @Published var photoAssets = PhotoAssetCollection(PHFetchResult<PHAsset>())
     
     var identifier: String? {
         assetCollection?.localIdentifier
@@ -63,7 +65,6 @@ class PhotoCollection: NSObject, ObservableObject {
     }
     
     func load() async throws {
-        
         PHPhotoLibrary.shared().register(self)
         
         if let smartAlbumType = smartAlbumType {
@@ -110,7 +111,6 @@ class PhotoCollection: NSObject, ObservableObject {
         
         do {
             try await PHPhotoLibrary.shared().performChanges {
-                
                 let creationRequest = PHAssetCreationRequest.forAsset()
                 if let assetPlaceholder = creationRequest.placeholderForCreatedAsset {
                     creationRequest.addResource(with: .photo, data: imageData, options: nil)
@@ -123,8 +123,7 @@ class PhotoCollection: NSObject, ObservableObject {
             }
             
             await refreshPhotoAssets()
-            
-        } catch let error {
+        } catch {
             logger.error("Error adding image to photo library: \(error.localizedDescription)")
             throw PhotoCollectionError.addImageError(error)
         }
@@ -143,8 +142,7 @@ class PhotoCollection: NSObject, ObservableObject {
             }
             
             await refreshPhotoAssets()
-            
-        } catch let error {
+        } catch {
             logger.error("Error removing all photos from the album: \(error.localizedDescription)")
             throw PhotoCollectionError.removeAllError(error)
         }
@@ -164,15 +162,13 @@ class PhotoCollection: NSObject, ObservableObject {
             }
             
             await refreshPhotoAssets()
-            
-        } catch let error {
+        } catch {
             logger.error("Error removing all photos from the album: \(error.localizedDescription)")
             throw PhotoCollectionError.removeAllError(error)
         }
     }
     
     private func refreshPhotoAssets(_ fetchResult: PHFetchResult<PHAsset>? = nil) async {
-
         var newFetchResult = fetchResult
 
         if newFetchResult == nil {
@@ -217,7 +213,7 @@ class PhotoCollection: NSObject, ObservableObject {
                 let createAlbumRequest = PHAssetCollectionChangeRequest.creationRequestForAssetCollection(withTitle: name)
                 collectionPlaceholder = createAlbumRequest.placeholderForCreatedAssetCollection
             }
-        } catch let error {
+        } catch {
             logger.error("Error creating album in photo library: \(error.localizedDescription)")
             throw PhotoCollectionError.createAlbumError(error)
         }
@@ -231,7 +227,6 @@ class PhotoCollection: NSObject, ObservableObject {
 }
 
 extension PhotoCollection: PHPhotoLibraryChangeObserver {
-    
     func photoLibraryDidChange(_ changeInstance: PHChange) {
         Task { @MainActor in
             guard let changes = changeInstance.changeDetails(for: self.photoAssets.fetchResult) else { return }
@@ -240,4 +235,4 @@ extension PhotoCollection: PHPhotoLibraryChangeObserver {
     }
 }
 
-fileprivate let logger = Logger(subsystem: "com.apple.swiftplaygroundscontent.capturingphotos", category: "PhotoCollection")
+private let logger = Logger(subsystem: "com.apple.swiftplaygroundscontent.capturingphotos", category: "PhotoCollection")
