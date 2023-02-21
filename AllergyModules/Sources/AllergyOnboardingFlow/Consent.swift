@@ -8,10 +8,12 @@
 
 import Onboarding
 import SwiftUI
+import AllergySharedContext
 
 
 struct Consent: View {
     @Binding private var onboardingSteps: [OnboardingFlow.Step]
+    @AppStorage(StorageKeys.onboardingFlowComplete) var completedOnboardingFlow = false
     
     
     private var consentDocument: Data {
@@ -34,7 +36,8 @@ struct Consent: View {
                 consentDocument
             },
             action: {
-                onboardingSteps.append(.healthKitPermissions)
+                onboardingSteps.append(.questionnaire)
+                //completedOnboardingFlow = true
             }
         )
     }

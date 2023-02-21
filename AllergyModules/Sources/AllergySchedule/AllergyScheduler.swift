@@ -22,14 +22,14 @@ extension AllergyScheduler {
         self.init(
             tasks: [
                 Task(
-                    title: String(localized: "TASK_SOCIAL_SUPPORT_QUESTIONNAIRE_TITLE", bundle: .module),
-                    description: String(localized: "TASK_SOCIAL_SUPPORT_QUESTIONNAIRE_DESCRIPTION", bundle: .module),
+                    title: String(localized: "Allergy Task", bundle: .module),
+                    description: String(localized: "Please complete this allergen testing survey to tell us more about your current skin conditions in preparation for your patch testing.", bundle: .module),
                     schedule: Schedule(
                         start: Calendar.current.startOfDay(for: Date()),
                         dateComponents: .init(hour: 0, minute: 30), // Every Day at 12:30 AM
                         end: .numberOfEvents(356)
                     ),
-                    context: AllergyTaskContext.questionnaire(Bundle.module.questionnaire(withName: "SocialSupportQuestionnaire"))
+                    context: AllergyTaskContext.questionnaire(Bundle.module.questionnaire(withName: "AllergenTesting"))
                 )
             ]
         )

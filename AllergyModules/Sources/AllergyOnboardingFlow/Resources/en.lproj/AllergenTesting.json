@@ -1,0 +1,941 @@
+{
+  "title": "Dermatitis Allergen Testing Survey",
+  "resourceType": "Questionnaire",
+  "language": "en-US",
+  "status": "draft",
+  "publisher": "CardinalKit",
+  "meta": {
+    "profile": [
+      "http://cardinalkit.org/fhir/StructureDefinition/sdf-Questionnaire"
+    ],
+    "tag": [
+      {
+        "system": "urn:ietf:bcp:47",
+        "code": "en-US",
+        "display": "English"
+      }
+    ]
+  },
+  "useContext": [
+    {
+      "code": {
+        "system": "http://hl7.org/fhir/ValueSet/usage-context-type",
+        "code": "focus",
+        "display": "Clinical Focus"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:oid:2.16.578.1.12.4.1.1.8655",
+            "display": "Dermatitis Allergen Testing Survey"
+          }
+        ]
+      }
+    }
+  ],
+  "contact": [
+    {
+      "name": "http://cardinalkit.org"
+    }
+  ],
+  "subjectType": [
+    "Patient"
+  ],
+  "url": "http://cardinalkit.org/fhir/questionnaire/d60d4236-514e-4b1e-9ca3-02de442f1cde",
+  "item": [
+    {
+      "linkId": "661e8930-a2ba-4791-914b-f989327a8cc4",
+      "type": "choice",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "id": "28838305-4cdc-4835-e6f5-d128b6ca6444",
+            "code": "myself",
+            "system": "urn:uuid:0e06cd5f-6ea6-489c-d3be-0a4f6161ca8d",
+            "display": "Myself"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "738b0ce4-cd4c-4e79-a1d6-4dcfd9b9440b",
+            "code": "my-child",
+            "system": "urn:uuid:0e06cd5f-6ea6-489c-d3be-0a4f6161ca8d",
+            "display": "My child"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "36f2e283-cfaa-48ee-84b1-7db7faa5bf6a",
+            "code": "another-person",
+            "system": "urn:uuid:0e06cd5f-6ea6-489c-d3be-0a4f6161ca8d",
+            "display": "Another person"
+          }
+        }
+      ],
+      "text": "Please let us know if this account is for you or another individual.",
+      "required": true
+    },
+    {
+      "linkId": "d09b5b5b-f561-4222-9f83-5b7c1ae4731d",
+      "type": "choice",
+      "text": "What is your gender?",
+      "required": true,
+      "answerOption": [
+        {
+          "valueCoding": {
+            "id": "9d21cd99-93cd-4670-81b8-76d86e6e0611",
+            "code": "male",
+            "system": "urn:uuid:760709be-9d56-4571-8aac-0c5d47ea67f1",
+            "display": "Male"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "7ae0823d-82fa-4ccf-f775-f7759d8f6e24",
+            "code": "female",
+            "system": "urn:uuid:760709be-9d56-4571-8aac-0c5d47ea67f1",
+            "display": "Female"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "d4991e23-547b-44a8-e838-e465c749feca",
+            "code": "other",
+            "system": "urn:uuid:760709be-9d56-4571-8aac-0c5d47ea67f1",
+            "display": "Other"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "a514ed26-b860-49f3-d898-9606759b5d41",
+            "code": "prefer-not-to-share",
+            "system": "urn:uuid:760709be-9d56-4571-8aac-0c5d47ea67f1",
+            "display": "Prefer not to share"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "d101bb2c-a7cf-4086-90f6-fc93bd08dd5e",
+      "type": "string",
+      "text": "What year were you born?",
+      "required": true
+    },
+    {
+      "linkId": "9f860104-9522-41a0-8afa-914f4020a3fe",
+      "type": "choice",
+      "text": "Do you identify as:",
+      "required": true,
+      "answerOption": [
+        {
+          "valueCoding": {
+            "id": "7602b4f2-8983-4df1-8ddc-9f45a767dde5",
+            "code": "white",
+            "system": "urn:uuid:0cafb76f-61bb-46bc-edaf-53b6d537ef82",
+            "display": "White"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "a3c65eba-b180-4058-bc0d-e52a6899d3c4",
+            "code": "hispanic-or-latino",
+            "system": "urn:uuid:0cafb76f-61bb-46bc-edaf-53b6d537ef82",
+            "display": "Hispanic or Latino"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "973ea8df-8430-4904-8d87-2345fc6192cf",
+            "code": "black-or-african-american",
+            "system": "urn:uuid:0cafb76f-61bb-46bc-edaf-53b6d537ef82",
+            "display": "Black or African American"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "5e6a2b18-039a-48f9-fc19-70171cac5be3",
+            "code": "asian-or-asian-american",
+            "system": "urn:uuid:0cafb76f-61bb-46bc-edaf-53b6d537ef82",
+            "display": "Asian or Asian American"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "6ea6897b-f079-4759-84bc-19bcda2ba192",
+            "code": "american-indian-or-alaska-native",
+            "system": "urn:uuid:0cafb76f-61bb-46bc-edaf-53b6d537ef82",
+            "display": "American Indian or Alaska Native"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "56ae484d-eb35-45ba-800c-6a218434d39b",
+            "code": "native-hawaiian-or-other-pacific-islander",
+            "system": "urn:uuid:0cafb76f-61bb-46bc-edaf-53b6d537ef82",
+            "display": "Native Hawaiian or Other Pacific Islander"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "8a7480bb-f601-4a78-baba-e21ad6707dce",
+            "code": "another-race-or-ethnicity",
+            "system": "urn:uuid:0cafb76f-61bb-46bc-edaf-53b6d537ef82",
+            "display": "Another race or ethnicity"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "e24403da-2a8c-43ad-820f-8c5a06988a0d",
+            "code": "prefer-not-to-share-",
+            "system": "urn:uuid:0cafb76f-61bb-46bc-edaf-53b6d537ef82",
+            "display": "Prefer not to share "
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "e9253887-296a-40ee-f672-7abb0d7da17c",
+      "type": "string",
+      "text": "Your zipcode",
+      "required": true
+    },
+    {
+      "linkId": "c92e24da-fb82-4fd3-8d6f-68dc2f31921c",
+      "type": "choice",
+      "text": "What option describes your feelings about your skin condition?",
+      "item": [
+        {
+          "linkId": "8bc44956-5b50-4fac-808c-8496ca3d9f28",
+          "type": "string",
+          "required": false,
+          "text": "What do you suspect to be allergic to?",
+          "enableWhen": [
+            {
+              "question": "c92e24da-fb82-4fd3-8d6f-68dc2f31921c",
+              "operator": "=",
+              "answerCoding": {
+                "system": "urn:uuid:ffbdbf55-73e7-469c-8806-b6aa969f9346",
+                "code": "i-suspect-i-may-be-allergic-to-something-"
+              }
+            }
+          ]
+        }
+      ],
+      "required": true,
+      "answerOption": [
+        {
+          "valueCoding": {
+            "id": "58337370-aa06-4269-9d45-8da670c08936",
+            "code": "i-am-able-to-manage-it-but-interested-to-learn-more",
+            "system": "urn:uuid:ffbdbf55-73e7-469c-8806-b6aa969f9346",
+            "display": "I am able to manage it but interested to learn more"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "bb9eb048-9edb-420c-8929-49d494c65900",
+            "code": "it’s-a-new-problem-for-me-and-i-need-help-managing-it",
+            "system": "urn:uuid:ffbdbf55-73e7-469c-8806-b6aa969f9346",
+            "display": "It’s a new problem for me and I need help managing it"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "cfc8bff4-9f78-465e-821e-f8776b67b224",
+            "code": "i-suspect-i-may-be-allergic-to-something-",
+            "system": "urn:uuid:ffbdbf55-73e7-469c-8806-b6aa969f9346",
+            "display": "I suspect I may be allergic to something "
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "7041d8f9-d603-4d5a-8a03-d3933aae9bfd",
+      "type": "choice",
+      "text": "How do you describe your skin condition:  ",
+      "required": true,
+      "answerOption": [
+        {
+          "valueCoding": {
+            "id": "1fc2cbca-d880-43e3-d830-fb6a33c1b80a",
+            "code": "sensitive-skin-in-general",
+            "system": "urn:uuid:abb89deb-b213-40c8-839d-edd3a62260e4",
+            "display": "Sensitive skin in general"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "52501694-5d4d-48db-9640-7ac5ce23fa3b",
+            "code": "dry-itchy-skin",
+            "system": "urn:uuid:abb89deb-b213-40c8-839d-edd3a62260e4",
+            "display": "Dry itchy skin"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "0c4bbaec-ec72-4c6d-b69a-6aa333f6e71a",
+            "code": "i’ve-been-diagnosed-with-eczema",
+            "system": "urn:uuid:abb89deb-b213-40c8-839d-edd3a62260e4",
+            "display": "I’ve been diagnosed with eczema"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "b5318253-1135-49a1-e3a1-33990ef8460d",
+            "code": "i-think-i-have-eczema-but-i-have-not-been-diagnosed",
+            "system": "urn:uuid:abb89deb-b213-40c8-839d-edd3a62260e4",
+            "display": "I think I have eczema but I have not been diagnosed"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "54d927a7-8715-44bd-e7f7-c1737bd6c129",
+            "code": "i-think-my-eczema-gets-worse-upon-contact-with-certain-products-or-triggers-",
+            "system": "urn:uuid:abb89deb-b213-40c8-839d-edd3a62260e4",
+            "display": "I think my eczema gets worse upon contact with certain products or triggers "
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "4cdb5cd0-974c-45e3-8785-f838a084d7d6",
+      "type": "choice",
+      "text": "How long have you had eczema?",
+      "required": false,
+      "answerOption": [
+        {
+          "valueCoding": {
+            "id": "029b8610-4984-400e-a7e0-57358b4e0a0b",
+            "code": "weeks",
+            "system": "urn:uuid:7e61f5e9-b923-4a77-8d64-961c488fd378",
+            "display": "Weeks"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "5e060aef-ea39-463b-b968-2c7ab68ce1a5",
+            "code": "months",
+            "system": "urn:uuid:7e61f5e9-b923-4a77-8d64-961c488fd378",
+            "display": "Months"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "8c5fee09-3935-46ad-8bdb-9ea0803f277d",
+            "code": "years",
+            "system": "urn:uuid:7e61f5e9-b923-4a77-8d64-961c488fd378",
+            "display": "Years"
+          }
+        }
+      ],
+      "enableWhen": [
+        {
+          "question": "7041d8f9-d603-4d5a-8a03-d3933aae9bfd",
+          "operator": "=",
+          "answerCoding": {
+            "system": "urn:uuid:abb89deb-b213-40c8-839d-edd3a62260e4",
+            "code": "i’ve-been-diagnosed-with-eczema"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "965e12d7-4396-4536-da1a-ea71d9e6d8e7",
+      "type": "choice",
+      "text": "Have you had a skin reaction upon contact with certain products that touch your skin?",
+      "required": false,
+      "answerOption": [
+        {
+          "valueCoding": {
+            "id": "6cf3ed96-1c46-40c4-8a76-1323624e4cb4",
+            "code": "yes",
+            "system": "urn:uuid:7f68bc57-1ce9-4f57-efb6-50b72022a8e0",
+            "display": "Yes"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "ee48a103-749e-4ee9-d453-f5645cb82ab9",
+            "code": "no",
+            "system": "urn:uuid:7f68bc57-1ce9-4f57-efb6-50b72022a8e0",
+            "display": "No"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "d746da56-9799-45ef-d8ee-740d0a47bed7",
+            "code": "not-sure",
+            "system": "urn:uuid:7f68bc57-1ce9-4f57-efb6-50b72022a8e0",
+            "display": "Not sure"
+          }
+        }
+      ],
+      "enableWhen": [
+        {
+          "question": "7041d8f9-d603-4d5a-8a03-d3933aae9bfd",
+          "operator": "=",
+          "answerCoding": {
+            "system": "urn:uuid:abb89deb-b213-40c8-839d-edd3a62260e4",
+            "code": "i’ve-been-diagnosed-with-eczema"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "3c762812-49b4-43e2-83d6-32d30f75037f",
+      "type": "choice",
+      "text": "Are you using a medication or a home remedy for treatment?",
+      "required": false,
+      "answerOption": [
+        {
+          "valueCoding": {
+            "id": "06c33484-939d-489a-8639-02404b64c81b",
+            "code": "hydrocortisone-(like-cortizone-10)",
+            "system": "urn:uuid:27bc8979-46ea-4de0-8d2e-8a2cf125e994",
+            "display": "Hydrocortisone (like cortizone 10)"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "44515ed2-5f2f-4e9b-9483-98ed35f45cab",
+            "code": "anti-itch-or-eczema-creams",
+            "system": "urn:uuid:27bc8979-46ea-4de0-8d2e-8a2cf125e994",
+            "display": "Anti-itch or eczema creams"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "dd8c7d35-4729-4878-8540-008a77f8d2ae",
+            "code": "topical-creams-and/or-ointment-",
+            "system": "urn:uuid:27bc8979-46ea-4de0-8d2e-8a2cf125e994",
+            "display": "Topical creams and/or ointment "
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "b7bb339c-0369-476e-bbd9-09dc4e4aac7d",
+            "code": "oral-medication-or-injectable-",
+            "system": "urn:uuid:27bc8979-46ea-4de0-8d2e-8a2cf125e994",
+            "display": "Oral medication or injectable "
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "9b4913c1-d697-4a5d-8bc6-01f22a9acbaf",
+            "code": "phototherapy",
+            "system": "urn:uuid:27bc8979-46ea-4de0-8d2e-8a2cf125e994",
+            "display": "Phototherapy"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "a96734b5-8cc5-4f77-d634-a927713d0e07",
+            "code": "diluted-bleach-bath",
+            "system": "urn:uuid:27bc8979-46ea-4de0-8d2e-8a2cf125e994",
+            "display": "Diluted Bleach bath"
+          }
+        }
+      ],
+      "enableWhen": [
+        {
+          "question": "7041d8f9-d603-4d5a-8a03-d3933aae9bfd",
+          "operator": "=",
+          "answerCoding": {
+            "system": "urn:uuid:abb89deb-b213-40c8-839d-edd3a62260e4",
+            "code": "i’ve-been-diagnosed-with-eczema"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "41f9aff3-d71c-473b-8a77-ce9144224541",
+      "type": "choice",
+      "text": "Have you had an allergy testing or patch testing for work up or your eczema?\n",
+      "required": false,
+      "answerOption": [
+        {
+          "valueCoding": {
+            "id": "8f532b87-5a87-472d-bb3c-4940f94994aa",
+            "code": "yes",
+            "system": "urn:uuid:5ad3f92d-c051-44da-8d7b-a192d9a82b43",
+            "display": "Yes"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "34b41cb6-154a-4b91-c78e-02c3534f086b",
+            "code": "no",
+            "system": "urn:uuid:5ad3f92d-c051-44da-8d7b-a192d9a82b43",
+            "display": "No"
+          }
+        }
+      ],
+      "enableWhen": [
+        {
+          "question": "7041d8f9-d603-4d5a-8a03-d3933aae9bfd",
+          "operator": "=",
+          "answerCoding": {
+            "system": "urn:uuid:abb89deb-b213-40c8-839d-edd3a62260e4",
+            "code": "i’ve-been-diagnosed-with-eczema"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "6d8f1aa2-d1b6-4c39-8905-a6f4137b6e65",
+      "type": "choice",
+      "required": false,
+      "answerOption": [
+        {
+          "valueCoding": {
+            "id": "9840b5e3-7ab8-45df-d127-77c6da39f322",
+            "code": "yes",
+            "system": "urn:uuid:dc18587e-0306-4b9a-8eb2-524e3aa44037",
+            "display": "Yes"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "55ce5f46-ebd9-4bc4-8859-f378f578c456",
+            "code": "no",
+            "system": "urn:uuid:dc18587e-0306-4b9a-8eb2-524e3aa44037",
+            "display": "No"
+          }
+        }
+      ],
+      "text": "Do you know the results of your patch test?",
+      "enableWhen": [
+        {
+          "question": "41f9aff3-d71c-473b-8a77-ce9144224541",
+          "operator": "=",
+          "answerCoding": {
+            "system": "urn:uuid:5ad3f92d-c051-44da-8d7b-a192d9a82b43",
+            "code": "yes"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "2cbcc8e4-e468-4cc4-cd65-aed762520530",
+      "type": "string",
+      "text": "Tell us more about your patch test results.",
+      "required": false,
+      "enableWhen": [
+        {
+          "question": "41f9aff3-d71c-473b-8a77-ce9144224541",
+          "operator": "=",
+          "answerCoding": {
+            "system": "urn:uuid:5ad3f92d-c051-44da-8d7b-a192d9a82b43",
+            "code": "yes"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "1a87db17-a51c-44cb-80e2-19b434819e0c",
+      "type": "choice",
+      "text": "What symptoms have been bothering you?",
+      "required": false,
+      "answerOption": [
+        {
+          "valueCoding": {
+            "id": "fcf5c8df-3124-43c2-ed30-39bcb2323d71",
+            "code": "itch",
+            "system": "urn:uuid:3797210f-5dc9-4f58-99a8-b4a5fa12c7ef",
+            "display": "Itch"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "c3378ed5-7a48-4dff-ded3-f92a2acf9404",
+            "code": "dryness",
+            "system": "urn:uuid:3797210f-5dc9-4f58-99a8-b4a5fa12c7ef",
+            "display": "Dryness"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "6206ad59-0115-40ca-ae32-2e0e0b5048da",
+            "code": "redness",
+            "system": "urn:uuid:3797210f-5dc9-4f58-99a8-b4a5fa12c7ef",
+            "display": "Redness"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "f47c6c6b-3a85-47df-9ef4-da8b1ec1cfe9",
+            "code": "oozing-and-crusting",
+            "system": "urn:uuid:3797210f-5dc9-4f58-99a8-b4a5fa12c7ef",
+            "display": "Oozing and crusting"
+          }
+        }
+      ],
+      "enableWhen": [
+        {
+          "question": "7041d8f9-d603-4d5a-8a03-d3933aae9bfd",
+          "operator": "=",
+          "answerCoding": {
+            "system": "urn:uuid:abb89deb-b213-40c8-839d-edd3a62260e4",
+            "code": "i’ve-been-diagnosed-with-eczema"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "91441ae3-d34f-4234-891b-67b514ac4aac",
+      "type": "choice",
+      "text": "Since onset, has the rash been persistent or does it come and go? ",
+      "required": false,
+      "answerOption": [
+        {
+          "valueCoding": {
+            "id": "c8ef8e69-1821-489c-848c-e0efda7a97d3",
+            "code": "persistent",
+            "system": "urn:uuid:03b09bc3-a12e-47e5-e6cf-fbcfdab07569",
+            "display": "Persistent"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "a5d1c356-d061-4954-8225-9ef8140ff447",
+            "code": "comes-and-goes",
+            "system": "urn:uuid:03b09bc3-a12e-47e5-e6cf-fbcfdab07569",
+            "display": "Comes and goes"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "51ebd695-f0c9-4c96-8a7f-5f9f47ec5742",
+            "code": "not-sure",
+            "system": "urn:uuid:03b09bc3-a12e-47e5-e6cf-fbcfdab07569",
+            "display": "Not sure"
+          }
+        }
+      ],
+      "enableWhen": [
+        {
+          "question": "7041d8f9-d603-4d5a-8a03-d3933aae9bfd",
+          "operator": "=",
+          "answerCoding": {
+            "system": "urn:uuid:abb89deb-b213-40c8-839d-edd3a62260e4",
+            "code": "i’ve-been-diagnosed-with-eczema"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "cc43010e-ebbc-418f-83c6-151426381496",
+      "type": "choice",
+      "text": "Have you seen a dermatologist for this condition? \n",
+      "required": false,
+      "answerOption": [
+        {
+          "valueCoding": {
+            "id": "c50e6a4b-e16c-474a-e4de-393fe19acaf0",
+            "code": "yes,-i-have-a-diagnosis",
+            "system": "urn:uuid:7abacb63-c39d-44c7-8882-5d92c0aa7acb",
+            "display": "Yes, I have a diagnosis"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "f0076f64-f32b-4504-8402-a1c0b2f8cd2b",
+            "code": "yes,-but-we-are-not-sure-about-the-diagnosis",
+            "system": "urn:uuid:7abacb63-c39d-44c7-8882-5d92c0aa7acb",
+            "display": "Yes, but we are not sure about the diagnosis"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "8fd9688d-4eb5-4d42-97be-bc41aff97c11",
+            "code": "no",
+            "system": "urn:uuid:7abacb63-c39d-44c7-8882-5d92c0aa7acb",
+            "display": "No"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "040d7634-1017-4835-e6d5-a7a24b89aa17",
+            "code": "i’ve-seen-other-physicians-but-not-a-dermatologist-",
+            "system": "urn:uuid:7abacb63-c39d-44c7-8882-5d92c0aa7acb",
+            "display": "I’ve seen other physicians but not a dermatologist "
+          }
+        }
+      ],
+      "enableWhen": [
+        {
+          "question": "7041d8f9-d603-4d5a-8a03-d3933aae9bfd",
+          "operator": "=",
+          "answerCoding": {
+            "system": "urn:uuid:abb89deb-b213-40c8-839d-edd3a62260e4",
+            "code": "i’ve-been-diagnosed-with-eczema"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "b27ae753-cfa7-491d-8a8d-b34e3673eb00",
+      "type": "choice",
+      "required": false,
+      "answerOption": [
+        {
+          "valueCoding": {
+            "id": "7ab14e9b-7828-42e8-8a69-ec8721182e45",
+            "code": "face-(whole-face)",
+            "system": "urn:uuid:bd90df34-88ed-4e55-8aff-7001c7cba5b4",
+            "display": "Face (whole face)"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "ee51f0b6-1caf-41aa-f2a6-3ecedfae8f32",
+            "code": "face-(eyelids)",
+            "system": "urn:uuid:bd90df34-88ed-4e55-8aff-7001c7cba5b4",
+            "display": "Face (eyelids)"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "a7cb0d1f-bf26-49ef-fcc2-1cb48d892d83",
+            "code": "face-(ear)",
+            "system": "urn:uuid:bd90df34-88ed-4e55-8aff-7001c7cba5b4",
+            "display": "Face (ear)"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "78d41ade-9f01-4d72-890d-8ea8f68912dc",
+            "code": "scalp",
+            "system": "urn:uuid:bd90df34-88ed-4e55-8aff-7001c7cba5b4",
+            "display": "Scalp"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "a950a952-2494-4e72-ef16-c1a61e6600f2",
+            "code": "neck",
+            "system": "urn:uuid:bd90df34-88ed-4e55-8aff-7001c7cba5b4",
+            "display": "Neck"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "8148444c-e086-4879-8079-593e5e04b7a0",
+            "code": "chest",
+            "system": "urn:uuid:bd90df34-88ed-4e55-8aff-7001c7cba5b4",
+            "display": "Chest"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "0b128d0e-adbe-41c9-8beb-a979e73ac069",
+            "code": "abdomen",
+            "system": "urn:uuid:bd90df34-88ed-4e55-8aff-7001c7cba5b4",
+            "display": "Abdomen"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "01ea65f3-76d7-41f1-8873-6c2e88aba5ca",
+            "code": "back",
+            "system": "urn:uuid:bd90df34-88ed-4e55-8aff-7001c7cba5b4",
+            "display": "Back"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "4a4bdfb8-4daf-4480-862d-8fcf8ba77aea",
+            "code": "shoulders",
+            "system": "urn:uuid:bd90df34-88ed-4e55-8aff-7001c7cba5b4",
+            "display": "Shoulders"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "42e77bf3-805a-4337-ae35-691b4e49b593",
+            "code": "arms",
+            "system": "urn:uuid:bd90df34-88ed-4e55-8aff-7001c7cba5b4",
+            "display": "Arms"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "731d6087-64e5-495c-8e9e-306d835bfb50",
+            "code": "forearms",
+            "system": "urn:uuid:bd90df34-88ed-4e55-8aff-7001c7cba5b4",
+            "display": "Forearms"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "e83e8370-cef9-4708-85a8-e46780c0d4b4",
+            "code": "hands-(back-of-hands)",
+            "system": "urn:uuid:bd90df34-88ed-4e55-8aff-7001c7cba5b4",
+            "display": "Hands (Back of Hands)"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "d179cb94-740b-4db8-8d74-3ab97bccc2e8",
+            "code": "hands-(palm)",
+            "system": "urn:uuid:bd90df34-88ed-4e55-8aff-7001c7cba5b4",
+            "display": "Hands (Palm)"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "58dc4aaf-3843-4ff5-9b44-88c6cd56e8bb",
+            "code": "hips",
+            "system": "urn:uuid:bd90df34-88ed-4e55-8aff-7001c7cba5b4",
+            "display": "Hips"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "11b90457-b532-42c5-ea89-999479989a76",
+            "code": "genitals",
+            "system": "urn:uuid:bd90df34-88ed-4e55-8aff-7001c7cba5b4",
+            "display": "Genitals"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "fff1ed62-c4c9-4182-8036-5f1045c70d6a",
+            "code": "thighs",
+            "system": "urn:uuid:bd90df34-88ed-4e55-8aff-7001c7cba5b4",
+            "display": "Thighs"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "5e58bd2e-18a9-42a7-8bd8-4c57743cd50e",
+            "code": "legs",
+            "system": "urn:uuid:bd90df34-88ed-4e55-8aff-7001c7cba5b4",
+            "display": "Legs"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "74b9f889-e5c3-43c1-96c8-d2a3bbf0e4c2",
+            "code": "feet-(back-of-feet)",
+            "system": "urn:uuid:bd90df34-88ed-4e55-8aff-7001c7cba5b4",
+            "display": "Feet (Back of feet)"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "a5da0fef-cdcc-4cd7-de22-df80a3cc2392",
+            "code": "feet-(soles)",
+            "system": "urn:uuid:bd90df34-88ed-4e55-8aff-7001c7cba5b4",
+            "display": "Feet (soles)"
+          }
+        }
+      ],
+      "text": "At time of onset, what parts of your body were involved? if the rash progressed what other body parts were/are involved? (mark all the areas that have been involved) ",
+      "enableWhen": [
+        {
+          "question": "7041d8f9-d603-4d5a-8a03-d3933aae9bfd",
+          "operator": "=",
+          "answerCoding": {
+            "system": "urn:uuid:abb89deb-b213-40c8-839d-edd3a62260e4",
+            "code": "i’ve-been-diagnosed-with-eczema"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "fc9131ba-b915-4d78-8b2c-22f9bbcdfdad",
+      "type": "choice",
+      "required": false,
+      "answerOption": [
+        {
+          "valueCoding": {
+            "id": "2043b206-28e0-4ebc-8196-179024428033",
+            "code": "eczema-or-frequent-skin-rashes-",
+            "system": "urn:uuid:e67160a8-fb1b-4ac2-8909-ef7221ea5513",
+            "display": "Eczema or frequent skin rashes "
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "f441fb41-6640-42ba-d358-b38eac02d3f8",
+            "code": "asthma",
+            "system": "urn:uuid:e67160a8-fb1b-4ac2-8909-ef7221ea5513",
+            "display": "Asthma"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "103b2c63-41e8-428c-807e-2ca181ddf957",
+            "code": "seasonal-allergy",
+            "system": "urn:uuid:e67160a8-fb1b-4ac2-8909-ef7221ea5513",
+            "display": "Seasonal Allergy"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "0ab7b40b-9129-4a09-8d71-b70d849179c2",
+            "code": "food-allergy-",
+            "system": "urn:uuid:e67160a8-fb1b-4ac2-8909-ef7221ea5513",
+            "display": "Food allergy "
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "da23c7ca-0d1b-452b-86df-53eb2155177a",
+            "code": "none-of-the-above",
+            "system": "urn:uuid:e67160a8-fb1b-4ac2-8909-ef7221ea5513",
+            "display": "None of the above"
+          }
+        }
+      ],
+      "text": "Do you have history of any of these conditions as a child?"
+    },
+    {
+      "linkId": "b59d7bdb-7432-4a53-9f37-ca08ac4b7242",
+      "type": "choice",
+      "text": "Are you willing to tell us about some of your personal habits and interests (It can help us review your exposures to potential allergens and or irritants)?",
+      "answerOption": [
+        {
+          "valueCoding": {
+            "id": "cd703986-f591-4012-8792-7e8b3d24ed83",
+            "code": "yes",
+            "system": "urn:uuid:616f6830-2fc5-4860-87f4-01b79ac3f72e",
+            "display": "Yes"
+          }
+        },
+        {
+          "valueCoding": {
+            "id": "24b3feeb-1778-4cbd-acab-3247de7b4740",
+            "code": "no",
+            "system": "urn:uuid:616f6830-2fc5-4860-87f4-01b79ac3f72e",
+            "display": "No"
+          }
+        }
+      ],
+      "required": true
+    },
+    {
+      "linkId": "9c4c1e7b-b7e9-4342-869b-4686615b7f30",
+      "type": "string",
+      "required": false,
+      "text": "Please share with us the list of ingredients in your products if you suspect any of these products may have worsened your rash. ",
+      "enableWhen": [
+        {
+          "question": "b59d7bdb-7432-4a53-9f37-ca08ac4b7242",
+          "operator": "=",
+          "answerCoding": {
+            "system": "urn:uuid:616f6830-2fc5-4860-87f4-01b79ac3f72e",
+            "code": "yes"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "cfeb233e-67ce-4d8b-8f5b-20fd76bf449e",
+      "type": "string",
+      "text": "If you suspect your eczema may be related to your occupation, please give us a job title and description.",
+      "required": false
+    }
+  ]
+}
