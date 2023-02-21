@@ -12,15 +12,15 @@ import SwiftUI
 import UIKit
 
 actor CachedImageManager {
-    private let imageManager = PHCachingImageManager()
-    
-    private var imageContentMode = PHImageContentMode.aspectFit
-    
     enum CachedImageManagerError: LocalizedError {
         case error(Error)
         case cancelled
         case failed
     }
+    
+    private let imageManager = PHCachingImageManager()
+    
+    private var imageContentMode = PHImageContentMode.aspectFit
     
     private var cachedAssetIdentifiers = [String: Bool]()
     
@@ -30,12 +30,13 @@ actor CachedImageManager {
         return options
     }()
     
-    init() {
-        imageManager.allowsCachingHighQualityImages = false
-    }
     
     var cachedImageCount: Int {
         cachedAssetIdentifiers.keys.count
+    }
+    
+    init() {
+        imageManager.allowsCachingHighQualityImages = false
     }
     
     func startCaching(for assets: [PhotoAsset], targetSize: CGSize) {
@@ -59,13 +60,20 @@ actor CachedImageManager {
     }
     
     @discardableResult
-    func requestImage(for asset: PhotoAsset, targetSize: CGSize, completion: @escaping ((image: Image?, isLowerQuality: Bool)?) -> Void) -> PHImageRequestID? {
+    func requestImage(
+        for asset: PhotoAsset, targetSize: CGSize, completion: @escaping ((image: Image?, isLowerQuality: Bool)?) -> Void
+    ) -> PHImageRequestID? {
         guard let phAsset = asset.phAsset else {
             completion(nil)
             return nil
         }
         
-        let requestID = imageManager.requestImage(for: phAsset, targetSize: targetSize, contentMode: imageContentMode, options: requestOptions) { image, info in
+        let requestID = imageManager.requestImage(
+            for: phAsset,
+            targetSize: targetSize,
+            contentMode: imageContentMode,
+            options: requestOptions
+        ) { image, info in
             if let error = info?[PHImageErrorKey] as? Error {
                 logger.error("CachedImageManager requestImage error: \(error.localizedDescription)")
                 completion(nil)

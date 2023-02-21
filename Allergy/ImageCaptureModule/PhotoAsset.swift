@@ -9,7 +9,7 @@
 import os.log
 import Photos
 
-struct PhotoAsset : Identifiable {
+struct PhotoAsset: Identifiable {
     var id: String { identifier }
     var identifier: String = UUID().uuidString
     var index: Int?
