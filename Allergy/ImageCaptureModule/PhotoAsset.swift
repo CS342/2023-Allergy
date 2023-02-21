@@ -9,7 +9,7 @@
 import os.log
 import Photos
 
-struct PhotoAsset: Identifiable {
+struct PhotoAsset {
     var id: String { identifier }
     var identifier: String = UUID().uuidString
     var index: Int?
@@ -80,7 +80,7 @@ extension PhotoAsset: Hashable {
     }
 }
 
-extension PHObject: Identifiable {
+extension PHObject {
     public var id: String { localIdentifier }
 }
 
