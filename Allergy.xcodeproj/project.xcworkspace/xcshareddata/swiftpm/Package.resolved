@@ -158,8 +158,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/StanfordBDHG/XCTHealthKit",
       "state" : {
-        "revision" : "1291d29d19adb16b2301d22d1ec1bfc54819ac99",
-        "version" : "0.1.0"
+        "revision" : "5b6a766cdeb67f4a1ea86dd354cd248c1ba67c5d",
+        "version" : "0.1.1"
       }
     }
   ],
