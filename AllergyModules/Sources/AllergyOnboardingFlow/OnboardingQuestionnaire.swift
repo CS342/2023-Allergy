@@ -6,11 +6,11 @@
 // SPDX-License-Identifier: MIT
 //
 
-import Onboarding
-import SwiftUI
-import FHIR
-import Questionnaires
 import AllergySharedContext
+import FHIR
+import Onboarding
+import Questionnaires
+import SwiftUI
 
 
 struct OnboardingQuestionnaire: View {

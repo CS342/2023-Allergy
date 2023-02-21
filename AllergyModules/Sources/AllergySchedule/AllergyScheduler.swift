@@ -23,9 +23,10 @@ extension AllergyScheduler {
             tasks: [
                 Task(
                     title: String(localized: "Allergy Task", bundle: .module),
-                    description: String(localized:
-                                            "Please complete this allergen testing survey to tell us more about your current skin conditions in preparation for your patch testing.",
-                                        bundle: .module),
+                    description: String(
+                        localized: "Please complete this allergen testing survey to tell us more about your current skin conditions in preparation for your patch testing.",
+                        bundle: .module
+                    ),
                     schedule: Schedule(
                         start: Calendar.current.startOfDay(for: Date()),
                         dateComponents: .init(hour: 8, minute: 0),

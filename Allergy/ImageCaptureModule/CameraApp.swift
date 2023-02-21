@@ -10,14 +10,14 @@ import SwiftUI
 
 
 struct CameraApp: App {
-    init() {
-        UINavigationBar.applyCustomAppearance()
-    }
-    
     var body: some Scene {
         WindowGroup {
             CameraView()
         }
+    }
+    
+    init() {
+        UINavigationBar.applyCustomAppearance()
     }
 }
 

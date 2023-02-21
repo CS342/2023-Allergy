@@ -47,7 +47,6 @@ extension XCUIApplication {
         if staticTexts["User Consent Form"].waitForExistence(timeout: 0.5) {
             try navigateOnboardingFlowConsent()
         }
-        
     }
     
     private func navigateOnboardingFlowWelcome() throws {

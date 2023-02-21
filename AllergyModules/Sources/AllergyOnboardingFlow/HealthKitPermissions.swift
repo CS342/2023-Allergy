@@ -46,7 +46,6 @@ struct HealthKitPermissions: View {
                         }
                         onboardingSteps.append(.questionnaire)
                     }
-
                 )
             }
         )

@@ -6,9 +6,9 @@
 // SPDX-License-Identifier: MIT
 //
 
+import AllergySharedContext
 import Onboarding
 import SwiftUI
-import AllergySharedContext
 
 
 struct Consent: View {
@@ -36,7 +36,7 @@ struct Consent: View {
                 consentDocument
             },
             action: {
-                //onboardingSteps.append(.questionnaire)
+                // onboardingSteps.append(.questionnaire)
                 completedOnboardingFlow = true
             }
         )
