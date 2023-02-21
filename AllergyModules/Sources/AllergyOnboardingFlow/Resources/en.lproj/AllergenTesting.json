@@ -119,7 +119,18 @@
       "linkId": "d101bb2c-a7cf-4086-90f6-fc93bd08dd5e",
       "type": "string",
       "text": "What year were you born?",
-      "required": true
+      "required": true,
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/minLength",
+          "valueInteger": 4
+        },
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/regex",
+          "valueString": "Please enter a valid year "
+        }
+      ],
+      "maxLength": 4
     },
     {
       "linkId": "9f860104-9522-41a0-8afa-914f4020a3fe",
@@ -197,6 +208,16 @@
       "linkId": "e9253887-296a-40ee-f672-7abb0d7da17c",
       "type": "string",
       "text": "Your zipcode",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/regex",
+          "valueString": "^(000[1-9]|0[1-9][0-9][0-9]|[1-9][0-9][0-9][0-8])$"
+        },
+        {
+          "url": "http://ehelse.no/fhir/StructureDefinition/validationtext",
+          "valueString": "Please enter a valid zipcode"
+        }
+      ],
       "required": true
     },
     {
