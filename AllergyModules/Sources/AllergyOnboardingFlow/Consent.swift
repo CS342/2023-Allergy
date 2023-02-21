@@ -36,8 +36,8 @@ struct Consent: View {
                 consentDocument
             },
             action: {
-                onboardingSteps.append(.questionnaire)
-                //completedOnboardingFlow = true
+                //onboardingSteps.append(.questionnaire)
+                completedOnboardingFlow = true
             }
         )
     }
