@@ -6,9 +6,9 @@
 // SPDX-License-Identifier: MIT
 //
 
+import AllergySharedContext
 import Onboarding
 import SwiftUI
-import AllergySharedContext
 
 
 struct InterestingModules: View {
@@ -42,7 +42,7 @@ struct InterestingModules: View {
                 #if targetEnvironment(simulator) && (arch(i386) || arch(x86_64))
                 print("PKCanvas view-related views are currently skipped on Intel-based iOS simulators due to a metal bug on the simulator.")
                 
-                #else      
+                #else
                 completedOnboardingFlow = true
                 #endif
                 completedOnboardingFlow = true
