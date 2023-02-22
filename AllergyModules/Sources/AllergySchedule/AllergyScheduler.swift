@@ -33,6 +33,58 @@ extension AllergyScheduler {
                         end: .numberOfEvents(1)
                     ),
                     context: AllergyTaskContext.questionnaire(Bundle.module.questionnaire(withName: "AllergenTesting"))
+                ),
+                Task(
+                    title: String(localized: "Photo Taking Task #1", bundle: .module),
+                    description: String(
+                        localized: "Please take a photo of your arm before applying the patch test.",
+                        bundle: .module
+                    ),
+                    schedule: Schedule(
+                        start: Calendar.current.startOfDay(for: Date()),
+                        dateComponents: .init(hour: 8, minute: 0),
+                        end: .numberOfEvents(1)
+                    ),
+                    context: AllergyTaskContext.questionnaire(Bundle.module.questionnaire(withName: "AllergenTesting"))
+                ),
+                Task(
+                    title: String(localized: "Photo Taking Task #2", bundle: .module),
+                    description: String(
+                        localized: "Please take a photo of your arm right after applying the patch test.",
+                        bundle: .module
+                    ),
+                    schedule: Schedule(
+                        start: Calendar.current.startOfDay(for: Date()),
+                        dateComponents: .init(hour: 8, minute: 0),
+                        end: .numberOfEvents(1)
+                    ),
+                    context: AllergyTaskContext.questionnaire(Bundle.module.questionnaire(withName: "AllergenTesting"))
+                ),
+                Task(
+                    title: String(localized: "Photo Taking Task #3", bundle: .module),
+                    description: String(
+                        localized: "Please take a photo of your arm two days after applying the patch test.",
+                        bundle: .module
+                    ),
+                    schedule: Schedule(
+                        start: Calendar.current.startOfDay(for: Date()),
+                        dateComponents: .init(hour: 8, minute: 0),
+                        end: .numberOfEvents(1)
+                    ),
+                    context: AllergyTaskContext.questionnaire(Bundle.module.questionnaire(withName: "AllergenTesting"))
+                ),
+                Task(
+                    title: String(localized: "Photo Taking Task #4", bundle: .module),
+                    description: String(
+                        localized: "Please take a photo of your arm four days after applying the patch test.",
+                        bundle: .module
+                    ),
+                    schedule: Schedule(
+                        start: Calendar.current.startOfDay(for: Date()),
+                        dateComponents: .init(hour: 8, minute: 0),
+                        end: .numberOfEvents(1)
+                    ),
+                    context: AllergyTaskContext.questionnaire(Bundle.module.questionnaire(withName: "AllergenTesting"))
                 )
             ]
         )
