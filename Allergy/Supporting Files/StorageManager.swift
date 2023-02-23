@@ -10,10 +10,15 @@ import FirebaseStorage
 
 class StorageManager {
     static let shared = StorageManager()
-    //edit
+    var initializedEmulator = false
+    
     func uploadImage(_ data: Data) {
         let id = UUID().uuidString
         let storage = Storage.storage()
+        if (!initializedEmulator) {
+            storage.useEmulator(withHost: "localhost", port: 9199)
+            initializedEmulator = true
+        }
         let storageRef = storage.reference().child("\(id).jpg")
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpg"

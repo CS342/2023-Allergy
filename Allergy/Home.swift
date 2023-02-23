@@ -15,6 +15,7 @@ import SwiftUI
 
 struct HomeView: View {
     enum Tabs: String {
+        case photoUpload
         case schedule
         case contact
         case mockUpload
@@ -26,6 +27,11 @@ struct HomeView: View {
     
     var body: some View {
         TabView(selection: $selectedTab) {
+            PhotoUploadView()
+                .tag(Tabs.photoUpload)
+                .tabItem {
+                    Label("Analyze Photo", systemImage: "photo.fill")
+                }
             ScheduleView()
                 .tag(Tabs.schedule)
                 .tabItem {
