@@ -18,12 +18,8 @@
 		2F4E237E2989A2FE0013F3D9 /* OnboardingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E237D2989A2FE0013F3D9 /* OnboardingTests.swift */; };
 		2F4E23812989C5930013F3D9 /* XCTHealthKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2F4E23802989C5930013F3D9 /* XCTHealthKit */; };
 		2F4E23832989D51F0013F3D9 /* AllergyAppTestingSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E23822989D51F0013F3D9 /* AllergyAppTestingSetup.swift */; };
-<<<<<<< HEAD
-		2F4E23852989D9130013F3D9 /* XCUIApplication+DeleteAndLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E23842989D9130013F3D9 /* XCUIApplication+DeleteAndLaunch.swift */; };
-=======
 		2F4E23872989DB360013F3D9 /* ContactsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E23862989DB360013F3D9 /* ContactsTests.swift */; };
 		2F4E23892989DB400013F3D9 /* HealthKitUploadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E23882989DB400013F3D9 /* HealthKitUploadTests.swift */; };
->>>>>>> main
 		2F59B93D298C628800C5107F /* AllergyContacts in Frameworks */ = {isa = PBXBuildFile; productRef = 2F59B93C298C628800C5107F /* AllergyContacts */; };
 		2F59B93F298C628800C5107F /* AllergyMockDataStorageProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 2F59B93E298C628800C5107F /* AllergyMockDataStorageProvider */; };
 		2F59B941298C628800C5107F /* AllergyOnboardingFlow in Frameworks */ = {isa = PBXBuildFile; productRef = 2F59B940298C628800C5107F /* AllergyOnboardingFlow */; };
@@ -64,12 +60,8 @@
 		2F49B77329803E8F00BCB272 /* AllergyModules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AllergyModules; sourceTree = "<group>"; };
 		2F4E237D2989A2FE0013F3D9 /* OnboardingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTests.swift; sourceTree = "<group>"; };
 		2F4E23822989D51F0013F3D9 /* AllergyAppTestingSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyAppTestingSetup.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
-		2F4E23842989D9130013F3D9 /* XCUIApplication+DeleteAndLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+DeleteAndLaunch.swift"; sourceTree = "<group>"; };
-=======
 		2F4E23862989DB360013F3D9 /* ContactsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTests.swift; sourceTree = "<group>"; };
 		2F4E23882989DB400013F3D9 /* HealthKitUploadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitUploadTests.swift; sourceTree = "<group>"; };
->>>>>>> main
 		2F5E32BC297E05EA003432F8 /* AllergyAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyAppDelegate.swift; sourceTree = "<group>"; };
 		2F9056E6299E266B003D3802 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2FAEC07F297F583900C11C42 /* Allergy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Allergy.entitlements; sourceTree = "<group>"; };

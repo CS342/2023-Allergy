@@ -31,10 +31,6 @@ public struct OnboardingFlow: View {
                     switch onboardingStep {
                     case .consent:
                         Consent(onboardingSteps: $onboardingSteps)
-<<<<<<< HEAD
-                    case .questionnaire:
-                        OnboardingQuestionnaire(onboardingSteps: $onboardingSteps)
-=======
                     case .accountSetup:
                         AccountSetup(onboardingSteps: $onboardingSteps)
                     case .login:
@@ -43,7 +39,6 @@ public struct OnboardingFlow: View {
                         AllergySignUp()
                     case .healthKitPermissions:
                         HealthKitPermissions()
->>>>>>> main
                     }
                 }
                 .navigationBarTitleDisplayMode(.inline)
