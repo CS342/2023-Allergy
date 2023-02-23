@@ -11,3 +11,4 @@
 "TASK_SOCIAL_SUPPORT_QUESTIONNAIRE_TITLE" = "Social Support Questionnaire";
 "TASK_SOCIAL_SUPPORT_QUESTIONNAIRE_DESCRIPTION" = "Please fill out the Social Support Questionnaire every day.";
 "TASK_CONTEXT_ACTION_QUESTIONNAIRE" = "Start Questionnaire";
+"TASK_CONTEXT_ACTION_PHOTOUPLOAD" = "Take Photo";
