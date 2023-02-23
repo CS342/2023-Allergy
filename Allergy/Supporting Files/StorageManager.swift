@@ -10,7 +10,7 @@ import FirebaseStorage
 
 class StorageManager {
     static let shared = StorageManager()
-    
+    //edit
     func uploadImage(_ data: Data) {
         let id = UUID().uuidString
         let storage = Storage.storage()
