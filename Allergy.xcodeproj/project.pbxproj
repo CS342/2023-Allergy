@@ -37,6 +37,7 @@
 		653A255528338800005D4D48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 653A255428338800005D4D48 /* Assets.xcassets */; };
 		653A256228338800005D4D48 /* AllergyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A256128338800005D4D48 /* AllergyTests.swift */; };
 		653A256C28338800005D4D48 /* SchedulerAndQuestionnaireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A256B28338800005D4D48 /* SchedulerAndQuestionnaireTests.swift */; };
+		A1C9358129A6F707004DF113 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C9358029A6F707004DF113 /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		653A256728338800005D4D48 /* AllergyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AllergyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		653A256B28338800005D4D48 /* SchedulerAndQuestionnaireTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulerAndQuestionnaireTests.swift; sourceTree = "<group>"; };
 		653A258928339462005D4D48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1C9358029A6F707004DF113 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				653A258928339462005D4D48 /* Info.plist */,
 				653A255428338800005D4D48 /* Assets.xcassets */,
 				2FC9759E2978E39600BA99FE /* Localizable.strings */,
+				A1C9358029A6F707004DF113 /* StorageManager.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 			files = (
 				2FC975A82978F11A00BA99FE /* Home.swift in Sources */,
 				2F4E23832989D51F0013F3D9 /* AllergyAppTestingSetup.swift in Sources */,
+				A1C9358129A6F707004DF113 /* StorageManager.swift in Sources */,
 				2F5E32BD297E05EA003432F8 /* AllergyAppDelegate.swift in Sources */,
 				653A2551283387FE005D4D48 /* Allergy.swift in Sources */,
 			);
