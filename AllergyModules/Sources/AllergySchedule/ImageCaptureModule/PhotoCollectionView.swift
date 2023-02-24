@@ -10,10 +10,6 @@ import os.log
 import SwiftUI
 
 struct PhotoCollectionView: View {
-    @ObservedObject var photoCollection: PhotoCollection
-    
-    @Environment(\.displayScale) private var displayScale
-        
     private static let itemSpacing = 12.0
     private static let itemCornerRadius = 15.0
     private static let itemSize = CGSize(width: 90, height: 90)
@@ -45,6 +41,10 @@ struct PhotoCollectionView: View {
         .navigationBarTitleDisplayMode(.inline)
         .statusBar(hidden: false)
     }
+    
+    @ObservedObject var photoCollection: PhotoCollection
+    
+    @Environment(\.displayScale) private var displayScale
     
     private func photoItemView(asset: PhotoAsset) -> some View {
         PhotoItemView(asset: asset, cache: photoCollection.cache, imageSize: imageSize)

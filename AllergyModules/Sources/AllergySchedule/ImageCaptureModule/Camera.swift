@@ -361,7 +361,7 @@ extension Camera: AVCaptureVideoDataOutputSampleBufferDelegate {
     }
 }
 
-fileprivate extension UIScreen {
+extension UIScreen {
     var orientation: UIDeviceOrientation {
         let point = coordinateSpace.convert(CGPoint.zero, to: fixedCoordinateSpace)
         if point == CGPoint.zero {
