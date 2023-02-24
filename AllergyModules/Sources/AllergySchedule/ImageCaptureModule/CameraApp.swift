@@ -21,7 +21,7 @@ struct CameraApp: App {
     }
 }
 
-fileprivate extension UINavigationBar {
+extension UINavigationBar {
     static func applyCustomAppearance() {
         let appearance = UINavigationBarAppearance()
         appearance.backgroundEffect = UIBlurEffect(style: .systemUltraThinMaterial)
