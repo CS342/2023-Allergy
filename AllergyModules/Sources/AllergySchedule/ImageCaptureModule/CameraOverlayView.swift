@@ -9,7 +9,7 @@ import AVFoundation
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var overlayImageView: UIImageView!
+    var overlayImageView = UIImageView(image: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,8 +18,14 @@ class ViewController: UIViewController {
         let captureSession = AVCaptureSession()
         captureSession.sessionPreset = .photo
         
-        guard let captureDevice = AVCaptureDevice.default(for: .video) else { return }
-        guard let input = try? AVCaptureDeviceInput(device: captureDevice) else { return }
+        guard let captureDevice = AVCaptureDevice.default(for: .video)
+        else {
+            return
+        }
+        guard let input = try? AVCaptureDeviceInput(device: captureDevice)
+        else {
+            return
+        }
         
         captureSession.addInput(input)
         
