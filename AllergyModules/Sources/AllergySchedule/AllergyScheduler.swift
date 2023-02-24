@@ -45,7 +45,7 @@ extension AllergyScheduler {
                         dateComponents: .init(hour: 8, minute: 0),
                         end: .numberOfEvents(1)
                     ),
-                    context: AllergyTaskContext.questionnaire(Bundle.module.questionnaire(withName: "AllergenTesting"))
+                    context: AllergyTaskContext.photoUpload(PhotoUploadContext.base)
                 ),
                 Task(
                     title: String(localized: "Photo Taking Task #2", bundle: .module),
@@ -58,7 +58,7 @@ extension AllergyScheduler {
                         dateComponents: .init(hour: 8, minute: 0),
                         end: .numberOfEvents(1)
                     ),
-                    context: AllergyTaskContext.questionnaire(Bundle.module.questionnaire(withName: "AllergenTesting"))
+                    context: AllergyTaskContext.photoUpload(PhotoUploadContext.day0)
                 ),
                 Task(
                     title: String(localized: "Photo Taking Task #3", bundle: .module),
@@ -71,7 +71,7 @@ extension AllergyScheduler {
                         dateComponents: .init(hour: 8, minute: 0),
                         end: .numberOfEvents(1)
                     ),
-                    context: AllergyTaskContext.questionnaire(Bundle.module.questionnaire(withName: "AllergenTesting"))
+                    context: AllergyTaskContext.photoUpload(PhotoUploadContext.day2)
                 ),
                 Task(
                     title: String(localized: "Photo Taking Task #4", bundle: .module),
@@ -84,7 +84,7 @@ extension AllergyScheduler {
                         dateComponents: .init(hour: 8, minute: 0),
                         end: .numberOfEvents(1)
                     ),
-                    context: AllergyTaskContext.questionnaire(Bundle.module.questionnaire(withName: "AllergenTesting"))
+                    context: AllergyTaskContext.photoUpload(PhotoUploadContext.day4)
                 )
             ]
         )

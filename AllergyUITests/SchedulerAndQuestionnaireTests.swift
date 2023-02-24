@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import XCTestExtensions
 
 
 class SchedulerAndQuestionnaireTests: XCTestCase {
@@ -24,13 +25,14 @@ class SchedulerAndQuestionnaireTests: XCTestCase {
     func testSchedulerAndQuestionnaire() throws {
         let app = XCUIApplication()
         
-        XCTAssertTrue(app.tabBars["Tab Bar"].buttons["Schedule"].waitForExistence(timeout: 0.5))
+        XCTAssertTrue(app.tabBars["Tab Bar"].buttons["Schedule"].waitForExistence(timeout: 2))
         app.tabBars["Tab Bar"].buttons["Schedule"].tap()
 
         XCTAssertTrue(app.staticTexts["Allergy Task"].waitForExistence(timeout: 0.5))
 
         XCTAssertTrue(app.staticTexts["Start Questionnaire"].waitForExistence(timeout: 0.5))
         
+        XCTAssertTrue(app.staticTexts["Start Questionnaire"].waitForExistence(timeout: 2))
         app.staticTexts["Start Questionnaire"].tap()
         
         XCTAssertTrue(app.tables.staticTexts["Myself"].waitForExistence(timeout: 0.5))
@@ -98,7 +100,7 @@ class SchedulerAndQuestionnaireTests: XCTestCase {
         XCTAssertTrue(app.buttons["Done"].waitForExistence(timeout: 0.5))
         app.buttons["Done"].tap()
         
-        XCTAssertTrue(!app.staticTexts["Start Questionnaire"].waitForExistence(timeout: 0.5))
-        XCTAssertTrue(app.images["Selected"].waitForExistence(timeout: 0.5))
+        XCTAssertTrue(!app.staticTexts["Start Questionnaire"].waitForExistence(timeout: 2))
+        XCTAssertTrue(app.images["Selected"].waitForExistence(timeout: 2))
     }
 }

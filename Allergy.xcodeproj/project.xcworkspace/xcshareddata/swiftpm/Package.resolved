@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/StanfordBDHG/CardinalKit",
       "state" : {
-        "revision" : "7d3d58de00779234bb01bebe6229a76f942b2b8e",
-        "version" : "0.2.1"
+        "revision" : "f86fd8e39b64c685ee57e691b84f1cf851c146ae",
+        "version" : "0.3.0"
       }
     },
     {
@@ -154,12 +154,21 @@
       }
     },
     {
+      "identity" : "xctestextensions",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/StanfordBDHG/XCTestExtensions",
+      "state" : {
+        "revision" : "a96a1680557507a9746bbb0529043b9767c503db",
+        "version" : "0.3.0"
+      }
+    },
+    {
       "identity" : "xcthealthkit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/StanfordBDHG/XCTHealthKit",
       "state" : {
-        "revision" : "5b6a766cdeb67f4a1ea86dd354cd248c1ba67c5d",
-        "version" : "0.1.1"
+        "revision" : "70b79e67339da1174e6f7dcd58d6c041388ded96",
+        "version" : "0.3.1"
       }
     }
   ],
