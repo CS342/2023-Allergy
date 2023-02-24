@@ -15,7 +15,7 @@ import SwiftUI
 
 struct HealthKitPermissions: View {
     @EnvironmentObject var healthKitDataSource: HealthKit<FHIR>
-    @Binding private var onboardingSteps: [OnboardingFlow.Step]
+    @AppStorage(StorageKeys.onboardingFlowComplete) var completedOnboardingFlow = false
     
     
     var body: some View {
@@ -44,22 +44,17 @@ struct HealthKitPermissions: View {
                         } catch {
                             print("Could not request HealthKit permissions.")
                         }
-                        onboardingSteps.append(.questionnaire)
+                        completedOnboardingFlow = true
                     }
                 )
             }
         )
     }
-    init(onboardingSteps: Binding<[OnboardingFlow.Step]>) {
-        self._onboardingSteps = onboardingSteps
-    }
 }
 
 
 struct HealthKitPermissions_Previews: PreviewProvider {
-    @State private static var path: [OnboardingFlow.Step] = []
-
     static var previews: some View {
-        HealthKitPermissions(onboardingSteps: $path)
+        HealthKitPermissions()
     }
 }
