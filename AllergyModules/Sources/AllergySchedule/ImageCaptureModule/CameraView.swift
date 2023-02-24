@@ -9,10 +9,9 @@
 import SwiftUI
 
 struct CameraView: View {
-    @StateObject private var model = DataModel()
- 
     private static let barHeightFactor = 0.15
     
+    @StateObject private var model = DataModel()
     
     var body: some View {
         NavigationStack {
