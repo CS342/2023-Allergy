@@ -6,8 +6,8 @@
 //
 
 import Photos
-import SwiftUI
 import PhotosUI
+import SwiftUI
 
 // Code implemented here https://www.appcoda.com/swiftui-photospicker
 
@@ -19,12 +19,7 @@ struct PhotosPickerView: View {
             PhotosPicker(selection: $selectedItem, matching: .images) {
                 Label("Select a photo", systemImage: "photo")
             }
-            
-            }
+        }
         }
     }
     
-
-
-
-

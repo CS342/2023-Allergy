@@ -9,7 +9,6 @@ import AVFoundation
 import UIKit
 
 class ViewController: UIViewController {
-    
     @IBOutlet weak var overlayImageView: UIImageView!
     
     override func viewDidLoad() {
@@ -38,5 +37,4 @@ class ViewController: UIViewController {
         overlayImageView.frame = view.bounds
         view.addSubview(overlayImageView)
     }
-    
 }
