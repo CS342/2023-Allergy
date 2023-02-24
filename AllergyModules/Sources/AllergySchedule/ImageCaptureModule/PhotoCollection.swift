@@ -9,25 +9,6 @@ import os.log
 import Photos
 
 class PhotoCollection: NSObject, ObservableObject {
-    init(albumNamed albumName: String, createIfNotFound: Bool = false) {
-        self.albumName = albumName
-        self.createAlbumIfNotFound = createIfNotFound
-        super.init()
-    }
-
-    init?(albumWithIdentifier identifier: String) {
-        guard let assetCollection = PhotoCollection.getAlbum(identifier: identifier) else {
-            logger.error("Photo album not found for identifier: \(identifier)")
-            return nil
-        }
-        logger.log("Loaded photo album with identifier: \(identifier)")
-        self.assetCollection = assetCollection
-        super.init()
-        Task {
-            await refreshPhotoAssets()
-        }
-    }
-    
     deinit {
         PHPhotoLibrary.shared().unregisterChangeObserver(self)
     }
@@ -193,10 +174,7 @@ class PhotoCollection: NSObject, ObservableObject {
         return collections.firstObject
     }
     
-    init(smartAlbum smartAlbumType: PHAssetCollectionSubtype) {
-        self.smartAlbumType = smartAlbumType
-        super.init()
-    }
+
     enum PhotoCollectionError: LocalizedError {
         case missingAssetCollection
         case missingAlbumName
@@ -213,12 +191,35 @@ class PhotoCollection: NSObject, ObservableObject {
     var identifier: String? {
         assetCollection?.localIdentifier
     }
-    
+
     var albumName: String?
     var smartAlbumType: PHAssetCollectionSubtype?
     let cache = CachedImageManager()
     private var assetCollection: PHAssetCollection?
     private var createAlbumIfNotFound = false
+    
+    init(albumNamed albumName: String, createIfNotFound: Bool = false) {
+        self.albumName = albumName
+        self.createAlbumIfNotFound = createIfNotFound
+        super.init()
+    }
+
+    init?(albumWithIdentifier identifier: String) {
+        guard let assetCollection = PhotoCollection.getAlbum(identifier: identifier) else {
+            logger.error("Photo album not found for identifier: \(identifier)")
+            return nil
+        }
+        logger.log("Loaded photo album with identifier: \(identifier)")
+        self.assetCollection = assetCollection
+        super.init()
+        Task {
+            await refreshPhotoAssets()
+        }
+    }
+    init(smartAlbum smartAlbumType: PHAssetCollectionSubtype) {
+        self.smartAlbumType = smartAlbumType
+        super.init()
+    }
 }
 
 extension PhotoCollection: PHPhotoLibraryChangeObserver {
