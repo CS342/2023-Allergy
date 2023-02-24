@@ -28,7 +28,7 @@ class OnboardingTests: XCTestCase {
     func testOnboardingFlow() throws {
         let app = XCUIApplication()
         
-        try app.navigateOnboardingFlow(assertThatHealthKitConsentIsShown: true)
+                try app.navigateOnboardingFlow()
         
         let tabBar = app.tabBars["Tab Bar"]
         XCTAssertTrue(tabBar.buttons["Schedule"].waitForExistence(timeout: 2))
@@ -41,11 +41,11 @@ class OnboardingTests: XCTestCase {
 extension XCUIApplication {
     func conductOnboardingIfNeeded() throws {
         if self.staticTexts["CardinalKit\nAllergy Application"].waitForExistence(timeout: 0.5) {
-            try navigateOnboardingFlow(assertThatHealthKitConsentIsShown: false)
+            try navigateOnboardingFlow()
         }
     }
     
-    func navigateOnboardingFlow(assertThatHealthKitConsentIsShown: Bool = true) throws {
+    func navigateOnboardingFlow() throws {
         try navigateOnboardingFlowWelcome()
         try navigateOnboardingFlowInterestingModules()
         if staticTexts["Consent Example"].waitForExistence(timeout: 5) {

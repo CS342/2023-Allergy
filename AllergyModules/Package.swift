@@ -58,6 +58,7 @@ let package = Package(
                 .product(name: "FirebaseAccount", package: "CardinalKit"),
                 .product(name: "HealthKitDataSource", package: "CardinalKit"),
                 .product(name: "Onboarding", package: "CardinalKit"),
+                .product(name: "Questionnaires", package: "CardinalKit"),
                 .product(name: "Views", package: "CardinalKit")
             ],
             resources: [

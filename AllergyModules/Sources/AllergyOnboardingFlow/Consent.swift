@@ -6,12 +6,14 @@
 // SPDX-License-Identifier: MIT
 //
 
+import AllergySharedContext
 import Onboarding
 import SwiftUI
 
 
 struct Consent: View {
     @Binding private var onboardingSteps: [OnboardingFlow.Step]
+    @AppStorage(StorageKeys.onboardingFlowComplete) var completedOnboardingFlow = false
     
     
     private var consentDocument: Data {
