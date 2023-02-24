@@ -10,12 +10,12 @@ import os.log
 import Photos
 
 struct PhotoAsset: Identifiable {
+    typealias MediaType = PHAssetMediaType
+    
     var id: String { identifier }
     var identifier: String = UUID().uuidString
     var index: Int?
     var phAsset: PHAsset?
-    
-    typealias MediaType = PHAssetMediaType
     
     var isFavorite: Bool {
         phAsset?.isFavorite ?? false
@@ -42,7 +42,10 @@ struct PhotoAsset: Identifiable {
     }
     
     func setIsFavorite(_ isFavorite: Bool) async {
-        guard let phAsset = phAsset else { return }
+        guard let phAsset = phAsset
+        else {
+            return
+        }
         Task {
             do {
                 try await PHPhotoLibrary.shared().performChanges {
@@ -56,7 +59,10 @@ struct PhotoAsset: Identifiable {
     }
     
     func delete() async {
-        guard let phAsset = phAsset else { return }
+        guard let phAsset = phAsset
+        else {
+            return
+        }
         do {
             try await PHPhotoLibrary.shared().performChanges {
                 PHAssetChangeRequest.deleteAssets([phAsset] as NSArray)
@@ -69,7 +75,7 @@ struct PhotoAsset: Identifiable {
 }
 
 extension PhotoAsset: Equatable {
-    static func ==(lhs: PhotoAsset, rhs: PhotoAsset) -> Bool {
+    static func == (lhs: PhotoAsset, rhs: PhotoAsset) -> Bool {
         (lhs.identifier == rhs.identifier) && (lhs.isFavorite == rhs.isFavorite)
     }
 }
@@ -81,6 +87,11 @@ extension PhotoAsset: Hashable {
 }
 
 extension PHObject {
+    /// A string identifier for the PHObject.
+    ///
+    /// This property returns the local identifier for the PHObject, which can be used to fetch the
+    /// corresponding asset or collection from the Photos library.
+    ///
     public var id: String { localIdentifier }
 }
 
