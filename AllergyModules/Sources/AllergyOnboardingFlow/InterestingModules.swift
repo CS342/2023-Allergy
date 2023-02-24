@@ -6,13 +6,14 @@
 // SPDX-License-Identifier: MIT
 //
 
+import AllergySharedContext
 import Onboarding
 import SwiftUI
 
 
 struct InterestingModules: View {
     @Binding private var onboardingSteps: [OnboardingFlow.Step]
-    
+    @AppStorage(StorageKeys.onboardingFlowComplete) var completedOnboardingFlow = false
     
     var body: some View {
         SequentialOnboardingView(
@@ -42,7 +43,7 @@ struct InterestingModules: View {
                 print("PKCanvas view-related views are currently skipped on Intel-based iOS simulators due to a metal bug on the simulator.")
                 onboardingSteps.append(.accountSetup)
                 #else
-                onboardingSteps.append(.consent)
+                completedOnboardingFlow = true
                 #endif
             }
         )

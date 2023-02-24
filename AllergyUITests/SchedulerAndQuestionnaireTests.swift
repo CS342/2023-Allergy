@@ -27,28 +27,78 @@ class SchedulerAndQuestionnaireTests: XCTestCase {
         
         XCTAssertTrue(app.tabBars["Tab Bar"].buttons["Schedule"].waitForExistence(timeout: 2))
         app.tabBars["Tab Bar"].buttons["Schedule"].tap()
+
+        XCTAssertTrue(app.staticTexts["Allergy Task"].waitForExistence(timeout: 0.5))
+
+        XCTAssertTrue(app.staticTexts["Start Questionnaire"].waitForExistence(timeout: 0.5))
         
         XCTAssertTrue(app.staticTexts["Start Questionnaire"].waitForExistence(timeout: 2))
         app.staticTexts["Start Questionnaire"].tap()
         
-        for _ in 0..<4 {
-            XCTAssertTrue(app.tables.staticTexts["None of the time"].waitForExistence(timeout: 2))
-            app.tables.staticTexts["None of the time"].tap()
-            XCTAssertTrue(app.tables.buttons["Next"].waitForExistence(timeout: 2))
-            app.tables.buttons["Next"].tap()
-        }
-                        
-        XCTAssertTrue(app.textFields["Tap to answer"].waitForExistence(timeout: 2))
-        try app.textFields["Tap to answer"].enter(value: "42")
+        XCTAssertTrue(app.tables.staticTexts["Myself"].waitForExistence(timeout: 0.5))
+        app.tables.staticTexts["Myself"].tap()
+        app.tables.staticTexts["My child"].tap()
+        app.tables.staticTexts["Another person"].tap()
+        XCTAssertTrue(app.tables.buttons["Next"].waitForExistence(timeout: 0.5))
+        app.tables.buttons["Next"].tap()
+        
+        XCTAssertTrue(app.tables.staticTexts["Male"].waitForExistence(timeout: 0.5))
+        app.tables.staticTexts["Male"].tap()
+        XCTAssertTrue(app.tables.buttons["Next"].waitForExistence(timeout: 0.5))
+        app.tables.buttons["Next"].tap()
+        
+        XCTAssertTrue(app.textFields["Tap to answer"].waitForExistence(timeout: 0.5))
+        app.textFields["Tap to answer"].tap()
+        app.textFields["Tap to answer"].typeText("1990")
         app.toolbars["Toolbar"].buttons["Done"].tap()
-                        
-        XCTAssertTrue(app.buttons["Next"].waitForExistence(timeout: 2))
+        XCTAssertTrue(app.buttons["Next"].waitForExistence(timeout: 0.5))
+        app.buttons["Next"].tap()
+          
+        XCTAssertTrue(app.tables.staticTexts["White"].waitForExistence(timeout: 0.5))
+        app.tables.staticTexts["White"].tap()
+        XCTAssertTrue(app.tables.buttons["Next"].waitForExistence(timeout: 0.5))
+        app.tables.buttons["Next"].tap()
+        
+        XCTAssertTrue(app.textFields["Tap to answer"].waitForExistence(timeout: 0.5))
+        app.textFields["Tap to answer"].tap()
+        app.textFields["Tap to answer"].typeText("94305")
+        app.toolbars["Toolbar"].buttons["Done"].tap()
+        XCTAssertTrue(app.buttons["Next"].waitForExistence(timeout: 0.5))
         app.buttons["Next"].tap()
         
-        XCTAssertTrue(app.tables.staticTexts["Phone call"].waitForExistence(timeout: 2))
-        app.tables.staticTexts["Phone call"].tap()
-        XCTAssertTrue(app.tables.buttons["Done"].waitForExistence(timeout: 2))
-        app.tables.buttons["Done"].tap()
+        XCTAssertTrue(app.tables.staticTexts["I am able to manage it but interested to learn more"].waitForExistence(timeout: 0.5))
+        app.tables.staticTexts["I am able to manage it but interested to learn more"].tap()
+        XCTAssertTrue(app.tables.buttons["Next"].waitForExistence(timeout: 0.5))
+        app.tables.buttons["Next"].tap()
+        
+        XCTAssertTrue(app.tables.staticTexts["Sensitive skin in general"].waitForExistence(timeout: 0.5))
+        app.tables.staticTexts["Sensitive skin in general"].tap()
+        XCTAssertTrue(app.tables.buttons["Next"].waitForExistence(timeout: 0.5))
+        app.tables.buttons["Next"].tap()
+        
+        XCTAssertTrue(app.tables.staticTexts["None of the above"].waitForExistence(timeout: 0.5))
+        app.tables.staticTexts["None of the above"].tap()
+        XCTAssertTrue(app.tables.buttons["Next"].waitForExistence(timeout: 0.5))
+        app.tables.buttons["Next"].tap()
+        
+        XCTAssertTrue(app.tables.staticTexts["Yes"].waitForExistence(timeout: 0.5))
+        app.tables.staticTexts["Yes"].tap()
+        XCTAssertTrue(app.tables.buttons["Next"].waitForExistence(timeout: 0.5))
+        app.tables.buttons["Next"].tap()
+        
+        XCTAssertTrue(app.textFields["Tap to answer"].waitForExistence(timeout: 0.5))
+        app.textFields["Tap to answer"].tap()
+        app.textFields["Tap to answer"].typeText("dihydrogen monoxide")
+        app.toolbars["Toolbar"].buttons["Done"].tap()
+        XCTAssertTrue(app.buttons["Next"].waitForExistence(timeout: 0.5))
+        app.buttons["Next"].tap()
+        
+        XCTAssertTrue(app.textFields["Tap to answer"].waitForExistence(timeout: 0.5))
+        app.textFields["Tap to answer"].tap()
+        app.textFields["Tap to answer"].typeText("doctor")
+        app.toolbars["Toolbar"].buttons["Done"].tap()
+        XCTAssertTrue(app.buttons["Done"].waitForExistence(timeout: 0.5))
+        app.buttons["Done"].tap()
         
         XCTAssertTrue(!app.staticTexts["Start Questionnaire"].waitForExistence(timeout: 2))
         XCTAssertTrue(app.images["Selected"].waitForExistence(timeout: 2))

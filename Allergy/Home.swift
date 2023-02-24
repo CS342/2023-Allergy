@@ -23,7 +23,7 @@ struct HomeView: View {
     
     
     @AppStorage(StorageKeys.homeTabSelection) var selectedTab = Tabs.schedule
-    
+    @State var cameraPresented = false
     
     var body: some View {
         TabView(selection: $selectedTab) {
