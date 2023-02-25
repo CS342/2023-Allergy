@@ -27,9 +27,18 @@ struct HomeView: View {
     var body: some View {
         TabView(selection: $selectedTab) {
             ScheduleView()
+            }
                 .tag(Tabs.schedule)
                 .tabItem {
                     Label("SCHEDULE_TAB_TITLE", systemImage: "list.clipboard")
+                }
+                .fullScreenCover(isPresented: $cameraPresented) {
+                    VStack {
+                        Button("Close Camera") {
+                            cameraPresented = false
+                        }
+                        CameraView()
+                    }
                 }
             Contacts()
                 .tag(Tabs.contact)
@@ -43,7 +52,7 @@ struct HomeView: View {
                 }
         }
     }
-}
+
 
 
 #if DEBUG
