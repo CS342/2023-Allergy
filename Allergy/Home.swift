@@ -26,10 +26,6 @@ struct HomeView: View {
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            VStack {
-                Button("Use Camera") {
-                    cameraPresented = true
-                }
             ScheduleView()
             }
                 .tag(Tabs.schedule)
@@ -56,7 +52,7 @@ struct HomeView: View {
                 }
         }
     }
-}
+
 
 
 #if DEBUG

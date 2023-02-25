@@ -72,6 +72,7 @@ public struct CameraView: View {
             }
             
             Button {
+                //RImageTrackingView()
                 model.camera.takePhoto()
             } label: {
                 Label {
