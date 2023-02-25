@@ -8,13 +8,14 @@
 
 import SwiftUI
 
-struct CameraView: View {
+public struct CameraView: View {
     @StateObject private var model = DataModel()
  
     private static let barHeightFactor = 0.15
+    public init() {
+    }
     
-    
-    var body: some View {
+    public var body: some View {
         NavigationStack {
             GeometryReader { geometry in
                 ViewfinderView(image: $model.viewfinderImage )
