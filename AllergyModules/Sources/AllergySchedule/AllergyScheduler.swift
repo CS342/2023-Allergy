@@ -15,7 +15,6 @@ import Scheduler
 /// CardinalKit Allergy Applciation.
 public typealias AllergyScheduler = Scheduler<FHIR, AllergyTaskContext>
 
-
 extension AllergyScheduler {
     /// Creates a default instance of the ``AllergyScheduler`` by scheduling the tasks listed below.
     public convenience init() {
