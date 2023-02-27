@@ -52,7 +52,6 @@ extension XCUIApplication {
             try navigateOnboardingFlowConsent()
         }
         try navigateOnboardingAccount()
-        
     }
     
     private func navigateOnboardingFlowWelcome() throws {
@@ -157,5 +156,4 @@ extension XCUIApplication {
             scrollViews.otherElements.buttons["Next"].tap()
         }
     }
-
 }
