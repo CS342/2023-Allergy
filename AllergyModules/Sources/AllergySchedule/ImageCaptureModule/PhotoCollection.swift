@@ -9,50 +9,6 @@ import os.log
 import Photos
 
 class PhotoCollection: NSObject, ObservableObject {
-    deinit {
-        PHPhotoLibrary.shared().unregisterChangeObserver(self)
-    }
-    
-    func load() async throws {
-        PHPhotoLibrary.shared().register(self)
-        
-        if let smartAlbumType = smartAlbumType {
-            if let assetCollection = PhotoCollection.getSmartAlbum(subtype: smartAlbumType) {
-                logger.log("Loaded smart album of type: \(smartAlbumType.rawValue)")
-                self.assetCollection = assetCollection
-                await refreshPhotoAssets()
-                return
-            } else {
-                logger.error("Unable to load smart album of type: : \(smartAlbumType.rawValue)")
-                throw PhotoCollectionError.unableToLoadSmartAlbum(smartAlbumType)
-            }
-        }
-        
-        guard let name = albumName, !name.isEmpty else {
-            logger.error("Unable to load an album without a name.")
-            throw PhotoCollectionError.missingAlbumName
-        }
-        
-        if let assetCollection = PhotoCollection.getAlbum(named: name) {
-            logger.log("Loaded photo album named: \(name)")
-            self.assetCollection = assetCollection
-            await refreshPhotoAssets()
-            return
-        }
-        
-        guard createAlbumIfNotFound else {
-            logger.error("Unable to find photo album named: \(name)")
-            throw PhotoCollectionError.unableToFindAlbum(name)
-        }
-
-        logger.log("Creating photo album named: \(name)")
-        
-        if let assetCollection = try? await PhotoCollection.createAlbum(named: name) {
-            self.assetCollection = assetCollection
-            await refreshPhotoAssets()
-        }
-    }
-    
     func addImage(_ imageData: Data) async throws {
         guard let assetCollection = self.assetCollection else {
             throw PhotoCollectionError.missingAssetCollection
@@ -94,6 +50,46 @@ class PhotoCollection: NSObject, ObservableObject {
         } catch {
             logger.error("Error removing all photos from the album: \(error.localizedDescription)")
             throw PhotoCollectionError.removeAllError(error)
+        }
+    }
+    
+    func load() async throws {
+        PHPhotoLibrary.shared().register(self)
+        
+        if let smartAlbumType = smartAlbumType {
+            if let assetCollection = PhotoCollection.getSmartAlbum(subtype: smartAlbumType) {
+                logger.log("Loaded smart album of type: \(smartAlbumType.rawValue)")
+                self.assetCollection = assetCollection
+                await refreshPhotoAssets()
+                return
+            } else {
+                logger.error("Unable to load smart album of type: : \(smartAlbumType.rawValue)")
+                throw PhotoCollectionError.unableToLoadSmartAlbum(smartAlbumType)
+            }
+        }
+        
+        guard let name = albumName, !name.isEmpty else {
+            logger.error("Unable to load an album without a name.")
+            throw PhotoCollectionError.missingAlbumName
+        }
+        
+        if let assetCollection = PhotoCollection.getAlbum(named: name) {
+            logger.log("Loaded photo album named: \(name)")
+            self.assetCollection = assetCollection
+            await refreshPhotoAssets()
+            return
+        }
+        
+        guard createAlbumIfNotFound else {
+            logger.error("Unable to find photo album named: \(name)")
+            throw PhotoCollectionError.unableToFindAlbum(name)
+        }
+
+        logger.log("Creating photo album named: \(name)")
+        
+        if let assetCollection = try? await PhotoCollection.createAlbum(named: name) {
+            self.assetCollection = assetCollection
+            await refreshPhotoAssets()
         }
     }
     
@@ -173,7 +169,6 @@ class PhotoCollection: NSObject, ObservableObject {
         let collections = PHAssetCollection.fetchAssetCollections(withLocalIdentifiers: [collectionIdentifier], options: nil)
         return collections.firstObject
     }
-    
 
     enum PhotoCollectionError: LocalizedError {
         case missingAssetCollection
@@ -186,15 +181,17 @@ class PhotoCollection: NSObject, ObservableObject {
         case removeAllError(Error)
     }
     
+    let cache = CachedImageManager()
+    
     @Published var photoAssets = PhotoAssetCollection(PHFetchResult<PHAsset>())
 
     var identifier: String? {
         assetCollection?.localIdentifier
     }
-
+    
     var albumName: String?
     var smartAlbumType: PHAssetCollectionSubtype?
-    let cache = CachedImageManager()
+
     private var assetCollection: PHAssetCollection?
     private var createAlbumIfNotFound = false
     
@@ -219,6 +216,10 @@ class PhotoCollection: NSObject, ObservableObject {
     init(smartAlbum smartAlbumType: PHAssetCollectionSubtype) {
         self.smartAlbumType = smartAlbumType
         super.init()
+    }
+    
+    deinit {
+        PHPhotoLibrary.shared().unregisterChangeObserver(self)
     }
 }
 
