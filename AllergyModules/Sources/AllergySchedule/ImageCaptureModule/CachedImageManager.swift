@@ -77,11 +77,11 @@ actor CachedImageManager {
             if let error = info?[PHImageErrorKey] as? Error {
                 logger.error("CachedImageManager requestImage error: \(error.localizedDescription)")
                 completion(nil)
-            } else if let cancelled = (info?[PHImageCancelledKey] as? NSNumber)?.boolValue, cancelled {
+            } else if let cancelled = info?[PHImageCancelledKey] as? Bool, cancelled {
                 logger.debug("CachedImageManager request canceled")
                 completion(nil)
             } else if let image = image {
-                let isLowerQualityImage = (info?[PHImageResultIsDegradedKey] as? NSNumber)?.boolValue ?? false
+                let isLowerQualityImage = info?[PHImageResultIsDegradedKey] as? Bool ?? false
                 let result = (image: Image(uiImage: image), isLowerQuality: isLowerQualityImage)
                 completion(result)
             } else {

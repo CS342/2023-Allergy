@@ -65,8 +65,8 @@ class PhotoCollection: NSObject, ObservableObject {
                     creationRequest.addResource(with: .photo, data: imageData, options: nil)
                     
                     if let albumChangeRequest = PHAssetCollectionChangeRequest(for: assetCollection), assetCollection.canPerform(.addContent) {
-                        let fastEnumeration = NSArray(array: [assetPlaceholder])
-                        albumChangeRequest.addAssets(fastEnumeration)
+                        let assetPlaceholders = [assetPlaceholder]
+                        albumChangeRequest.addAssets(assetPlaceholders as NSFastEnumeration)
                     }
                 }
             }
@@ -86,7 +86,7 @@ class PhotoCollection: NSObject, ObservableObject {
         do {
             try await PHPhotoLibrary.shared().performChanges {
                 if let albumChangeRequest = PHAssetCollectionChangeRequest(for: assetCollection) {
-                    albumChangeRequest.removeAssets([asset as Any] as NSArray)
+                    albumChangeRequest.removeAssets([asset as Any] as NSFastEnumeration)
                 }
             }
             
