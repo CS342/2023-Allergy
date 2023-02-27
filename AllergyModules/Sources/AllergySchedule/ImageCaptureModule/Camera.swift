@@ -16,7 +16,7 @@ class Camera: NSObject {
     private var deviceInput: AVCaptureDeviceInput?
     private var photoOutput: AVCapturePhotoOutput?
     private var videoOutput: AVCaptureVideoDataOutput?
-    private var sessionQueue: DispatchQueue!
+    private var sessionQueue: DispatchQueue?
     
     private var allCaptureDevices: [AVCaptureDevice] {
         AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInTrueDepthCamera, .builtInDualCamera, .builtInDualWideCamera, .builtInWideAngleCamera, .builtInDualWideCamera], mediaType: .video, position: .unspecified).devices
@@ -49,8 +49,8 @@ class Camera: NSObject {
     
     private var availableCaptureDevices: [AVCaptureDevice] {
         captureDevices
-            .filter({ $0.isConnected })
-            .filter({ !$0.isSuspended })
+            .filter { $0.isConnected }
+            .filter { !$0.isSuspended }
     }
     
     private var captureDevice: AVCaptureDevice? {
@@ -58,7 +58,7 @@ class Camera: NSObject {
             guard let captureDevice = captureDevice else {
                 return }
             logger.debug("Using capture device: \(captureDevice.localizedName)")
-            sessionQueue.async {
+            sessionQueue?.async {
                 self.updateSessionForCaptureDevice(captureDevice)
             }
         }
@@ -137,7 +137,7 @@ class Camera: NSObject {
         }
         
         if captureSession.isRunning {
-            sessionQueue.async {
+            sessionQueue?.async {
                 self.captureSession.stopRunning()
             }
         }
@@ -215,9 +215,9 @@ class Camera: NSObject {
             return true
         case .notDetermined:
             logger.debug("Camera access not determined.")
-            sessionQueue.suspend()
+            sessionQueue?.suspend()
             let status = await AVCaptureDevice.requestAccess(for: .video)
-            sessionQueue.resume()
+            sessionQueue?.resume()
             return status
         case .denied:
             logger.debug("Camera access denied.")
@@ -280,14 +280,14 @@ class Camera: NSObject {
         
         if isCaptureSessionConfigured {
             if !captureSession.isRunning {
-                sessionQueue.async { [self] in
+                sessionQueue?.async { [self] in
                     self.captureSession.startRunning()
                 }
             }
             return
         }
         
-        sessionQueue.async { [self] in
+        sessionQueue?.async { [self] in
             self.configureCaptureSession { success in
                 guard success else {
                     return }
@@ -309,7 +309,7 @@ class Camera: NSObject {
         guard let photoOutput = self.photoOutput else {
             return }
         
-        sessionQueue.async {
+        sessionQueue?.async {
             var photoSettings = AVCapturePhotoSettings()
 
             if photoOutput.availablePhotoCodecTypes.contains(.hevc) {

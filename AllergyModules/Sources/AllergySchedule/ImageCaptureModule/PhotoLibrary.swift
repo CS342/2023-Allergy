@@ -9,7 +9,7 @@
 import os.log
 import Photos
 
-class PhotoLibrary {
+enum PhotoLibrary {
     static func checkAuthorization() async -> Bool {
         switch PHPhotoLibrary.authorizationStatus(for: .readWrite) {
         case .authorized:
