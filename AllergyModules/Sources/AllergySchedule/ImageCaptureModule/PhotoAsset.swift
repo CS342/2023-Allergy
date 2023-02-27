@@ -65,7 +65,7 @@ struct PhotoAsset: Identifiable {
         }
         do {
             try await PHPhotoLibrary.shared().performChanges {
-                PHAssetChangeRequest.deleteAssets([phAsset] as NSArray)
+                PHAssetChangeRequest.deleteAssets([phAsset] as NSFastEnumeration)
             }
             logger.debug("PhotoAsset asset deleted: \(index ?? -1)")
         } catch {
