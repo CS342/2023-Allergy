@@ -97,7 +97,8 @@ class PhotoCollection: NSObject, ObservableObject {
         if newFetchResult == nil {
             let fetchOptions = PHFetchOptions()
             fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-            if let assetCollection = self.assetCollection, let fetchResult = (PHAsset.fetchAssets(in: assetCollection, options: fetchOptions) as AnyObject?) as? PHFetchResult<PHAsset> {
+            if let assetCollection = self.assetCollection,
+               let fetchResult = (PHAsset.fetchAssets(in: assetCollection, options: fetchOptions) as AnyObject?) as? PHFetchResult<PHAsset> {
                 newFetchResult = fetchResult
             }
         }
@@ -201,7 +202,7 @@ class PhotoCollection: NSObject, ObservableObject {
         do {
             try await PHPhotoLibrary.shared().performChanges {
                 if let albumChangeRequest = PHAssetCollectionChangeRequest(for: assetCollection),
-                    let assets = (PHAsset.fetchAssets(in: assetCollection, options: nil) as AnyObject?) as! PHFetchResult<AnyObject>? {
+                   let assets = PHAsset.fetchAssets(in: assetCollection, options: nil) as? PHFetchResult<AnyObject> {
                     albumChangeRequest.removeAssets(assets)
                 }
             }

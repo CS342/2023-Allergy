@@ -10,6 +10,7 @@ import CoreImage
 import os.log
 import UIKit
 
+// swiftlint:disable:next type_body_length
 class Camera: NSObject {
     private let captureSession = AVCaptureSession()
     private var isCaptureSessionConfigured = false
@@ -19,7 +20,17 @@ class Camera: NSObject {
     private var sessionQueue: DispatchQueue?
     
     private var allCaptureDevices: [AVCaptureDevice] {
-        AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInTrueDepthCamera, .builtInDualCamera, .builtInDualWideCamera, .builtInWideAngleCamera, .builtInDualWideCamera], mediaType: .video, position: .unspecified).devices
+        AVCaptureDevice.DiscoverySession(
+            deviceTypes: [
+                .builtInTrueDepthCamera,
+                .builtInDualCamera,
+                .builtInDualWideCamera,
+                .builtInWideAngleCamera,
+                .builtInDualWideCamera
+            ],
+            mediaType: .video,
+            position: .unspecified
+        ).devices
     }
     
     private var frontCaptureDevices: [AVCaptureDevice] {
@@ -149,7 +160,12 @@ class Camera: NSObject {
         captureDevice = availableCaptureDevices.first ?? AVCaptureDevice.default(for: .video)
         
         UIDevice.current.beginGeneratingDeviceOrientationNotifications()
-        NotificationCenter.default.addObserver(self, selector: #selector(updateForDeviceOrientation), name: UIDevice.orientationDidChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateForDeviceOrientation),
+            name: UIDevice.orientationDidChangeNotification,
+            object: nil
+        )
     }
     
     private func configureCaptureSession(completionHandler: (_ success: Bool) -> Void) {

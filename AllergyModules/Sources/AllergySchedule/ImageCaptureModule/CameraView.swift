@@ -23,7 +23,7 @@ struct CameraView: View {
                             .frame(height: geometry.size.height * Self.barHeightFactor)
                     }
                     .overlay(alignment: .bottom) {
-                        buttonsView()
+                        buttonsView
                             .frame(height: geometry.size.height * Self.barHeightFactor)
                             .background(.black.opacity(0.75))
                     }
@@ -49,55 +49,63 @@ struct CameraView: View {
         }
     }
     
-    private func buttonsView() -> some View {
+    private var buttonsView: some View {
         HStack(spacing: 60) {
             Spacer()
-            
-            NavigationLink {
-                PhotoCollectionView(photoCollection: model.photoCollection)
-                    .onAppear {
-                        model.camera.isPreviewPaused = true
-                    }
-                    .onDisappear {
-                        model.camera.isPreviewPaused = false
-                    }
-            } label: {
-                Label {
-                    Text("Gallery")
-                } icon: {
-                    ThumbnailView(image: model.thumbnailImage)
-                }
-            }
-            
-            Button {
-                model.camera.takePhoto()
-            } label: {
-                Label {
-                    Text("Take Photo")
-                } icon: {
-                    ZStack {
-                        Circle()
-                            .strokeBorder(.white, lineWidth: 3)
-                            .frame(width: 62, height: 62)
-                        Circle()
-                            .fill(.white)
-                            .frame(width: 50, height: 50)
-                    }
-                }
-            }
-            
-            Button {
-                model.camera.switchCaptureDevice()
-            } label: {
-                Label("Switch Camera", systemImage: "arrow.triangle.2.circlepath")
-                    .font(.system(size: 36, weight: .bold))
-                    .foregroundColor(.white)
-            }
-            
+            photoCollectionViewButton
+            takePhotoButton
+            switchCameraButton
             Spacer()
         }
-        .buttonStyle(.plain)
-        .labelStyle(.iconOnly)
-        .padding()
+            .buttonStyle(.plain)
+            .labelStyle(.iconOnly)
+            .padding()
+    }
+    
+    private var photoCollectionViewButton: some View {
+        NavigationLink {
+            PhotoCollectionView(photoCollection: model.photoCollection)
+                .onAppear {
+                    model.camera.isPreviewPaused = true
+                }
+                .onDisappear {
+                    model.camera.isPreviewPaused = false
+                }
+        } label: {
+            Label {
+                Text("Gallery")
+            } icon: {
+                ThumbnailView(image: model.thumbnailImage)
+            }
+        }
+    }
+    
+    private var takePhotoButton: some View {
+        Button {
+            model.camera.takePhoto()
+        } label: {
+            Label {
+                Text("Take Photo")
+            } icon: {
+                ZStack {
+                    Circle()
+                        .strokeBorder(.white, lineWidth: 3)
+                        .frame(width: 62, height: 62)
+                    Circle()
+                        .fill(.white)
+                        .frame(width: 50, height: 50)
+                }
+            }
+        }
+    }
+    
+    private var switchCameraButton: some View {
+        Button {
+            model.camera.switchCaptureDevice()
+        } label: {
+            Label("Switch Camera", systemImage: "arrow.triangle.2.circlepath")
+                .font(.system(size: 36, weight: .bold))
+                .foregroundColor(.white)
+        }
     }
 }
