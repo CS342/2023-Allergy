@@ -1,8 +1,9 @@
 //
-//  CameraOverlayView.swift
-//  Allergy
+// This source file is part of the CS342 2023 Allergy Team Application project
 //
-//  Created by Sonya Jin on 2/22/23.
+// SPDX-FileCopyrightText: 2023 Stanford University
+//
+// SPDX-License-Identifier: MIT
 //
 
 import AVFoundation
