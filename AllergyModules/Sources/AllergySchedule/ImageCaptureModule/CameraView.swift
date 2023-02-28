@@ -10,6 +10,7 @@ import SwiftUI
 
 public struct CameraView: View {
     @StateObject private var model = DataModel()
+    @State var ARPresented: Bool = false
  
     private static let barHeightFactor = 0.15
     public init() {
@@ -73,7 +74,9 @@ public struct CameraView: View {
             
             Button {
                 //RImageTrackingView()
-                model.camera.takePhoto()
+                //model.camera.takePhoto()
+                ARPresented = true
+                print("we are doing AR")
             } label: {
                 Label {
                     Text("Take Photo")
@@ -87,6 +90,9 @@ public struct CameraView: View {
                             .frame(width: 50, height: 50)
                     }
                 }
+            }
+            .sheet(isPresented:$ARPresented) {
+                ARImageTrackingView()
             }
             
             Button {

@@ -27,7 +27,7 @@ struct HomeView: View {
     var body: some View {
         TabView(selection: $selectedTab) {
             ScheduleView()
-            }
+            
                 .tag(Tabs.schedule)
                 .tabItem {
                     Label("SCHEDULE_TAB_TITLE", systemImage: "list.clipboard")
@@ -52,15 +52,17 @@ struct HomeView: View {
                 }
         }
     }
-
-
-
-#if DEBUG
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-            .environmentObject(AllergyScheduler())
-            .environmentObject(MockDataStorageProvider())
-    }
 }
-#endif
+    
+    //
+    //#if DEBUG
+    //        struct MainView_Previews: PreviewProvider {
+    //            static var previews: some View {
+    //                HomeView()
+    //                    .environmentObject(AllergyScheduler())
+    //                    .environmentObject(MockDataStorageProvider())
+    //            }
+    //        }
+    //#endif
+    //    }
+
