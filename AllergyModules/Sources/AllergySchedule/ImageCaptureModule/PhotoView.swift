@@ -38,7 +38,10 @@ struct PhotoView: View {
                 .offset(x: 0, y: -50)
         }
         .task {
-            guard image == nil, let cache = cache else { return }
+            guard image == nil, let cache = cache
+            else {
+                return
+            }
             imageRequestID = await cache.requestImage(for: asset, targetSize: imageSize) { result in
                 Task {
                     if let result = result {

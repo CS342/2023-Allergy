@@ -29,7 +29,10 @@ struct PhotoItemView: View {
             }
         }
         .task {
-            guard image == nil, let cache = cache else { return }
+            guard image == nil, let cache = cache
+            else {
+                return
+            }
             imageRequestID = await cache.requestImage(for: asset, targetSize: imageSize) { result in
                 Task {
                     if let result = result {

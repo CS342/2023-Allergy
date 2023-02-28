@@ -17,10 +17,18 @@ class PhotoAssetCollection: RandomAccessCollection {
     var startIndex: Int { 0 }
     var endIndex: Int { fetchResult.count }
     
+    var phAssets: [PHAsset] {
+        var assets = [PHAsset]()
+        fetchResult.enumerateObjects { object, _, _ in
+            assets.append(object)
+        }
+        return assets
+    }
+    
     init(_ fetchResult: PHFetchResult<PHAsset>) {
         self.fetchResult = fetchResult
     }
-
+    
     subscript(position: Int) -> PhotoAsset {
         if let asset = cache[position] {
             return asset
@@ -28,14 +36,6 @@ class PhotoAssetCollection: RandomAccessCollection {
         let asset = PhotoAsset(phAsset: fetchResult.object(at: position), index: position)
         cache[position] = asset
         return asset
-    }
-    
-    var phAssets: [PHAsset] {
-        var assets = [PHAsset]()
-        fetchResult.enumerateObjects { object, _, _ in
-            assets.append(object)
-        }
-        return assets
     }
 }
 

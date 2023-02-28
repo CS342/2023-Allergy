@@ -22,6 +22,7 @@ class SchedulerAndQuestionnaireTests: XCTestCase {
     }
     
     
+    // swiftlint:disable:next function_body_length
     func testSchedulerAndQuestionnaire() throws {
         let app = XCUIApplication()
         

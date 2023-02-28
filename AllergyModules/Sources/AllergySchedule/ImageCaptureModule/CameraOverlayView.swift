@@ -1,16 +1,16 @@
 //
-//  CameraOverlayView.swift
-//  Allergy
+// This source file is part of the CS342 2023 Allergy Team Application project
 //
-//  Created by Sonya Jin on 2/22/23.
+// SPDX-FileCopyrightText: 2023 Stanford University
+//
+// SPDX-License-Identifier: MIT
 //
 
 import AVFoundation
 import UIKit
 
 class ViewController: UIViewController {
-    
-    @IBOutlet weak var overlayImageView: UIImageView!
+    var overlayImageView = UIImageView(image: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,8 +19,14 @@ class ViewController: UIViewController {
         let captureSession = AVCaptureSession()
         captureSession.sessionPreset = .photo
         
-        guard let captureDevice = AVCaptureDevice.default(for: .video) else { return }
-        guard let input = try? AVCaptureDeviceInput(device: captureDevice) else { return }
+        guard let captureDevice = AVCaptureDevice.default(for: .video)
+        else {
+            return
+        }
+        guard let input = try? AVCaptureDeviceInput(device: captureDevice)
+        else {
+            return
+        }
         
         captureSession.addInput(input)
         
@@ -38,5 +44,4 @@ class ViewController: UIViewController {
         overlayImageView.frame = view.bounds
         view.addSubview(overlayImageView)
     }
-    
 }

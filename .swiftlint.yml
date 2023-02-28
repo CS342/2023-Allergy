@@ -212,8 +212,6 @@ only_rules:
   - nslocalizedstring_key
   # NSObject subclasses should implement isEqual instead of ==.
   - nsobject_prefer_isequal
-  # Prefer object literals over image and color inits.
-  - object_literal
   # Opening braces should be preceded by a single space and on the same line as the declaration.
   - opening_brace
   # Operators should be surrounded by a single whitespace when they are being used.

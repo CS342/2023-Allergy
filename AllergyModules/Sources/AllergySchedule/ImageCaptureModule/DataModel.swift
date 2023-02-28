@@ -10,6 +10,13 @@ import AVFoundation
 import os.log
 import SwiftUI
 
+private struct PhotoData {
+    var thumbnailImage: Image
+    var thumbnailSize: (width: Int, height: Int)
+    var imageData: Data
+    var imageSize: (width: Int, height: Int)
+}
+
 final class DataModel: ObservableObject {
     let camera = Camera()
     let photoCollection = PhotoCollection(smartAlbum: .smartAlbumUserLibrary)
@@ -53,7 +60,10 @@ final class DataModel: ObservableObject {
     }
     
     private func unpackPhoto(_ photo: AVCapturePhoto) -> PhotoData? {
-        guard let imageData = photo.fileDataRepresentation() else { return nil }
+        guard let imageData = photo.fileDataRepresentation()
+        else {
+            return nil
+        }
 
         guard let previewCGImage = photo.previewCGImageRepresentation(),
            let metadataOrientation = photo.metadata[String(kCGImagePropertyOrientation)] as? UInt32,
@@ -81,7 +91,10 @@ final class DataModel: ObservableObject {
     }
     
     func loadPhotos() async {
-        guard !isPhotosLoaded else { return }
+        guard !isPhotosLoaded
+        else {
+            return
+        }
         
         let authorized = await PhotoLibrary.checkAuthorization()
         guard authorized else {
@@ -101,7 +114,10 @@ final class DataModel: ObservableObject {
     }
     
     func loadThumbnail() async {
-        guard let asset = photoCollection.photoAssets.first  else { return }
+        guard let asset = photoCollection.photoAssets.first
+        else {
+            return
+        }
         await photoCollection.cache.requestImage(for: asset, targetSize: CGSize(width: 256, height: 256)) { result in
             if let result = result {
                 Task { @MainActor in
@@ -112,22 +128,18 @@ final class DataModel: ObservableObject {
     }
 }
 
-private struct PhotoData {
-    var thumbnailImage: Image
-    var thumbnailSize: (width: Int, height: Int)
-    var imageData: Data
-    var imageSize: (width: Int, height: Int)
-}
-
-fileprivate extension CIImage {
+extension CIImage {
     var image: Image? {
         let ciContext = CIContext()
-        guard let cgImage = ciContext.createCGImage(self, from: self.extent) else { return nil }
+        guard let cgImage = ciContext.createCGImage(self, from: self.extent)
+        else {
+            return nil
+        }
         return Image(decorative: cgImage, scale: 1, orientation: .up)
     }
 }
 
-fileprivate extension Image.Orientation {
+extension Image.Orientation {
     init(_ cgImageOrientation: CGImagePropertyOrientation) {
         switch cgImageOrientation {
         case .up: self = .up
