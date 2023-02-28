@@ -56,28 +56,9 @@ extension XCUIApplication {
     
     private func navigateOnboardingFlowWelcome() throws {
         XCTAssertTrue(staticTexts["Allergy Patch Testing"].waitForExistence(timeout: 2))
-        /*XCTAssertTrue(
-         staticTexts["This is an all in one platform where you can upload pictures of your patch tests so your dermatologist can have instant access."]
-         .waitForExistence(timeout: 0.5)
-         )*/
-        
         XCTAssertTrue(staticTexts["User Registration & Consent"].waitForExistence(timeout: 2))
-        /*XCTAssertTrue(
-         staticTexts["This app is HIPAA-compliant, and we will ask for consent for your personal information and access to images, as well as register you with our system."]
-         .waitForExistence(timeout: 0.5)
-         )*/
-        
         XCTAssertTrue(staticTexts["Patient Survey"].waitForExistence(timeout: 2))
-        /*XCTAssertTrue(
-         staticTexts["You will need to take a survey regarding your medical history, symptoms, and other important information about your eczema."]
-         .waitForExistence(timeout: 0.5)
-         )*/
-        
         XCTAssertTrue(staticTexts["Take Pictures"].waitForExistence(timeout: 2))
-        /*XCTAssertTrue(
-         staticTexts["Our platform allows you to effortlessly and securely take pictures of your patch test, from which your results and information can be processed by your dermatologist."]
-         .waitForExistence(timeout: 0.5)
-         )*/
         
         XCTAssertTrue(buttons["Register"].waitForExistence(timeout: 2))
         buttons["Register"].tap()
@@ -91,6 +72,10 @@ extension XCUIApplication {
                 .waitForExistence(timeout: 2)
         )
         
+        swipeUp(velocity: .fast)
+        swipeUp(velocity: .fast)
+        swipeUp(velocity: .fast)
+        swipeUp(velocity: .fast)
         
         XCTAssertTrue(staticTexts["Given Name"].waitForExistence(timeout: 2))
         staticTexts["Given Name"].tap()
