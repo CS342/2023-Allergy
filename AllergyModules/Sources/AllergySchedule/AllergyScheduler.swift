@@ -85,6 +85,19 @@ extension AllergyScheduler {
                         end: .numberOfEvents(1)
                     ),
                     context: AllergyTaskContext.photoUpload(PhotoUploadContext.day4)
+                ),
+                Task(
+                    title: String(localized: "Optional Task: Upload any skin photos", bundle: .module),
+                    description: String(
+                        localized: "Please upload any photo you think will help us with a diagnosis of your skin condition.",
+                        bundle: .module
+                    ),
+                    schedule: Schedule(
+                        start: Calendar.current.startOfDay(for: Date()),
+                        dateComponents: .init(hour: 8, minute: 0),
+                        end: .numberOfEvents(365)
+                    ),
+                    context: AllergyTaskContext.photoUpload(PhotoUploadContext.random)
                 )
             ]
         )

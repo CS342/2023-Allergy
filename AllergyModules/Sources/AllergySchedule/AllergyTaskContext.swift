@@ -13,6 +13,7 @@ public enum PhotoUploadContext: String, Codable {
     case day0
     case day2
     case day4
+    case random
 }
 /// The context attached to each task in the CS342 2023 Allergy Team Application.
 ///
