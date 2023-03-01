@@ -25,7 +25,9 @@ let package = Package(
         .library(name: "AllergySharedContext", targets: ["AllergySharedContext"])
     ],
     dependencies: [
-        .package(url: "https://github.com/StanfordBDHG/CardinalKit.git", .upToNextMinor(from: "0.3.0"))
+        .package(url: "https://github.com/StanfordBDHG/CardinalKit", .upToNextMinor(from: "0.3.0")),
+        .package(url: "https://github.com/firebase/firebase-ios-sdk", .upToNextMajor(from: "10.5.0")),
+        .package(url: "https://github.com/StanfordBDHG/ImageSource", .revisionItem("d6d035913d6becc602487aaeaa48a3b8a46afd32"))
     ],
     targets: [
         .target(
@@ -71,7 +73,10 @@ let package = Package(
                 .target(name: "AllergySharedContext"),
                 .product(name: "FHIR", package: "CardinalKit"),
                 .product(name: "Questionnaires", package: "CardinalKit"),
-                .product(name: "Scheduler", package: "CardinalKit")
+                .product(name: "Scheduler", package: "CardinalKit"),
+                .product(name: "ImageSource", package: "ImageSource"),
+                .product(name: "FirebaseAuth", package: "firebase-ios-sdk"),
+                .product(name: "FirebaseStorage", package: "firebase-ios-sdk")
             ]
         ),
         .target(

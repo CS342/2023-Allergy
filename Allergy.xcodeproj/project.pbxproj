@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F1DB33029AFD26C00A59211 /* ImageSource in Frameworks */ = {isa = PBXBuildFile; productRef = 2F1DB32F29AFD26C00A59211 /* ImageSource */; };
 		2F39333329A89EB50035A05C /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2F39333229A89EB50035A05C /* FirebaseFirestore */; };
 		2F49B7762980407C00BCB272 /* CardinalKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2F49B7752980407B00BCB272 /* CardinalKit */; };
 		2F49B7782980407C00BCB272 /* FHIR in Frameworks */ = {isa = PBXBuildFile; productRef = 2F49B7772980407C00BCB272 /* FHIR */; };
@@ -81,6 +82,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F59B941298C628800C5107F /* AllergyOnboardingFlow in Frameworks */,
+				2F1DB33029AFD26C00A59211 /* ImageSource in Frameworks */,
 				2F49B7822980419C00BCB272 /* Questionnaires in Frameworks */,
 				2F49B77E2980407C00BCB272 /* Scheduler in Frameworks */,
 				2F59B93F298C628800C5107F /* AllergyMockDataStorageProvider in Frameworks */,
@@ -225,6 +227,7 @@
 				2F9056E1299E2433003D3802 /* FirestoreDataStorage */,
 				2F9056E3299E2433003D3802 /* FirestoreStoragePrefixUserIdAdapter */,
 				2F39333229A89EB50035A05C /* FirebaseFirestore */,
+				2F1DB32F29AFD26C00A59211 /* ImageSource */,
 			);
 			productName = Allergy;
 			productReference = 653A254D283387FE005D4D48 /* Allergy.app */;
@@ -307,6 +310,7 @@
 				2F4E237F2989C5930013F3D9 /* XCRemoteSwiftPackageReference "XCTHealthKit" */,
 				2F9056DC299E234A003D3802 /* XCRemoteSwiftPackageReference "XCTestExtensions" */,
 				2F39333129A89EB50035A05C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				2F1DB32E29AFD26C00A59211 /* XCRemoteSwiftPackageReference "ImageSource" */,
 			);
 			productRefGroup = 653A254E283387FE005D4D48 /* Products */;
 			projectDirPath = "";
@@ -536,7 +540,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 637867499T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Allergy/Supporting Files/Info.plist";
@@ -742,6 +746,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2F1DB32E29AFD26C00A59211 /* XCRemoteSwiftPackageReference "ImageSource" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/StanfordBDHG/ImageSource.git";
+			requirement = {
+				kind = revision;
+				revision = d6d035913d6becc602487aaeaa48a3b8a46afd32;
+			};
+		};
 		2F39333129A89EB50035A05C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -777,6 +789,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2F1DB32F29AFD26C00A59211 /* ImageSource */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F1DB32E29AFD26C00A59211 /* XCRemoteSwiftPackageReference "ImageSource" */;
+			productName = ImageSource;
+		};
 		2F39333229A89EB50035A05C /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2F39333129A89EB50035A05C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
