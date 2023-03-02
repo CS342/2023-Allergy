@@ -10,6 +10,10 @@ struct ARCamera: View {
     var body: some View {
         ZStack {
             Camera(image: $imageState)
+            Image("blue-rectangle")
+                .resizable()
+                .scaledToFit()
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
             Image("human-arm")
                 .resizable()
                 .scaledToFit()
