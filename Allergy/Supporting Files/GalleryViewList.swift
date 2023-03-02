@@ -17,7 +17,7 @@ import AllergyTaskContext
 struct GalleryViewList: View {
     let photoUploadContext: PhotoUploadContext
     
-    //let rows = [GridItem(.fixed(30)), GridItem(.fixed(30))]
+
 
     let storage = Storage.storage()
     
