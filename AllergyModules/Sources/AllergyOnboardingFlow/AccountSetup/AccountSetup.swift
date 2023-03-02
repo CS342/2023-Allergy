@@ -7,6 +7,7 @@
 //
 
 import Account
+import AllergySharedContext
 import class FHIR.FHIR
 import FirebaseAccount
 import Onboarding
@@ -16,6 +17,7 @@ import SwiftUI
 struct AccountSetup: View {
     @Binding private var onboardingSteps: [OnboardingFlow.Step]
     @EnvironmentObject var account: Account
+    @AppStorage(StorageKeys.onboardingFlowComplete) var completedOnboardingFlow = false
     
     
     var body: some View {
@@ -37,7 +39,7 @@ struct AccountSetup: View {
         )
             .onReceive(account.objectWillChange) {
                 if account.signedIn {
-                    onboardingSteps.append(.healthKitPermissions)
+                    completedOnboardingFlow = true
                     // Unfortunately, SwiftUI currently animates changes in the navigation path that do not change
                     // the current top view. Therefore we need to do the following async procedure to remove the
                     // `.login` and `.signUp` steps while disabling the animations before and re-enabling them
@@ -91,7 +93,7 @@ struct AccountSetup: View {
             OnboardingActionsView(
                 "ACCOUNT_NEXT".moduleLocalized,
                 action: {
-                    onboardingSteps.append(.healthKitPermissions)
+                    completedOnboardingFlow = true
                 }
             )
         } else {

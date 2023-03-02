@@ -39,7 +39,7 @@ struct Consent: View {
                 if !FeatureFlags.disableFirebase {
                     onboardingSteps.append(.accountSetup)
                 } else {
-                    onboardingSteps.append(.healthKitPermissions)
+                    completedOnboardingFlow = true
                 }
             }
         )
