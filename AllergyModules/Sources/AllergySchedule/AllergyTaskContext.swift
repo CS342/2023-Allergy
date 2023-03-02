@@ -15,10 +15,7 @@ public enum PhotoUploadContext: String, Codable {
     case day4
 }
 /// The context attached to each task in the CS342 2023 Allergy Team Application.
-///
-/// We currently only support `Questionnaire`s, more cases can be added in the future.
 public enum AllergyTaskContext: Codable, Identifiable {
-    /// The task schould display a `Questionnaire`.
     case questionnaire(Questionnaire)
     case photoUpload(PhotoUploadContext)
     

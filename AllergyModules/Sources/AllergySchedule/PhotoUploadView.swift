@@ -18,6 +18,8 @@ struct PhotoUploadView: View {
     var body: some View {
         NavigationStack {
             VStack {
+                Text(String(localized: "PHOTO_UPLOAD_INSTRUCTION", bundle: .module))
+                    .padding()
                 AllergyImageSource(image: $image)
                     .clipShape(RoundedRectangle(cornerRadius: 8))
                     .padding()
@@ -31,7 +33,7 @@ struct PhotoUploadView: View {
                 }
                     .disabled(image == nil)
             }
-                .navigationTitle("Image Source Example")
+            .navigationTitle("\(photoUploadContext.rawValue.uppercased()) Photo Upload")
         }
     }
 }
