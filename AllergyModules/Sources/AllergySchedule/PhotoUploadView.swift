@@ -13,6 +13,7 @@ import SwiftUI
 struct PhotoUploadView: View {
     @State var image: UIImage?
     let photoUploadContext: PhotoUploadContext
+    @Environment(\.presentationMode) private var presentationMode
     
     
     var body: some View {
@@ -30,6 +31,7 @@ struct PhotoUploadView: View {
                     }
                     
                     StorageManager.shared.uploadImage(data, subfolder: photoUploadContext.rawValue)
+                    presentationMode.wrappedValue.dismiss()
                 }
                     .disabled(image == nil)
             }

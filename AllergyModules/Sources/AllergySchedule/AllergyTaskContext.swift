@@ -8,7 +8,7 @@
 
 import FHIR
 
-public enum PhotoUploadContext: String, Codable {
+public enum PhotoUploadContext: String, Codable, CaseIterable {
     case base
     case day0
     case day2

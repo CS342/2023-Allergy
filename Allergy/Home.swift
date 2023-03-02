@@ -10,7 +10,6 @@ import AllergyContacts
 import AllergyMockDataStorageProvider
 import AllergySchedule
 import AllergySharedContext
-import AllergyGalleryViewList
 import SwiftUI
 
 
@@ -43,7 +42,7 @@ struct HomeView: View {
                 .tabItem {
                     Label("MOCK_UPLOAD_TAB_TITLE", systemImage: "server.rack")
                 }
-            GalleryViewList()
+            GalleryTab()
                 .tag(Tabs.galleryView)
                 .tabItem {
                     Label("GALLERYVIEW_TAB_TITLE", systemImage: "list.clipboard")

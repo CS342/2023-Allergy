@@ -13,14 +13,14 @@ import FirebaseStorage
 import SwiftUI
 
 
-class GalleryLister {
-    static let shared = GalleryLister()
+class GalleryLister: ObservableObject {
+    @Published var images: Dictionary<String, UIImage> = [:]
     //var initializedEmulator = false
     
+
     
-    func listImages(subfolder: String) -> Array<UIImage?> {
-        var imagesList: Array<UIImage?> = Array()
-        let id = UUID().uuidString
+    func listImages(subfolder: String) {
+        //let id = UUID().uuidString
         let storage = Storage.storage()
         
 //        if !initializedEmulator && FeatureFlags.useFirebaseEmulator {
@@ -36,23 +36,24 @@ class GalleryLister {
         //let metadata = StorageMetadata()
         //metadata.contentType = "image/jpg"
         
-        storageRef.listAll{ (result, error) in
+        storageRef.listAll { (result, error) in
             if let error = error {
                 print("Error while retrieving file: ", error)
             }
-
+            
             for item in result!.items {
                 let pictureRef = storageRef.child(item.name)
-                pictureRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                pictureRef.getData(maxSize: 10 * 1024 * 1024) { data, error in
                     if let error = error {
                         print("Error while retrieving file: ", error)
                     } else {
-                        let image = UIImage(data: data!)
-                        imagesList.append(image)
+                        guard let data, let image = UIImage(data: data) else {
+                            return
+                        }
+                        self.images[item.name] = image
                     }
                 }
             }
         }
-        return imagesList
     }
 }
