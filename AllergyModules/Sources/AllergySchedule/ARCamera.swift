@@ -1,33 +1,45 @@
-//
-// This source file is part of the CS342 2023 Allergy Team Application project
-//
-// SPDX-FileCopyrightText: 2023 Stanford University
-//
-// SPDX-License-Identifier: MIT
-//
-
-import ImageSource
 import SwiftUI
-
+import AVFoundation
+import ImageSource
 
 struct ARCamera: View {
-    @Environment(\.presentationMode) private var presentationMode
-    @Binding var image: ImageState
     
+    @State private var session = AVCaptureSession()
+    @State private var imageState: ImageState = .empty
     
     var body: some View {
-        Text("AR View ..")
-        Button("Dismiss ...") {
-            presentationMode.wrappedValue.dismiss()
+        ZStack {
+            Camera(image: $imageState)
+            Image("human-arm")
+                .resizable()
+                .scaledToFit()
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        }
+        .onAppear {
+            self.session = AVCaptureSession()
+            self.session.beginConfiguration()
+            
+            guard let videoDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) else {
+                fatalError("No video device found.")
+            }
+            
+            do {
+                let videoDeviceInput = try AVCaptureDeviceInput(device: videoDevice)
+                if session.canAddInput(videoDeviceInput) {
+                    session.addInput(videoDeviceInput)
+                }
+            } catch {
+                fatalError(error.localizedDescription)
+            }
+            
+            self.session.commitConfiguration()
+            self.session.startRunning()
         }
     }
 }
 
 struct ARCamera_Previews: PreviewProvider {
-    @State private static var image: ImageState = .empty
-    
-    
     static var previews: some View {
-        ARCamera(image: $image)
+        ARCamera()
     }
 }
