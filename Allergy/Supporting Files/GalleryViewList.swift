@@ -8,20 +8,29 @@
 
 import SwiftUI
 import Foundation
+import FirebaseAuth
+import FirebaseCore
+import FirebaseStorage
+import AllergyTaskContext
+
 
 struct GalleryViewList: View {
-    let rows = [GridItem(.fixed(30)), GridItem(.fixed(30))]
+    let photoUploadContext: PhotoUploadContext
+    
+    //let rows = [GridItem(.fixed(30)), GridItem(.fixed(30))]
 
+    let storage = Storage.storage()
+    
+    let images = GalleryLister.shared.listImages(subfolder: photoUploadContext.rawValue)
+    
        var body: some View {
            ScrollView(.horizontal) {
-               LazyHGrid(rows: rows) {
-                   ForEach(0x1f600...0x1f679, id: \.self) { value in
-                       Text(String(format: "%x", value))
-                       Text(emoji(value))
-                           .font(.largeTitle)
+               LazyHGrid(images: images) {
+                   for pic in images {
+                       UIImage(pic)
                    }
                }
-           }
+           }.navigationTitle("Gallery")
        }
 
        private func emoji(_ value: Int) -> String {

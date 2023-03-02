@@ -38,6 +38,7 @@
 		653A256228338800005D4D48 /* AllergyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A256128338800005D4D48 /* AllergyTests.swift */; };
 		653A256C28338800005D4D48 /* SchedulerAndQuestionnaireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A256B28338800005D4D48 /* SchedulerAndQuestionnaireTests.swift */; };
 		CA09BBAF29B0852A003A47F6 /* GalleryViewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA09BBAE29B084FC003A47F6 /* GalleryViewList.swift */; };
+		CA09BBB129B08F0D003A47F6 /* GalleryLister.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA09BBB029B08F0D003A47F6 /* GalleryLister.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		CA09BBA829B07E6E003A47F6 /* GalleryViewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewList.swift; sourceTree = "<group>"; };
 		CA09BBAA29B07F32003A47F6 /* GalleryViewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewList.swift; sourceTree = "<group>"; };
 		CA09BBAE29B084FC003A47F6 /* GalleryViewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewList.swift; sourceTree = "<group>"; };
+		CA09BBB029B08F0D003A47F6 /* GalleryLister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryLister.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				653A255428338800005D4D48 /* Assets.xcassets */,
 				2FC9759E2978E39600BA99FE /* Localizable.strings */,
 				CA09BBAE29B084FC003A47F6 /* GalleryViewList.swift */,
+				CA09BBB029B08F0D003A47F6 /* GalleryLister.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA09BBB129B08F0D003A47F6 /* GalleryLister.swift in Sources */,
 				2FC975A82978F11A00BA99FE /* Home.swift in Sources */,
 				2F4E23832989D51F0013F3D9 /* AllergyAppTestingSetup.swift in Sources */,
 				2F5E32BD297E05EA003432F8 /* AllergyAppDelegate.swift in Sources */,
