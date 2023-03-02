@@ -8,9 +8,17 @@
 
 import SwiftUI
 import Foundation
+import FirebaseAuth
+import FirebaseCore
+import FirebaseStorage
+
 
 struct GalleryViewList: View {
     let rows = [GridItem(.fixed(30)), GridItem(.fixed(30))]
+    static let storage = Storage.storage().reference()
+    let storageReference = storage.child("files")
+
+    
 
        var body: some View {
            ScrollView(.horizontal) {
