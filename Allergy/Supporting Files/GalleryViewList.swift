@@ -16,11 +16,7 @@ import AllergyTaskContext
 
 struct GalleryViewList: View {
     let photoUploadContext: PhotoUploadContext
-    
-
-
     let storage = Storage.storage()
-    
     let images = GalleryLister.shared.listImages(subfolder: photoUploadContext.rawValue)
     
        var body: some View {
