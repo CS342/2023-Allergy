@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "human-arm.png",
+      "filename" : "overlay.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "—Pngtree—blue minimalist lines vertical rectangle_4641636.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "overlay.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

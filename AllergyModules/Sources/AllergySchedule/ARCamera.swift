@@ -9,15 +9,21 @@ struct ARCamera: View {
     
     var body: some View {
         ZStack {
-            Camera(image: $imageState)
-            Image("blue-rectangle")
+            
+            Camera(image: $imageState).frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+            Image("overlay")
                 .resizable()
-                .scaledToFit()
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-            Image("human-arm")
-                .resizable()
-                .scaledToFit()
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                .scaledToFill()
+                .frame(width: 1000, height: 400)
+//            Image("blue-rectangle")
+//                .resizable()
+//                .scaledToFit()
+//                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+//            Image("human-arm")
+//                .resizable()
+//                .scaledToFit()
+//                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+            
         }
         .onAppear {
             self.session = AVCaptureSession()
