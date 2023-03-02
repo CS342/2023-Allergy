@@ -18,7 +18,7 @@ public typealias AllergyScheduler = Scheduler<FHIR, AllergyTaskContext>
 extension AllergyScheduler {
     private static let defaultSchedule = Schedule(
         start: Calendar.current.startOfDay(for: Date()),
-        dateComponents: .init(hour: 8, minute: 0),
+        dateComponents: .init(hour: 0, minute: 1),
         end: .numberOfEvents(1)
     )
     
