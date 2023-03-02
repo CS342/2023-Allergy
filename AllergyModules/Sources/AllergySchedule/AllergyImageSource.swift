@@ -21,7 +21,7 @@ public struct AllergyImageSource: View {
     public var body: some View {
         imageView
             .fullScreenCover(isPresented: $showARCamera) {
-                ARCamera()
+                ARCamera(imageState: $imageState)
             }
             .fullScreenCover(isPresented: $showCamera) {
                 Camera(image: $imageState)
