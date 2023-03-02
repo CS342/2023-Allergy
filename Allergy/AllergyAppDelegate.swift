@@ -8,11 +8,12 @@
 
 import AllergyMockDataStorageProvider
 import AllergySchedule
+import AllergySharedContext
 import CardinalKit
 import FHIR
 import FHIRToFirestoreAdapter
 import FirebaseAccount
-import FirebaseAuth
+import class FirebaseFirestore.FirestoreSettings
 import FirestoreDataStorage
 import FirestoreStoragePrefixUserIdAdapter
 import HealthKit
@@ -27,8 +28,12 @@ class AllergyAppDelegate: CardinalKitAppDelegate {
     override var configuration: Configuration {
         Configuration(standard: FHIR()) {
             AllergyScheduler()
-            if !CommandLine.arguments.contains("--disableFirebase") {
-                FirebaseAccountConfiguration(emulatorSettings: (host: "localhost", port: 9099))
+            if !FeatureFlags.disableFirebase {
+                if FeatureFlags.useFirebaseEmulator {
+                    FirebaseAccountConfiguration(emulatorSettings: (host: "localhost", port: 9099))
+                } else {
+                    FirebaseAccountConfiguration()
+                }
                 firestore
             }
             if HKHealthStore.isHealthDataAvailable() {
@@ -41,12 +46,19 @@ class AllergyAppDelegate: CardinalKitAppDelegate {
     
     
     private var firestore: Firestore<FHIR> {
-        Firestore(
+        let settings = FirestoreSettings()
+        if FeatureFlags.useFirebaseEmulator {
+            settings.host = "localhost:8080"
+            settings.isPersistenceEnabled = false
+            settings.isSSLEnabled = false
+        }
+        
+        return Firestore(
             adapter: {
                 FHIRToFirestoreAdapter()
                 FirestoreStoragePrefixUserIdAdapter()
             },
-            settings: .emulator
+            settings: settings
         )
     }
     

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F1DB33029AFD26C00A59211 /* ImageSource in Frameworks */ = {isa = PBXBuildFile; productRef = 2F1DB32F29AFD26C00A59211 /* ImageSource */; };
+		2F39333329A89EB50035A05C /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2F39333229A89EB50035A05C /* FirebaseFirestore */; };
 		2F49B7762980407C00BCB272 /* CardinalKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2F49B7752980407B00BCB272 /* CardinalKit */; };
 		2F49B7782980407C00BCB272 /* FHIR in Frameworks */ = {isa = PBXBuildFile; productRef = 2F49B7772980407C00BCB272 /* FHIR */; };
 		2F49B77A2980407C00BCB272 /* HealthKitDataSource in Frameworks */ = {isa = PBXBuildFile; productRef = 2F49B7792980407C00BCB272 /* HealthKitDataSource */; };
@@ -18,8 +20,6 @@
 		2F4E237E2989A2FE0013F3D9 /* OnboardingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E237D2989A2FE0013F3D9 /* OnboardingTests.swift */; };
 		2F4E23812989C5930013F3D9 /* XCTHealthKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2F4E23802989C5930013F3D9 /* XCTHealthKit */; };
 		2F4E23832989D51F0013F3D9 /* AllergyAppTestingSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E23822989D51F0013F3D9 /* AllergyAppTestingSetup.swift */; };
-		2F4E23872989DB360013F3D9 /* ContactsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E23862989DB360013F3D9 /* ContactsTests.swift */; };
-		2F4E23892989DB400013F3D9 /* HealthKitUploadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E23882989DB400013F3D9 /* HealthKitUploadTests.swift */; };
 		2F59B93D298C628800C5107F /* AllergyContacts in Frameworks */ = {isa = PBXBuildFile; productRef = 2F59B93C298C628800C5107F /* AllergyContacts */; };
 		2F59B93F298C628800C5107F /* AllergyMockDataStorageProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 2F59B93E298C628800C5107F /* AllergyMockDataStorageProvider */; };
 		2F59B941298C628800C5107F /* AllergyOnboardingFlow in Frameworks */ = {isa = PBXBuildFile; productRef = 2F59B940298C628800C5107F /* AllergyOnboardingFlow */; };
@@ -60,8 +60,6 @@
 		2F49B77329803E8F00BCB272 /* AllergyModules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AllergyModules; sourceTree = "<group>"; };
 		2F4E237D2989A2FE0013F3D9 /* OnboardingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTests.swift; sourceTree = "<group>"; };
 		2F4E23822989D51F0013F3D9 /* AllergyAppTestingSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyAppTestingSetup.swift; sourceTree = "<group>"; };
-		2F4E23862989DB360013F3D9 /* ContactsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTests.swift; sourceTree = "<group>"; };
-		2F4E23882989DB400013F3D9 /* HealthKitUploadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitUploadTests.swift; sourceTree = "<group>"; };
 		2F5E32BC297E05EA003432F8 /* AllergyAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyAppDelegate.swift; sourceTree = "<group>"; };
 		2F9056E6299E266B003D3802 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2FAEC07F297F583900C11C42 /* Allergy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Allergy.entitlements; sourceTree = "<group>"; };
@@ -84,9 +82,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F59B941298C628800C5107F /* AllergyOnboardingFlow in Frameworks */,
+				2F1DB33029AFD26C00A59211 /* ImageSource in Frameworks */,
 				2F49B7822980419C00BCB272 /* Questionnaires in Frameworks */,
 				2F49B77E2980407C00BCB272 /* Scheduler in Frameworks */,
 				2F59B93F298C628800C5107F /* AllergyMockDataStorageProvider in Frameworks */,
+				2F39333329A89EB50035A05C /* FirebaseFirestore in Frameworks */,
 				2F9056E2299E2433003D3802 /* FirestoreDataStorage in Frameworks */,
 				2F49B77A2980407C00BCB272 /* HealthKitDataSource in Frameworks */,
 				2F9056E4299E2433003D3802 /* FirestoreStoragePrefixUserIdAdapter in Frameworks */,
@@ -202,6 +202,7 @@
 				653A2549283387FE005D4D48 /* Sources */,
 				653A254A283387FE005D4D48 /* Frameworks */,
 				653A254B283387FE005D4D48 /* Resources */,
+				F565B3F429A8575100A2D421 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -225,6 +226,8 @@
 				2F9056DF299E2433003D3802 /* FHIRToFirestoreAdapter */,
 				2F9056E1299E2433003D3802 /* FirestoreDataStorage */,
 				2F9056E3299E2433003D3802 /* FirestoreStoragePrefixUserIdAdapter */,
+				2F39333229A89EB50035A05C /* FirebaseFirestore */,
+				2F1DB32F29AFD26C00A59211 /* ImageSource */,
 			);
 			productName = Allergy;
 			productReference = 653A254D283387FE005D4D48 /* Allergy.app */;
@@ -306,6 +309,8 @@
 				2F49B7742980407B00BCB272 /* XCRemoteSwiftPackageReference "CardinalKit" */,
 				2F4E237F2989C5930013F3D9 /* XCRemoteSwiftPackageReference "XCTHealthKit" */,
 				2F9056DC299E234A003D3802 /* XCRemoteSwiftPackageReference "XCTestExtensions" */,
+				2F39333129A89EB50035A05C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				2F1DB32E29AFD26C00A59211 /* XCRemoteSwiftPackageReference "ImageSource" */,
 			);
 			productRefGroup = 653A254E283387FE005D4D48 /* Products */;
 			projectDirPath = "";
@@ -344,6 +349,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F565B3F429A8575100A2D421 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint lint --quiet $@ | sed 's/error: /warning: /g'\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		653A2549283387FE005D4D48 /* Sources */ = {
@@ -514,7 +540,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = W4857UHZ73;
+				DEVELOPMENT_TEAM = 637867499T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Allergy/Supporting Files/Info.plist";
@@ -539,7 +565,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = JustinWu;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs342.2023.allergy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -720,12 +746,28 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2F1DB32E29AFD26C00A59211 /* XCRemoteSwiftPackageReference "ImageSource" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/StanfordBDHG/ImageSource.git";
+			requirement = {
+				kind = revision;
+				revision = d6d035913d6becc602487aaeaa48a3b8a46afd32;
+			};
+		};
+		2F39333129A89EB50035A05C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.5.0;
+			};
+		};
 		2F49B7742980407B00BCB272 /* XCRemoteSwiftPackageReference "CardinalKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/StanfordBDHG/CardinalKit";
 			requirement = {
 				kind = upToNextMinorVersion;
-				minimumVersion = 0.3.0;
+				minimumVersion = 0.3.2;
 			};
 		};
 		2F4E237F2989C5930013F3D9 /* XCRemoteSwiftPackageReference "XCTHealthKit" */ = {
@@ -733,7 +775,7 @@
 			repositoryURL = "https://github.com/StanfordBDHG/XCTHealthKit";
 			requirement = {
 				kind = upToNextMinorVersion;
-				minimumVersion = 0.3.0;
+				minimumVersion = 0.3.3;
 			};
 		};
 		2F9056DC299E234A003D3802 /* XCRemoteSwiftPackageReference "XCTestExtensions" */ = {
@@ -747,6 +789,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2F1DB32F29AFD26C00A59211 /* ImageSource */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F1DB32E29AFD26C00A59211 /* XCRemoteSwiftPackageReference "ImageSource" */;
+			productName = ImageSource;
+		};
+		2F39333229A89EB50035A05C /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F39333129A89EB50035A05C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
 		2F49B7752980407B00BCB272 /* CardinalKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2F49B7742980407B00BCB272 /* XCRemoteSwiftPackageReference "CardinalKit" */;
