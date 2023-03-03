@@ -24,7 +24,7 @@ public struct AllergyImageSource: View {
                 ARCamera(image: $imageState)
             }
             .fullScreenCover(isPresented: $showCamera) {
-                Camera(image: $imageState)
+                CameraOverlay(image: $imageState)
             }
             .sheet(isPresented: $showPhotosPicker) {
                 PhotosPicker(image: $imageState)
