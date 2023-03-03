@@ -14,9 +14,11 @@ struct ARImageTrackingView: UIViewRepresentable {
     func makeUIView(context: Context) -> ARSCNView {
         let sceneView = ARSCNView()
         let configuration = ARImageTrackingConfiguration()
-        if let imageToTrack = ARReferenceImage("overlay") {
-            configuration.trackingImages = [imageToTrack]
+        guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "AR Resources", bundle: .main)
+        else {
+            return sceneView
         }
+        configuration.trackingImages = referenceImages
         sceneView.session.run(configuration)
         sceneView.delegate = context.coordinator
         return sceneView
