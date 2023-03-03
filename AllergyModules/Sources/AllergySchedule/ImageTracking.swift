@@ -19,7 +19,7 @@ struct ARImageTrackingView: UIViewRepresentable {
             return sceneView
         }
         configuration.trackingImages = referenceImages
-        sceneView.session.run(configuration)
+        sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
         sceneView.delegate = context.coordinator
         return sceneView
     }
