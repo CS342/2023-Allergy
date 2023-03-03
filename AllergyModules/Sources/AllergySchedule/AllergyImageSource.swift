@@ -15,13 +15,17 @@ public struct AllergyImageSource: View {
     @State private var showARCamera = false
     @State private var showCamera = false
     @State private var showPhotosPicker = false
+    @State private var showImageTracking = false
     @State private var imageState: ImageState = .empty
     
     
     public var body: some View {
         imageView
-            .fullScreenCover(isPresented: $showARCamera) {
-                ARCamera(image: $imageState)
+//            .fullScreenCover(isPresented: $showARCamera) {
+//                ARCamera(image: $imageState)
+//            }
+            .fullScreenCover(isPresented: $showImageTracking) {
+                ARImageTrackingView()
             }
             .fullScreenCover(isPresented: $showCamera) {
                 CameraOverlay(image: $imageState)
@@ -96,7 +100,8 @@ public struct AllergyImageSource: View {
             content: {
                 Button(
                     action: {
-                        showARCamera.toggle()
+                        //showARCamera.toggle()
+                        ImageTracking.toggle()
                     },
                     label: {
                         Label("AR Camera", systemImage: "camera.viewfinder")

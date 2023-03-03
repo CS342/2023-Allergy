@@ -6,29 +6,16 @@
 // SPDX-License-Identifier: MIT
 //
 
-import ARKit
 import SwiftUI
+import ARKit
 
 struct ARImageTrackingView: UIViewRepresentable {
-    class Coordinator: NSObject, ARSCNViewDelegate {
-        private func renderer(_ renderer: ARSCNView, didAdd node: SCNNode, for anchor: ARAnchor) {
-            guard anchor is ARImageAnchor
-            else {
-                return
-            }
-            // The image you are tracking has been detected
-            let screenshot = renderer.snapshot()
-            UIImageWriteToSavedPhotosAlbum(screenshot, nil, nil, nil)
-        }
-    }
-    
+
     func makeUIView(context: Context) -> ARSCNView {
         let sceneView = ARSCNView()
         let configuration = ARImageTrackingConfiguration()
-        if let image = UIImage(named: "overlay"),
-           let cgImage = image.cgImage {
-            let referenceImage = ARReferenceImage(cgImage, orientation: .up, physicalWidth: image.size.width)
-            configuration.trackingImages = [referenceImage]
+        if let imageToTrack = ARReferenceImage("overlay") {
+            configuration.trackingImages = [imageToTrack]
         }
         sceneView.session.run(configuration)
         sceneView.delegate = context.coordinator
@@ -40,4 +27,16 @@ struct ARImageTrackingView: UIViewRepresentable {
     func makeCoordinator() -> Coordinator {
         Coordinator()
     }
+
+    class Coordinator: NSObject, ARSCNViewDelegate {
+
+        func renderer(_ renderer: ARSCNView, didAdd node: SCNNode, for anchor: ARAnchor) {
+            guard let imageAnchor = anchor as? ARImageAnchor else { return }
+            // The image you are tracking has been detected
+            let screenshot = renderer.snapshot()
+            UIImageWriteToSavedPhotosAlbum(screenshot, nil, nil, nil)
+        }
+
+    }
+
 }
