@@ -6,19 +6,28 @@
 // SPDX-License-Identifier: MIT
 //
 
-import AVFoundation
 import ImageSource
 import SwiftUI
+
+
 struct ARCamera: View {
-    @Binding var imageState: ImageState
+    @Environment(\.presentationMode) private var presentationMode
+    @Binding var image: ImageState
+    
+    
     var body: some View {
-        ZStack {
-            Camera(image: $imageState).frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-            Image("overlay")
-                .resizable()
-                .scaledToFill()
-                .frame(width: 1000, height: 400)
-                .accessibility(hidden: true)
+        Text("AR View ..")
+        Button("Dismiss ...") {
+            presentationMode.wrappedValue.dismiss()
         }
+    }
+}
+
+struct ARCamera_Previews: PreviewProvider {
+    @State private static var image: ImageState = .empty
+    
+    
+    static var previews: some View {
+        ARCamera(image: $image)
     }
 }

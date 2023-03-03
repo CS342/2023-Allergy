@@ -21,10 +21,10 @@ public struct AllergyImageSource: View {
     public var body: some View {
         imageView
             .fullScreenCover(isPresented: $showARCamera) {
-                ARCamera(imageState: $imageState)
+                ARCamera(image: $imageState)
             }
             .fullScreenCover(isPresented: $showCamera) {
-                Camera(image: $imageState)
+                CameraOverlay(image: $imageState)
             }
             .sheet(isPresented: $showPhotosPicker) {
                 PhotosPicker(image: $imageState)
