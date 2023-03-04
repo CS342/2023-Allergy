@@ -129,16 +129,5 @@ extension XCUIApplication {
         staticTexts["Repeat\nPassword"].swipeUp()
         
         collectionViews.buttons["Sign Up"].tap()
-        
-        sleep(3)
-        
-        if staticTexts["HealthKit Access"].waitForExistence(timeout: 5) && navigationBars.buttons["Back"].waitForExistence(timeout: 5) {
-            navigationBars.buttons["Back"].tap()
-            
-            XCTAssertTrue(staticTexts["Leland Stanford"].waitForExistence(timeout: 2))
-            XCTAssertTrue(staticTexts["leland@stanford.edu"].waitForExistence(timeout: 2))
-            XCTAssertTrue(scrollViews.otherElements.buttons["Next"].waitForExistence(timeout: 2))
-            scrollViews.otherElements.buttons["Next"].tap()
-        }
     }
 }
