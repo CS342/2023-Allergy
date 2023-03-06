@@ -40,6 +40,7 @@
 		653A255528338800005D4D48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 653A255428338800005D4D48 /* Assets.xcassets */; };
 		653A256228338800005D4D48 /* AllergyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A256128338800005D4D48 /* AllergyTests.swift */; };
 		653A256C28338800005D4D48 /* SchedulerAndQuestionnaireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A256B28338800005D4D48 /* SchedulerAndQuestionnaireTests.swift */; };
+		EAAB99F429B71EB900AEAEBF /* GalleryViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAB99F329B71EB900AEAEBF /* GalleryViewTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		653A256728338800005D4D48 /* AllergyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AllergyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		653A256B28338800005D4D48 /* SchedulerAndQuestionnaireTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulerAndQuestionnaireTests.swift; sourceTree = "<group>"; };
 		653A258928339462005D4D48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAAB99F329B71EB900AEAEBF /* GalleryViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 			children = (
 				2F4E237D2989A2FE0013F3D9 /* OnboardingTests.swift */,
 				653A256B28338800005D4D48 /* SchedulerAndQuestionnaireTests.swift */,
+				EAAB99F329B71EB900AEAEBF /* GalleryViewTests.swift */,
 			);
 			path = AllergyUITests;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAAB99F429B71EB900AEAEBF /* GalleryViewTests.swift in Sources */,
 				2F4E237E2989A2FE0013F3D9 /* OnboardingTests.swift in Sources */,
 				653A256C28338800005D4D48 /* SchedulerAndQuestionnaireTests.swift in Sources */,
 			);
@@ -560,7 +564,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 637867499T;
+				DEVELOPMENT_TEAM = 3GUZUGUQ74;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Allergy/Supporting Files/Info.plist";
@@ -585,7 +589,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs342.2023.allergy;
+				PRODUCT_BUNDLE_IDENTIFIER = "Rachel-Wu";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -653,11 +657,12 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 637867499T;
+				DEVELOPMENT_TEAM = 3GUZUGUQ74;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs342.2023.allergy.tests;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = "Rachel-Wu";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_ELicenseRef-TemplateApplication_LOC_STRINGS" = NO;
 				SWIFT_VERSION = 5.0;
@@ -673,11 +678,12 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 637867499T;
+				DEVELOPMENT_TEAM = 3GUZUGUQ74;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs342.2023.allergy.tests;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = "Rachel-Wu";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_ELicenseRef-TemplateApplication_LOC_STRINGS" = NO;
 				SWIFT_VERSION = 5.0;
