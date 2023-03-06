@@ -19,12 +19,15 @@ class ARImageTrackingViewCoordinator: NSObject, ARSCNViewDelegate {
     let presentationMode: Binding<PresentationMode>
     weak var sceneView: ARSCNView?
     
-    
     init(image: Binding<ImageState>, presentationMode: Binding<PresentationMode>) {
         self.image = image
         self.presentationMode = presentationMode
     }
     
+    @objc
+    func closeButtonTapped() {
+        self.presentationMode.wrappedValue.dismiss()
+    }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let imageAnchor = anchor as? ARImageAnchor else {
@@ -83,9 +86,6 @@ class ARImageTrackingViewCoordinator: NSObject, ARSCNViewDelegate {
             self.presentationMode.wrappedValue.dismiss()
         }
     }
-    @objc public func closeButtonTapped() {
-        self.presentationMode.wrappedValue.dismiss()
-    }
 }
 
 
@@ -106,6 +106,16 @@ struct ARImageTrackingView: UIViewRepresentable {
         sceneView.delegate = context.coordinator
         
         context.coordinator.sceneView = sceneView
+        
+        // Add close button as an overlay on top of the ARSCNView
+        let closeButton = UIButton(type: .close)
+        closeButton.addTarget(context.coordinator, action: #selector(ARImageTrackingViewCoordinator.closeButtonTapped), for: .touchUpInside)
+        sceneView.addSubview(closeButton)
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            closeButton.topAnchor.constraint(equalTo: sceneView.topAnchor, constant: 16),
+            closeButton.trailingAnchor.constraint(equalTo: sceneView.trailingAnchor, constant: -16)
+        ])
         
         return sceneView
     }
