@@ -83,13 +83,15 @@ class ARImageTrackingViewCoordinator: NSObject, ARSCNViewDelegate {
             self.presentationMode.wrappedValue.dismiss()
         }
     }
+    @objc public func closeButtonTapped() {
+        self.presentationMode.wrappedValue.dismiss()
+    }
 }
 
 
 struct ARImageTrackingView: UIViewRepresentable {
     @Environment(\.presentationMode) private var presentationMode
     @Binding var image: ImageState
-    
     
     func makeUIView(context: Context) -> ARSCNView {
         let sceneView = ARSCNView()
