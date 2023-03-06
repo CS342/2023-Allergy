@@ -31,7 +31,11 @@ class GalleryLister: ObservableObject {
                 print("Error while retrieving file: ", error)
             }
             
-            for item in result!.items {
+            guard let result else {
+                return
+            }
+            
+            for item in result.items {
                 let pictureRef = storageRef.child(item.name)
                 pictureRef.getData(maxSize: 10 * 1024 * 1024) { data, error in
                     if let error = error {
