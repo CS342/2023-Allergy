@@ -40,17 +40,6 @@ struct AccountSetup: View {
             .onReceive(account.objectWillChange) {
                 if account.signedIn {
                     completedOnboardingFlow = true
-                    // Unfortunately, SwiftUI currently animates changes in the navigation path that do not change
-                    // the current top view. Therefore we need to do the following async procedure to remove the
-                    // `.login` and `.signUp` steps while disabling the animations before and re-enabling them
-                    // after the elements have been changed.
-                    Task { @MainActor in
-                        try? await Task.sleep(for: .seconds(1.0))
-                        UIView.setAnimationsEnabled(false)
-                        onboardingSteps.removeAll(where: { $0 == .login || $0 == .signUp })
-                        try? await Task.sleep(for: .seconds(1.0))
-                        UIView.setAnimationsEnabled(true)
-                    }
                 }
             }
     }

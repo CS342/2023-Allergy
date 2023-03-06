@@ -36,8 +36,6 @@ public struct OnboardingFlow: View {
                         AllergyLogin()
                     case .signUp:
                         AllergySignUp()
-//                    case .healthKitPermissions:
-//                        HealthKitPermissions()
                     }
                 }
                 .navigationBarTitleDisplayMode(.inline)

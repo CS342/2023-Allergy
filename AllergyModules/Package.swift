@@ -27,7 +27,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/StanfordBDHG/CardinalKit", .upToNextMinor(from: "0.3.3")),
         .package(url: "https://github.com/firebase/firebase-ios-sdk", .upToNextMajor(from: "10.5.0")),
-        .package(url: "https://github.com/StanfordBDHG/ImageSource", .revisionItem("d6d035913d6becc602487aaeaa48a3b8a46afd32"))
+        .package(url: "https://github.com/StanfordBDHG/ImageSource", revision: "d6d035913d6becc602487aaeaa48a3b8a46afd32")
     ],
     targets: [
         .target(
