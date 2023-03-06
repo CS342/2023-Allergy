@@ -18,6 +18,7 @@ struct HomeView: View {
         case schedule
         case contact
         case mockUpload
+        case galleryView
     }
     
     
@@ -41,6 +42,12 @@ struct HomeView: View {
                 .tabItem {
                     Label("MOCK_UPLOAD_TAB_TITLE", systemImage: "server.rack")
                 }
+            GalleryTab()
+                .tag(Tabs.galleryView)
+                .tabItem {
+                    Label("GALLERYVIEW_TAB_TITLE", systemImage: "list.clipboard")
+                }
+            
         }
     }
 }

@@ -17,3 +17,7 @@
 
 // MARK: - Schedule
 "SCHEDULE_TAB_TITLE" = "Schedule";
+
+
+// MARK: - Gallery View
+"GALLERYVIEW_TAB_TITLE" = "Gallery";

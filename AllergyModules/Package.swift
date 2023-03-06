@@ -22,7 +22,7 @@ let package = Package(
         .library(name: "AllergyMockDataStorageProvider", targets: ["AllergyMockDataStorageProvider"]),
         .library(name: "AllergyOnboardingFlow", targets: ["AllergyOnboardingFlow"]),
         .library(name: "AllergySchedule", targets: ["AllergySchedule"]),
-        .library(name: "AllergySharedContext", targets: ["AllergySharedContext"])
+        .library(name: "AllergySharedContext", targets: ["AllergySharedContext"]),
     ],
     dependencies: [
         .package(url: "https://github.com/StanfordBDHG/CardinalKit", .upToNextMinor(from: "0.3.3")),
@@ -82,6 +82,6 @@ let package = Package(
         .target(
             name: "AllergySharedContext",
             dependencies: []
-        )
+        ),
     ]
 )
