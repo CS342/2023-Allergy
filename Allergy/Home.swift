@@ -47,7 +47,6 @@ struct HomeView: View {
                 .tabItem {
                     Label("GALLERYVIEW_TAB_TITLE", systemImage: "list.clipboard")
                 }
-            
         }
     }
 }

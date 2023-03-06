@@ -1,8 +1,9 @@
 //
-//  GalleryTab.swift
-//  Allergy
+// This source file is part of the CS342 2023 Allergy Team Application project
 //
-//  Created by Andy Wang on 3/2/23.
+// SPDX-FileCopyrightText: 2023 Stanford University
+//
+// SPDX-License-Identifier: MIT
 //
 
 import AllergySchedule
@@ -19,7 +20,6 @@ struct GalleryTab: View {
                 }
             }.navigationTitle("Gallery")
         }
-        
     }
 }
 

@@ -30,6 +30,7 @@ struct GalleryViewList: View {
                            .resizable()
                            .scaledToFit()
                            .frame(width: 100)
+                           .accessibility(hidden: true)
                    }
                }
            }
