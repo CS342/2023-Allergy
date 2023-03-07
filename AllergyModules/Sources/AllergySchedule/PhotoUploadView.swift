@@ -26,6 +26,8 @@ struct PhotoUploadView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 8))
                     .padding()
                 TextField("Enter a comment (optional)", text: $comment)
+                    .padding()
+                    .border(.blue)
                 Button("Upload") {
                     guard let image,
                           let data = image.jpegData(compressionQuality: 0.8) else {
