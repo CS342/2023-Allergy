@@ -12,11 +12,12 @@ struct InstructionView: View {
     var body: some View {
         VStack(spacing: 20) {
             HStack(spacing: 30) {
-                VStack(spacing: 8) {
+                VStack(spacing: 15) {
                     Text("Patch Testing Instructions")
-                        .font(.title2.bold())
+                        .font(.title.bold())
                     Text("Patch Testing Purpose and Steps")
                         .font(.title3)
+                    PatchTestingView()
                 }
             }
             Text(instruction)
