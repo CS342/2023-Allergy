@@ -37,6 +37,8 @@ class ARImageTrackingViewCoordinator: NSObject, ARSCNViewDelegate {
         let referenceImage = imageAnchor.referenceImage
         
         DispatchQueue.global(qos: .userInitiated).async {
+            
+            
             // Create a plane to visualize the initial position of the detected image.
             let plane = SCNPlane(
                 width: referenceImage.physicalSize.width,
@@ -69,7 +71,26 @@ class ARImageTrackingViewCoordinator: NSObject, ARSCNViewDelegate {
                     }
                 }
             )
-            
+            let textLayer = CATextLayer()
+            textLayer.string = "Keep phone still for next 3 seconds!"
+            textLayer.fontSize = 24
+            textLayer.alignmentMode = CATextLayerAlignmentMode.center
+            textLayer.frame = CGRect(x: 0, y: 50, width: 300, height: 50)
+            let overlayNode = SCNNode()
+            overlayNode.geometry = SCNPlane(width: 0.1, height: 0.1)
+            overlayNode.geometry?.firstMaterial?.diffuse.contents = UIColor.clear
+            overlayNode.geometry?.firstMaterial?.lightingModel = .constant
+            overlayNode.position = SCNVector3(0.0, 0.0, -0.5)
+
+            overlayNode.geometry?.firstMaterial?.isDoubleSided = true
+            overlayNode.geometry?.firstMaterial?.writesToDepthBuffer = false
+            overlayNode.geometry?.firstMaterial?.readsFromDepthBuffer = false
+            overlayNode.geometry?.firstMaterial?.transparency = 1.0
+            overlayNode.geometry?.firstMaterial?.blendMode = .screen
+
+            overlayNode.geometry?.firstMaterial?.emission.contents = textLayer
+
+            node.addChildNode(overlayNode)
             // Add the plane visualization to the scene.
             node.addChildNode(planeNode)
         }
