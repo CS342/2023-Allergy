@@ -24,6 +24,7 @@ struct PatchTestingView: View {
             return Image(systemName: "person.fill")
         }
         
+        // swiftlint:disable:next accessibility_label_for_image
         return Image(uiImage: image)
     }
 }

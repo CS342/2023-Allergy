@@ -13,10 +13,9 @@ import SwiftUI
 
 /// Displays the contacts for the CS342 2023 Allergy Team Application.
 public struct Contacts: View {
-    
     public var body: some View {
         ScrollView(.vertical) {
-            InstructionView();
+            InstructionView()
         }
     }
     
