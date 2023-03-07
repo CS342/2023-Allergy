@@ -39,8 +39,6 @@ class ARImageTrackingViewCoordinator: NSObject, ARSCNViewDelegate {
         let referenceImage = imageAnchor.referenceImage
         
         DispatchQueue.global(qos: .userInitiated).async {
-            
-            
             // Create a plane to visualize the initial position of the detected image.
             let plane = SCNPlane(
                 width: referenceImage.physicalSize.width,
@@ -77,26 +75,24 @@ class ARImageTrackingViewCoordinator: NSObject, ARSCNViewDelegate {
                     }
                 }
             )
-            let textLayer = CATextLayer()
-            textLayer.string = "Keep phone still for next 3 seconds!"
-            textLayer.fontSize = 24
-            textLayer.alignmentMode = CATextLayerAlignmentMode.center
-            textLayer.frame = CGRect(x: 0, y: 50, width: 300, height: 50)
-            let overlayNode = SCNNode()
-            overlayNode.geometry = SCNPlane(width: 0.1, height: 0.1)
-            overlayNode.geometry?.firstMaterial?.diffuse.contents = UIColor.clear
-            overlayNode.geometry?.firstMaterial?.lightingModel = .constant
-            overlayNode.position = SCNVector3(0.0, 0.0, -0.5)
+            let textNode = SCNNode()
 
-            overlayNode.geometry?.firstMaterial?.isDoubleSided = true
-            overlayNode.geometry?.firstMaterial?.writesToDepthBuffer = false
-            overlayNode.geometry?.firstMaterial?.readsFromDepthBuffer = false
-            overlayNode.geometry?.firstMaterial?.transparency = 1.0
-            overlayNode.geometry?.firstMaterial?.blendMode = .screen
+            DispatchQueue.main.async {
+                let textLayer = CATextLayer()
+                textLayer.string = "Keep phone still for next 3 seconds!"
+                textLayer.fontSize = 48
+                textLayer.alignmentMode = .center
+                textLayer.frame = CGRect(x: 0, y: 0, width: 300, height: 50)
+                textLayer.foregroundColor = UIColor.white.cgColor
 
-            overlayNode.geometry?.firstMaterial?.emission.contents = textLayer
+                let textGeometry = SCNPlane(width: referenceImage.physicalSize.width, height: referenceImage.physicalSize.height)
+                textGeometry.firstMaterial?.diffuse.contents = textLayer
+                textGeometry.firstMaterial?.isDoubleSided = true
 
-            node.addChildNode(overlayNode)
+                textNode.geometry = textGeometry
+                textNode.position = SCNVector3(0, 0.05, 0)
+                node.addChildNode(textNode)
+            }
             // Add the plane visualization to the scene.
             node.addChildNode(planeNode)
         }
