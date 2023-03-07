@@ -58,7 +58,7 @@ class ARImageTrackingViewCoordinator: NSObject, ARSCNViewDelegate {
                         .fadeOpacity(to: 0.85, duration: 0.25),
                         .fadeOpacity(to: 0.15, duration: 0.25),
                         .fadeOpacity(to: 0.85, duration: 0.25),
-                        .fadeOut(duration: 0.5),
+                        .fadeOut(duration: 3),
                         .removeFromParentNode()
                     ]
                 ),
