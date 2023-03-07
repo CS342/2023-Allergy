@@ -18,6 +18,8 @@ class ARImageTrackingViewCoordinator: NSObject, ARSCNViewDelegate {
     let image: Binding<ImageState>
     let presentationMode: Binding<PresentationMode>
     weak var sceneView: ARSCNView?
+    var detectedImageCounter = 0
+    //var maximumNumberOfTrackedImages: Int
     
     init(image: Binding<ImageState>, presentationMode: Binding<PresentationMode>) {
         self.image = image
@@ -65,7 +67,11 @@ class ARImageTrackingViewCoordinator: NSObject, ARSCNViewDelegate {
                 completionHandler: {
                     // If the image anchor is still available after we run the animation we take a screenshot.
                     if imageAnchor.isTracked {
-                        self.createScreenshot()
+                        self.detectedImageCounter += 1
+                        if self.detectedImageCounter == 2 {
+                            self.createScreenshot()
+                            self.detectedImageCounter = 0
+                        }
                     }
                 }
             )
@@ -102,6 +108,7 @@ struct ARImageTrackingView: UIViewRepresentable {
         }
         
         configuration.detectionImages = referenceImages
+        configuration.maximumNumberOfTrackedImages = 2
         sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
         sceneView.delegate = context.coordinator
         
