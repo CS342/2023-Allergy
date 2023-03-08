@@ -40,7 +40,9 @@
 		653A255528338800005D4D48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 653A255428338800005D4D48 /* Assets.xcassets */; };
 		653A256228338800005D4D48 /* AllergyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A256128338800005D4D48 /* AllergyTests.swift */; };
 		653A256C28338800005D4D48 /* SchedulerAndQuestionnaireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A256B28338800005D4D48 /* SchedulerAndQuestionnaireTests.swift */; };
+		EA6EA8C229B832CF006DB35E /* PhotoUploadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6EA8C129B832CF006DB35E /* PhotoUploadTests.swift */; };
 		EAAB99F429B71EB900AEAEBF /* GalleryViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAB99F329B71EB900AEAEBF /* GalleryViewTests.swift */; };
+		EAC059AF29B83AF60018FB12 /* FirebaseConfiguration in Frameworks */ = {isa = PBXBuildFile; productRef = EAC059AE29B83AF60018FB12 /* FirebaseConfiguration */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,7 @@
 		653A256728338800005D4D48 /* AllergyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AllergyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		653A256B28338800005D4D48 /* SchedulerAndQuestionnaireTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulerAndQuestionnaireTests.swift; sourceTree = "<group>"; };
 		653A258928339462005D4D48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA6EA8C129B832CF006DB35E /* PhotoUploadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoUploadTests.swift; sourceTree = "<group>"; };
 		EAAB99F329B71EB900AEAEBF /* GalleryViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +100,7 @@
 				2F39333329A89EB50035A05C /* FirebaseFirestore in Frameworks */,
 				2F9056E2299E2433003D3802 /* FirestoreDataStorage in Frameworks */,
 				2F49B77A2980407C00BCB272 /* HealthKitDataSource in Frameworks */,
+				EAC059AF29B83AF60018FB12 /* FirebaseConfiguration in Frameworks */,
 				2F9056E4299E2433003D3802 /* FirestoreStoragePrefixUserIdAdapter in Frameworks */,
 				2F59B945298C628800C5107F /* AllergySharedContext in Frameworks */,
 				2F49B784298041F300BCB272 /* Contact in Frameworks */,
@@ -201,6 +205,7 @@
 				2F4E237D2989A2FE0013F3D9 /* OnboardingTests.swift */,
 				653A256B28338800005D4D48 /* SchedulerAndQuestionnaireTests.swift */,
 				EAAB99F329B71EB900AEAEBF /* GalleryViewTests.swift */,
+				EA6EA8C129B832CF006DB35E /* PhotoUploadTests.swift */,
 			);
 			path = AllergyUITests;
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 				2F9056E3299E2433003D3802 /* FirestoreStoragePrefixUserIdAdapter */,
 				2F39333229A89EB50035A05C /* FirebaseFirestore */,
 				2F1DB32F29AFD26C00A59211 /* ImageSource */,
+				EAC059AE29B83AF60018FB12 /* FirebaseConfiguration */,
 			);
 			productName = Allergy;
 			productReference = 653A254D283387FE005D4D48 /* Allergy.app */;
@@ -421,6 +427,7 @@
 				EAAB99F429B71EB900AEAEBF /* GalleryViewTests.swift in Sources */,
 				2F4E237E2989A2FE0013F3D9 /* OnboardingTests.swift in Sources */,
 				653A256C28338800005D4D48 /* SchedulerAndQuestionnaireTests.swift in Sources */,
+				EA6EA8C229B832CF006DB35E /* PhotoUploadTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -909,6 +916,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2F49B7742980407B00BCB272 /* XCRemoteSwiftPackageReference "CardinalKit" */;
 			productName = FirestoreStoragePrefixUserIdAdapter;
+		};
+		EAC059AE29B83AF60018FB12 /* FirebaseConfiguration */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F49B7742980407B00BCB272 /* XCRemoteSwiftPackageReference "CardinalKit" */;
+			productName = FirebaseConfiguration;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
