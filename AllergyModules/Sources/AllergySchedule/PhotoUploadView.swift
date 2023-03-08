@@ -12,7 +12,9 @@ import SwiftUI
 
 struct PhotoUploadView: View {
     @State var image: UIImage?
+    @State var comment: String = ""
     let photoUploadContext: PhotoUploadContext
+    @Environment(\.presentationMode) private var presentationMode
     
     
     var body: some View {
@@ -23,13 +25,17 @@ struct PhotoUploadView: View {
                 AllergyImageSource(image: $image)
                     .clipShape(RoundedRectangle(cornerRadius: 8))
                     .padding()
+                TextField("Enter a comment (optional)", text: $comment)
+                    .padding()
+                    .border(.blue)
                 Button("Upload") {
                     guard let image,
                           let data = image.jpegData(compressionQuality: 0.8) else {
                         return
                     }
                     
-                    StorageManager.shared.uploadImage(data, subfolder: photoUploadContext.rawValue)
+                    StorageManager.shared.uploadImage(data, subfolder: photoUploadContext.rawValue, comment: comment)
+                    presentationMode.wrappedValue.dismiss()
                 }
                     .disabled(image == nil)
             }
