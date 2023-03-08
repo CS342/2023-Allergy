@@ -14,6 +14,8 @@ import FHIR
 import FHIRToFirestoreAdapter
 import FirebaseAccount
 import class FirebaseFirestore.FirestoreSettings
+import FirebaseStorage
+import FirebaseConfiguration
 import FirestoreDataStorage
 import FirestoreStoragePrefixUserIdAdapter
 import HealthKit
@@ -34,6 +36,7 @@ class AllergyAppDelegate: CardinalKitAppDelegate {
                 } else {
                     FirebaseAccountConfiguration()
                 }
+                FirestoreStorage()
                 firestore
             }
             if HKHealthStore.isHealthDataAvailable() {
@@ -71,6 +74,19 @@ class AllergyAppDelegate: CardinalKitAppDelegate {
             )
         } adapter: {
             HealthKitToFHIRAdapter()
+        }
+    }
+}
+
+
+class FirestoreStorage<ComponentStandard: Standard>: Component {
+    @Dependency private var configureFirebaseApp: ConfigureFirebaseApp
+    
+    
+    func configure() {
+        let storage = Storage.storage()
+        if FeatureFlags.useFirebaseEmulator {
+            storage.useEmulator(withHost: "localhost", port: 9199)
         }
     }
 }
