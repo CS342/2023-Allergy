@@ -21,7 +21,7 @@ public struct AllergyImageSource: View {
     public var body: some View {
         imageView
             .fullScreenCover(isPresented: $showImageTracking) {
-                ARImageTrackingView(image: $imageState)
+                ARImageTrackingOverlay(image: $imageState)
             }
             .fullScreenCover(isPresented: $showCamera) {
                 CameraOverlay(image: $imageState)

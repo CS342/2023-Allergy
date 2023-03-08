@@ -70,6 +70,15 @@ extension AllergyScheduler {
             ),
             schedule: defaultSchedule,
             context: AllergyTaskContext.photoUpload(PhotoUploadContext.day4)
+        ),
+        Task(
+            title: String(localized: "Optional Photo Taking Task", bundle: .module),
+            description: String(
+                localized: "If there is any photo you think will help us with the diagnosis, please submit here.",
+                bundle: .module
+            ),
+            schedule: defaultSchedule,
+            context: AllergyTaskContext.photoUpload(PhotoUploadContext.optional)
         )
     ]
     
