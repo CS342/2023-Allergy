@@ -26,5 +26,8 @@ class GalleryViewTests: XCTestCase {
                 let app = XCUIApplication()
                 XCTAssertTrue(app.tabBars["Tab Bar"].buttons["Gallery"].waitForExistence(timeout: 2))
                 app.tabBars["Tab Bar"].buttons["Gallery"].tap()
+                
+                               
+                
     }
 }
