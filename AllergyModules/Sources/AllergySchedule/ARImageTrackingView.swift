@@ -14,107 +14,10 @@ import SceneKit
 import SwiftUI
 
 
-class ARImageTrackingViewCoordinator: NSObject, ARSCNViewDelegate {
-    let image: Binding<ImageState>
-    let presentationMode: Binding<PresentationMode>
-    weak var sceneView: ARSCNView?
-    var detectedImageCounter = 0
-    //var maximumNumberOfTrackedImages: Int
-    
-    init(image: Binding<ImageState>, presentationMode: Binding<PresentationMode>) {
-        self.image = image
-        self.presentationMode = presentationMode
-    }
-    
-    @objc
-    func closeButtonTapped() {
-        self.presentationMode.wrappedValue.dismiss()
-    }
-    
-    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        guard let imageAnchor = anchor as? ARImageAnchor else {
-            return
-        }
-        
-        let referenceImage = imageAnchor.referenceImage
-        
-        DispatchQueue.global(qos: .userInitiated).async {
-            // Create a plane to visualize the initial position of the detected image.
-            let plane = SCNPlane(
-                width: referenceImage.physicalSize.width,
-                height: referenceImage.physicalSize.height
-            )
-            let planeNode = SCNNode(geometry: plane)
-            planeNode.opacity = 0.25
-            
-            // `SCNPlane` is vertically oriented in its local coordinate space, but `ARImageAnchor` assumes the image
-            // is horizontal in its local space, so rotate the plane to match.
-            planeNode.eulerAngles.x = -.pi / 2
-            
-            // Image anchors are not tracked after initial detection, so create an animation that limits the duration
-            // for which the plane visualization appears.
-            planeNode.runAction(
-                .sequence(
-                    [
-                        .wait(duration: 0.25),
-                        .fadeOpacity(to: 0.85, duration: 0.25),
-                        .fadeOpacity(to: 0.15, duration: 0.25),
-                        .fadeOpacity(to: 0.85, duration: 0.25),
-                        .fadeOut(duration: 3),
-                        .removeFromParentNode()
-                    ]
-                ),
-                completionHandler: {
-                    // If the image anchor is still available after we run the animation we take a screenshot.
-                    if imageAnchor.isTracked {
-                        self.detectedImageCounter += 1
-                        if self.detectedImageCounter == 2 {
-                            self.createScreenshot()
-                            self.detectedImageCounter = 0
-                        }
-                    }
-                }
-            )
-            let textNode = SCNNode()
-
-            DispatchQueue.main.async {
-                let textLayer = CATextLayer()
-                textLayer.string = "Keep phone still for next 3 seconds!"
-                textLayer.fontSize = 48
-                textLayer.alignmentMode = .center
-                textLayer.frame = CGRect(x: 0, y: 0, width: 300, height: 50)
-                textLayer.foregroundColor = UIColor.white.cgColor
-
-                let textGeometry = SCNPlane(width: referenceImage.physicalSize.width, height: referenceImage.physicalSize.height)
-                textGeometry.firstMaterial?.diffuse.contents = textLayer
-                textGeometry.firstMaterial?.isDoubleSided = true
-
-                textNode.geometry = textGeometry
-                textNode.position = SCNVector3(0, 0.05, 0)
-                node.addChildNode(textNode)
-            }
-            // Add the plane visualization to the scene.
-            node.addChildNode(planeNode)
-        }
-    }
-    
-    
-    private func createScreenshot() {
-        Task { @MainActor in
-            guard let screenshot = sceneView?.snapshot() else {
-                return
-            }
-            
-            self.image.wrappedValue = .success(screenshot)
-            self.presentationMode.wrappedValue.dismiss()
-        }
-    }
-}
-
-
 struct ARImageTrackingView: UIViewRepresentable {
-    @Environment(\.presentationMode) private var presentationMode
     @Binding var image: ImageState
+    @Binding var takeScreenshot: Bool
+    @Binding var imageCoordindates: [CGPoint]
     
     func makeUIView(context: Context) -> ARSCNView {
         let sceneView = ARSCNView()
@@ -131,22 +34,12 @@ struct ARImageTrackingView: UIViewRepresentable {
         
         context.coordinator.sceneView = sceneView
         
-        // Add close button as an overlay on top of the ARSCNView
-        let closeButton = UIButton(type: .close)
-        closeButton.addTarget(context.coordinator, action: #selector(ARImageTrackingViewCoordinator.closeButtonTapped), for: .touchUpInside)
-        sceneView.addSubview(closeButton)
-        closeButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            closeButton.topAnchor.constraint(equalTo: sceneView.topAnchor, constant: 16),
-            closeButton.trailingAnchor.constraint(equalTo: sceneView.trailingAnchor, constant: -16)
-        ])
-        
         return sceneView
     }
     
     func updateUIView(_ uiView: ARSCNView, context: Context) {}
     
     func makeCoordinator() -> ARImageTrackingViewCoordinator {
-        ARImageTrackingViewCoordinator(image: $image, presentationMode: presentationMode)
+        ARImageTrackingViewCoordinator(image: $image, screenCoordinates: $imageCoordindates, takeScreenshot: $takeScreenshot)
     }
 }
