@@ -8,9 +8,9 @@
 
 import SwiftUI
 
-struct PatchTestingView: View {
+struct AfterApplicationView: View {
     var body: some View {
-        patchImage
+        AfterApplicationImage
             .resizable()
             .aspectRatio(1.5, contentMode: .fit)
             .clipShape(Rectangle())
@@ -18,8 +18,8 @@ struct PatchTestingView: View {
     }
     
     
-    private var patchImage: Image {
-        guard let imagePath = Bundle.module.path(forResource: "PatchTesting", ofType: "jpg"),
+    private var AfterApplicationImage: Image {
+        guard let imagePath = Bundle.module.path(forResource: "AfterApplication", ofType: "jpg"),
            let image = UIImage(contentsOfFile: imagePath) else {
             return Image(systemName: "person.fill")
         }
@@ -29,8 +29,8 @@ struct PatchTestingView: View {
     }
 }
 
-struct PatchTestinGView_Previews: PreviewProvider {
+struct AfterApplicationView_Previews: PreviewProvider {
     static var previews: some View {
-        PatchTestingView()
+        AfterApplicationView()
     }
 }
