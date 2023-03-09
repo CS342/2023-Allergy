@@ -33,7 +33,8 @@ class PhotoUploadTests: XCTestCase {
                 
                 // Picks photo
                 app.collectionViews.buttons["Photo Picker"].tap()
-                app.scrollViews.otherElements.images["Photo, March 12, 2011, 4:17 PM"].tap()
+                let testPhoto = "Photo, March 12, 2011, 4:17 PM"
+                app.scrollViews.otherElements.images[testPhoto].tap()
         
                 // Enters a comment
                 app.textFields["Enter a comment (optional)"].tap()
@@ -47,9 +48,7 @@ class PhotoUploadTests: XCTestCase {
                 // XCTAssertTrue(app.staticTexts["Testing!"].waitForExistence(timeout: 2))
                 
                 // Check for existence of photo
-                // Currently just taps the day0 box
-                XCUIApplication().collectionViews.children(matching: .cell).element(boundBy: 3).scrollViews.containing(.other, identifier:"Horizontal scroll bar, 1 page").element.tap()
-
+                app.images[testPhoto].exists
                 
     }
 }
