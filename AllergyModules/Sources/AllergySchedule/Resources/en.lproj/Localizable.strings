@@ -9,5 +9,9 @@
 // MARK: - Schedule
 "SCHEDULE_LIST_TITLE" = "Schedule";
 "TASK_CONTEXT_ACTION_QUESTIONNAIRE" = "Start Questionnaire";
-"TASK_CONTEXT_ACTION_PHOTOUPLOAD" = "Take Photo";
+"TASK_CONTEXT_ACTION_PHOTOUPLOAD1" = "Take Baseline Photo";
+"TASK_CONTEXT_ACTION_PHOTOUPLOAD2" = "Take Photo After Application";
+"TASK_CONTEXT_ACTION_PHOTOUPLOAD3" = "Take Photo Two Days After Application";
+"TASK_CONTEXT_ACTION_PHOTOUPLOAD4" = "Take Photo Two Days After Removal";
+"TASK_CONTEXT_ACTION_PHOTOUPLOAD5" = "Take Optional Photo";
 "PHOTO_UPLOAD_INSTRUCTION" = "Press the '+' button and choose between taking a photo and choosing a photo from your photo library.";

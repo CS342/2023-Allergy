@@ -27,8 +27,8 @@ extension AllergyScheduler {
             title: String(localized: "Allergy Task", bundle: .module),
             description: String(
                 localized: """
-                Please complete this allergen testing survey to tell us more about your
-                current skin conditions in preparation for your patch testing.
+                Patch testing can help identify substances that may cause an allergic reaction on the skin leading to contact dermatitis.
+                Here are the steps to help you perform patch testing.
                 """,
                 bundle: .module
             ),
@@ -38,7 +38,7 @@ extension AllergyScheduler {
         Task(
             title: String(localized: "Photo Taking Task #1", bundle: .module),
             description: String(
-                localized: "Please take a photo of your arm before applying the patch test.",
+                localized: "Identify healthy areas of your skin; on your arms, forearms, or thighs, free of any rashes, to apply each allergen panel and take a picture before applying the allergens.",
                 bundle: .module
             ),
             schedule: defaultSchedule,
@@ -47,7 +47,7 @@ extension AllergyScheduler {
         Task(
             title: String(localized: "Photo Taking Task #2", bundle: .module),
             description: String(
-                localized: "Please take a photo of your arm right after applying the patch test.",
+                localized: "Follow the instructions on the package to apply the allergen panels on the areas of skin you have chosen and photographed earlier. Use the marking provided in the package to mark the skin around each panel and take a photo right after application.",
                 bundle: .module
             ),
             schedule: defaultSchedule,
@@ -56,7 +56,7 @@ extension AllergyScheduler {
         Task(
             title: String(localized: "Photo Taking Task #3", bundle: .module),
             description: String(
-                localized: "Please take a photo of your arm two days after applying the patch test.",
+                localized: "After two days, remove the allergen panels, but keep the markings on the skin to allow monitoring of the reactions to the sites of each allergen and take a photo including th marking.",
                 bundle: .module
             ),
             schedule: defaultSchedule,
@@ -65,7 +65,7 @@ extension AllergyScheduler {
         Task(
             title: String(localized: "Photo Taking Task #4", bundle: .module),
             description: String(
-                localized: "Please take a photo of your arm four days after applying the patch test.",
+                localized: "Take another set of photos two days after removing the allergens. At this point, after taking the images, removing the markings on your skin",
                 bundle: .module
             ),
             schedule: defaultSchedule,
@@ -74,7 +74,7 @@ extension AllergyScheduler {
         Task(
             title: String(localized: "Optional Photo Taking Task", bundle: .module),
             description: String(
-                localized: "If there is any photo you think will help us with the diagnosis, please submit here.",
+                localized: "If there are any photos you think will help us with diagnosis, please upload them here.",
                 bundle: .module
             ),
             schedule: defaultSchedule,
