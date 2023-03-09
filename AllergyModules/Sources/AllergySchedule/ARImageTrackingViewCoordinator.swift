@@ -68,10 +68,6 @@ extension ARImageTrackingViewCoordinator: ARSCNViewDelegate {
                 ),
                 completionHandler: {
                     // If the image anchor is still available after we run the animation we take a screenshot.
-                    if imageAnchor.isTracked {
-                        //self.createScreenshot()
-                        self.takeScreenshot.wrappedValue = false
-                    }
                 }
             )
             
