@@ -6,7 +6,6 @@
 // SPDX-License-Identifier: MIT
 //
 
-
 import AllergySchedule
 import FirebaseAuth
 import FirebaseCore
@@ -19,6 +18,7 @@ struct GalleryViewList: View {
     let photoUploadContext: PhotoUploadContext
     let storage = Storage.storage()
     @ObservedObject var galleryLister = GalleryLister()
+    @State var selectedImage: UIImage?
     
     let rows = [GridItem(.fixed(100))]
     
@@ -26,11 +26,16 @@ struct GalleryViewList: View {
            ScrollView(.horizontal) {
                LazyHGrid(rows: rows) {
                    ForEach(Array(galleryLister.images.values), id: \.self) { image in
-                        Image(uiImage: image)
-                           .resizable()
-                           .scaledToFit()
-                           .frame(width: 100)
-                           .accessibility(hidden: true)
+                       NavigationLink(destination: IndividualPhotoView(photo: $selectedImage)) {
+                           Image(uiImage: image)
+                               .resizable()
+                               .scaledToFit()
+                               .frame(width: 100)
+                               .accessibilityHidden(true)
+                       }
+                       .task {
+                           selectedImage = image
+                       }
                    }
                }
            }
@@ -40,8 +45,8 @@ struct GalleryViewList: View {
        }
 }
 
-struct GalleryViewList_Previews: PreviewProvider {
-    static var previews: some View {
-        GalleryViewList(photoUploadContext: .base)
-    }
-}
+// struct GalleryViewList_Previews: PreviewProvider {
+//     static var previews: some View {
+//         GalleryViewList(photoUploadContext: .base)
+//     }
+// }
