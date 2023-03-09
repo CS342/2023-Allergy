@@ -68,6 +68,7 @@ extension ARImageTrackingViewCoordinator: ARSCNViewDelegate {
                 ),
                 completionHandler: {
                     // If the image anchor is still available after we run the animation we take a screenshot.
+                    
                 }
             )
             
@@ -87,7 +88,6 @@ extension ARImageTrackingViewCoordinator: ARSCNViewDelegate {
             var imageCoordindates: [CGPoint] = []
             for node in nodes {
                 let screenCoordinate = renderer.projectPoint(node.position)
-                imageCoordindates.append(CGPoint(x: Double(screenCoordinate.x), y: Double(screenCoordinate.y)))
                 
                 let xCoord = Double(screenCoordinate.x)
                 let yCoord = Double(screenCoordinate.y)
@@ -95,11 +95,12 @@ extension ARImageTrackingViewCoordinator: ARSCNViewDelegate {
                 let centerCoordX = screenSize.width / 2
                 let centerCoordY = screenSize.height / 2
                 if xCoord >= centerCoordX - 50 && xCoord <= centerCoordX + 50 && yCoord >= centerCoordY - 50 && yCoord <= centerCoordY + 50 {
+                    imageCoordindates.append(CGPoint(x: Double(screenCoordinate.x), y: Double(screenCoordinate.y)))
+                    screenCoordinates.wrappedValue = imageCoordindates
                     takeScreenshot.wrappedValue = true
                 }
             }
-            screenCoordinates.wrappedValue = imageCoordindates
-            print(imageCoordindates)
+            
             
             if takeScreenshot.wrappedValue {
                 createScreenshot()
