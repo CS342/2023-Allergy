@@ -24,11 +24,18 @@ struct ARImageTrackingOverlay: View {
             ARImageTrackingView(image: $image, takeScreenshot: $takeScreenshot, imageCoordindates: $imageCoordindates)
                 .overlay {
                     ZStack(alignment: .topLeading) {
-                        ForEach(imageCoordindates, id: \.debugDescription) { imageCoordindate in
-                            Circle()
-                                .frame(width: 10, height: 10)
+                        ForEach(imageCoordindates, id: \.debugDescription)
+                        { imageCoordinate in
+                            Text("KEEP PHONE STILL FOR 3 SECONDS")
                                 .foregroundColor(.red)
-                                .position(imageCoordindate)
+                                .font(.system(size: 24))
+                                .fontWeight(.bold)
+                                .padding(.horizontal, 20)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color.black, lineWidth: 2)
+                                )
+                                .position(x: 200, y: 50)
                         }
                     }
                 }
@@ -42,9 +49,6 @@ struct ARImageTrackingOverlay: View {
                 guard !newImageCoordindates.isEmpty else {
                     return
                 }
-                
-                
-                    
                 // Call this when you want to take a screenshot:
                 // takeScreenshot = true
             }
