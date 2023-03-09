@@ -40,7 +40,7 @@ extension ARImageTrackingViewCoordinator: ARSCNViewDelegate {
         
         let referenceImage = imageAnchor.referenceImage
         
-        DispatchQueue.global(qos: .userInitiated).async {
+        DispatchQueue.global(qos: .userInitiated).async { [self] in
             // Create a plane to visualize the initial position of the detected image.
             let plane = SCNPlane(
                 width: referenceImage.physicalSize.width,
@@ -69,47 +69,47 @@ extension ARImageTrackingViewCoordinator: ARSCNViewDelegate {
                 completionHandler: {
                     // If the image anchor is still available after we run the animation we take a screenshot.
                     if imageAnchor.isTracked {
-                        self.detectedImageCounter += 1
-                        if self.detectedImageCounter == 2 {
-                            self.createScreenshot()
-                            self.detectedImageCounter = 0
-                        }
+                        self.createScreenshot()
                     }
                 }
             )
+            
             
             // Add the plane visualization to the scene.
             node.addChildNode(planeNode)
         }
     }
-    
-    func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
-        nodes.removeAll(where: { $0 == node })
-    }
-    
-    
-    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-        var imageCoordindates: [CGPoint] = []
-        for node in nodes {
-            let screenCoordinate = renderer.projectPoint(node.position)
-            imageCoordindates.append(CGPoint(x: Double(screenCoordinate.x), y: Double(screenCoordinate.y)))
-        }
-        screenCoordinates.wrappedValue = imageCoordindates
         
-        if takeScreenshot.wrappedValue {
-            createScreenshot()
-            takeScreenshot.wrappedValue = false
+        
+        func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
+            nodes.removeAll(where: { $0 == node })
         }
-    }
-    
-    
-    private func createScreenshot() {
-        Task { @MainActor in
-            guard let screenshot = sceneView?.snapshot() else {
-                return
+        
+        
+        func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+            var imageCoordindates: [CGPoint] = []
+            for node in nodes {
+                let screenCoordinate = renderer.projectPoint(node.position)
+                imageCoordindates.append(CGPoint(x: Double(screenCoordinate.x), y: Double(screenCoordinate.y)))
             }
+            screenCoordinates.wrappedValue = imageCoordindates
+            print(imageCoordindates)
             
-            self.image.wrappedValue = .success(screenshot)
+            if takeScreenshot.wrappedValue {
+                createScreenshot()
+                takeScreenshot.wrappedValue = false
+            }
+        }
+        
+        
+        private func createScreenshot() {
+            Task { @MainActor in
+                guard let screenshot = sceneView?.snapshot() else {
+                    return
+                }
+                
+                self.image.wrappedValue = .success(screenshot)
+            }
         }
     }
-}
+

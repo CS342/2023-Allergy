@@ -43,6 +43,8 @@ struct ARImageTrackingOverlay: View {
                     return
                 }
                 
+                
+                    
                 // Call this when you want to take a screenshot:
                 // takeScreenshot = true
             }
