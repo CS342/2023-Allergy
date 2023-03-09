@@ -13,8 +13,6 @@ struct InstructionView: View {
         VStack(spacing: 20) {
             HStack(spacing: 30) {
                 VStack(spacing: 5) {
-                    Text("Patch Testing Instructions")
-                        .font(.title.bold())
                     Text("Patch Testing Purpose and Steps")
                         .font(.title3)
                     Text(instruction1)
@@ -22,10 +20,10 @@ struct InstructionView: View {
                     BaselineView()
                     Text(instruction2)
                         .padding()
-                    AfterApplicationView();
+                    AfterApplicationView()
                     Text(instruction3)
                         .padding()
-                    DayTwoView();
+                    DayTwoView()
                     Text(instruction4)
                         .padding()
                 }

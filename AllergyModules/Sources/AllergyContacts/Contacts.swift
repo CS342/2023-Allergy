@@ -14,12 +14,17 @@ import SwiftUI
 /// Displays the contacts for the CS342 2023 Allergy Team Application.
 public struct Contacts: View {
     public var body: some View {
-        ScrollView(.vertical) {
-            InstructionView()
+        NavigationStack {
+            ScrollView(.vertical) {
+                InstructionView()
+            }
+            .navigationTitle(String(localized: "CONTACTS_NAVIGATION_TITLE", bundle: .module))
         }
     }
     
-    public init() {}
+    public init() {
+        UILabel.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).adjustsFontSizeToFitWidth = true
+    }
 }
 
 

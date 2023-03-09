@@ -8,10 +8,22 @@
 
 // MARK: - Schedule
 "SCHEDULE_LIST_TITLE" = "Schedule";
+
+// MARK: Button Text
 "TASK_CONTEXT_ACTION_QUESTIONNAIRE" = "Start Questionnaire";
 "TASK_CONTEXT_ACTION_PHOTOUPLOAD1" = "Take Baseline Photo";
 "TASK_CONTEXT_ACTION_PHOTOUPLOAD2" = "Take Photo After Application";
 "TASK_CONTEXT_ACTION_PHOTOUPLOAD3" = "Take Photo Two Days After Application";
 "TASK_CONTEXT_ACTION_PHOTOUPLOAD4" = "Take Photo Two Days After Removal";
 "TASK_CONTEXT_ACTION_PHOTOUPLOAD5" = "Take Optional Photo";
-"PHOTO_UPLOAD_INSTRUCTION" = "Press the '+' button and choose between taking a photo and choosing a photo from your photo library.";
+
+// MARK: Task Instructions
+"QUESTIONNAIRE_INSTRUCTION" = "Patch testing can help identify substances that may cause an allergic reaction on the skin leading to contact dermatitis. Here are the steps to help you perform patch testing. First, complete this questionnaire about your past medical history and skin condition.";
+"TASK1_INSTRUCTION" = "Before proceeding, make sure to go to the 'Instructions' tab and carefully look over the procedures and sample images for this patch test. Once you are ready, identify healthy areas of your skin on your arms, forearms, or thighs, free of any rashes, to apply each allergen panel and take a picture before applying the allergens (see 'Instructions' for an example photo).";
+"TASK2_INSTRUCTION" = "Follow the instructions on the package to apply the allergen panels on the areas of skin you have chosen and photographed earlier. Use the marking provided in the package to mark the skin around each panel and take a photo right after application (see 'Instructions' for an example photo). Make sure to leave the patches in place for 2 days.";
+"TASK3_INSTRUCTION" = "After two days, remove the allergen panels, but keep the markings on the skin to allow monitoring of the reactions to the sites of each allergen and take a photo including the marking (see 'Instructions' for an example photo). Make sure to leave the markings in place for another 2 days.";
+"TASK4_INSTRUCTION" = "Take another set of photos two days after removing the allergens. Be sure to include the markings. At this point, after taking the images, remove the markings on your skin.";
+"OPTIONAL_TASK_INSTRUCTION" = "If there are any photos you think will help us with diagnosis, please upload them here.";
+
+// MARK: Photo Upload
+"PHOTO_UPLOAD_INSTRUCTION" = "Press the '+' button and choose between taking a photo and choosing a photo from your photo library. Additionally, upload an optional comment about the photo in the text box below.";

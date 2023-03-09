@@ -24,59 +24,38 @@ extension AllergyScheduler {
     
     private static let tasks = [
         Task(
-            title: String(localized: "Allergy Task", bundle: .module),
-            description: String(
-                localized: """
-                Patch testing can help identify substances that may cause an allergic reaction on the skin leading to contact dermatitis.
-                Here are the steps to help you perform patch testing.
-                """,
-                bundle: .module
-            ),
+            title: String(localized: "Patch Testing Questionnaire", bundle: .module),
+            description: String(localized: "QUESTIONNAIRE_INSTRUCTION", bundle: .module),
             schedule: defaultSchedule,
             context: AllergyTaskContext.questionnaire(Bundle.module.questionnaire(withName: "AllergenTesting"))
         ),
         Task(
             title: String(localized: "Photo Taking Task #1", bundle: .module),
-            description: String(
-                localized: "Identify healthy areas of your skin; on your arms, forearms, or thighs, free of any rashes, to apply each allergen panel and take a picture before applying the allergens.",
-                bundle: .module
-            ),
+            description: String(localized: "TASK1_INSTRUCTION", bundle: .module),
             schedule: defaultSchedule,
             context: AllergyTaskContext.photoUpload(PhotoUploadContext.base)
         ),
         Task(
             title: String(localized: "Photo Taking Task #2", bundle: .module),
-            description: String(
-                localized: "Follow the instructions on the package to apply the allergen panels on the areas of skin you have chosen and photographed earlier. Use the marking provided in the package to mark the skin around each panel and take a photo right after application.",
-                bundle: .module
-            ),
+            description: String(localized: "TASK2_INSTRUCTION", bundle: .module),
             schedule: defaultSchedule,
             context: AllergyTaskContext.photoUpload(PhotoUploadContext.day0)
         ),
         Task(
             title: String(localized: "Photo Taking Task #3", bundle: .module),
-            description: String(
-                localized: "After two days, remove the allergen panels, but keep the markings on the skin to allow monitoring of the reactions to the sites of each allergen and take a photo including th marking.",
-                bundle: .module
-            ),
+            description: String(localized: "TASK3_INSTRUCTION", bundle: .module),
             schedule: defaultSchedule,
             context: AllergyTaskContext.photoUpload(PhotoUploadContext.day2)
         ),
         Task(
             title: String(localized: "Photo Taking Task #4", bundle: .module),
-            description: String(
-                localized: "Take another set of photos two days after removing the allergens. At this point, after taking the images, removing the markings on your skin",
-                bundle: .module
-            ),
+            description: String(localized: "TASK4_INSTRUCTION", bundle: .module),
             schedule: defaultSchedule,
             context: AllergyTaskContext.photoUpload(PhotoUploadContext.day4)
         ),
         Task(
             title: String(localized: "Optional Photo Taking Task", bundle: .module),
-            description: String(
-                localized: "If there are any photos you think will help us with diagnosis, please upload them here.",
-                bundle: .module
-            ),
+            description: String(localized: "OPTIONAL_TASK_INSTRUCTION", bundle: .module),
             schedule: defaultSchedule,
             context: AllergyTaskContext.photoUpload(PhotoUploadContext.optional)
         )

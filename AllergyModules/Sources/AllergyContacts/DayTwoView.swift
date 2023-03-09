@@ -10,7 +10,7 @@ import SwiftUI
 
 struct DayTwoView: View {
     var body: some View {
-        DayTwoImage
+        dayTwoImage
             .resizable()
             .aspectRatio(1.5, contentMode: .fit)
             .clipShape(Rectangle())
@@ -18,7 +18,7 @@ struct DayTwoView: View {
     }
     
     
-    private var DayTwoImage: Image {
+    private var dayTwoImage: Image {
         guard let imagePath = Bundle.module.path(forResource: "day2", ofType: "jpg"),
            let image = UIImage(contentsOfFile: imagePath) else {
             return Image(systemName: "person.fill")

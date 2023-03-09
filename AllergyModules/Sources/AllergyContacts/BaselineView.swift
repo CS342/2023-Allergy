@@ -10,7 +10,7 @@ import SwiftUI
 
 struct BaselineView: View {
     var body: some View {
-        BaselineImage
+        baselineImage
             .resizable()
             .aspectRatio(1.5, contentMode: .fit)
             .clipShape(Rectangle())
@@ -18,7 +18,7 @@ struct BaselineView: View {
     }
     
     
-    private var BaselineImage: Image {
+    private var baselineImage: Image {
         guard let imagePath = Bundle.module.path(forResource: "BaselineView", ofType: "jpg"),
            let image = UIImage(contentsOfFile: imagePath) else {
             return Image(systemName: "person.fill")

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct AfterApplicationView: View {
     var body: some View {
-        AfterApplicationImage
+        afterApplicationImage
             .resizable()
             .aspectRatio(1.5, contentMode: .fit)
             .clipShape(Rectangle())
@@ -18,7 +18,7 @@ struct AfterApplicationView: View {
     }
     
     
-    private var AfterApplicationImage: Image {
+    private var afterApplicationImage: Image {
         guard let imagePath = Bundle.module.path(forResource: "AfterApplication", ofType: "jpg"),
            let image = UIImage(contentsOfFile: imagePath) else {
             return Image(systemName: "person.fill")
