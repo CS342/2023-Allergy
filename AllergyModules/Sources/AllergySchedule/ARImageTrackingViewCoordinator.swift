@@ -99,6 +99,11 @@ extension ARImageTrackingViewCoordinator: ARSCNViewDelegate {
                     screenCoordinates.wrappedValue = imageCoordindates
                     takeScreenshot.wrappedValue = true
                 }
+                else {
+                    if !imageCoordindates.isEmpty {
+                        imageCoordindates.popLast()
+                    }
+                }
             }
             
             
