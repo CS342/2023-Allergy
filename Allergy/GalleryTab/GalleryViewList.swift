@@ -16,9 +16,7 @@ import SwiftUI
 
 struct GalleryViewList: View {
     let photoUploadContext: PhotoUploadContext
-    let storage = Storage.storage()
     @ObservedObject var galleryLister = GalleryLister()
-    @State var selectedImage: UIImage?
     
     let rows = [GridItem(.fixed(100))]
     
@@ -32,9 +30,6 @@ struct GalleryViewList: View {
                             .scaledToFit()
                             .frame(width: 100)
                             .accessibilityHidden(true)
-                    }
-                    .task {
-                        selectedImage = image
                     }
                 }
             }

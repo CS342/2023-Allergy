@@ -9,19 +9,14 @@
 import SwiftUI
 
 struct IndividualPhotoView: View {
-    var photo: UIImage?
+    var photo: UIImage
+    
     
     var body: some View {
-        Image(uiImage: photo!)
+        Image(uiImage: photo)
             .resizable()
             .scaledToFit()
             .padding()
             .accessibilityHidden(true)
     }
 }
-
-// struct IndividualPhotoView_Previews: PreviewProvider {
-//     static var previews: some View {
-//         IndividualPhotoView()
-//     }
-// }
