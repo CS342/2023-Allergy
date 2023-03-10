@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct IndividualPhotoView: View {
-    @Binding var photo: UIImage?
+    var photo: UIImage?
     
     var body: some View {
         Image(uiImage: photo!)

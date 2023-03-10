@@ -22,27 +22,27 @@ struct GalleryViewList: View {
     
     let rows = [GridItem(.fixed(100))]
     
-       var body: some View {
-           ScrollView(.horizontal) {
-               LazyHGrid(rows: rows) {
-                   ForEach(Array(galleryLister.images.values), id: \.self) { image in
-                       NavigationLink(destination: IndividualPhotoView(photo: $selectedImage)) {
-                           Image(uiImage: image)
-                               .resizable()
-                               .scaledToFit()
-                               .frame(width: 100)
-                               .accessibilityHidden(true)
-                       }
-                       .task {
-                           selectedImage = image
-                       }
-                   }
-               }
-           }
-           .task {
-               galleryLister.listImages(subfolder: photoUploadContext.rawValue)
-           }
-       }
+    var body: some View {
+        ScrollView(.horizontal) {
+            LazyHGrid(rows: rows) {
+                ForEach(Array(galleryLister.images.values), id: \.self) { image in
+                    NavigationLink(destination: IndividualPhotoView(photo: image)) {
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100)
+                            .accessibilityHidden(true)
+                    }
+                    .task {
+                        selectedImage = image
+                    }
+                }
+            }
+        }
+        .task {
+            galleryLister.listImages(subfolder: photoUploadContext.rawValue)
+        }
+    }
 }
 
 // struct GalleryViewList_Previews: PreviewProvider {
