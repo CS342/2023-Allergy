@@ -15,7 +15,7 @@ struct ARImageTrackingOverlay: View {
     @Binding var image: ImageState
     @Environment(\.dismiss) private var dismiss
     @State var startTime = Double(-1)
-    
+    @State var displayText = false
     
     var body: some View {
         VStack {
@@ -24,7 +24,8 @@ struct ARImageTrackingOverlay: View {
             }
             ARImageTrackingView(image: $image, takeScreenshot: $takeScreenshot, imageCoordindates: $imageCoordindates)
                 .overlay {
-                    ZStack(alignment: .topLeading) {
+                    if (displayText) {
+                        ZStack(alignment: .topLeading) {
                             Text("KEEP PHONE STILL FOR 3 SECONDS")
                                 .foregroundColor(.red)
                                 .font(.system(size: 24))
@@ -35,6 +36,7 @@ struct ARImageTrackingOverlay: View {
                                         .stroke(Color.black, lineWidth: 2)
                                 )
                                 .position(x: 200, y: 50)
+                        }
                     }
                 }
         }
@@ -57,6 +59,7 @@ struct ARImageTrackingOverlay: View {
                     if xCoord >= centerCoordX - 100 && xCoord <= centerCoordX + 100 && yCoord >= centerCoordY - 100 && yCoord <= centerCoordY + 100 {
                         if startTime == -1.0 {
                             startTime = Date().timeIntervalSinceReferenceDate
+                            displayText = true
                         } else {
                             if Date().timeIntervalSinceReferenceDate - startTime >= 3.0 {
                                 takeScreenshot = true
@@ -65,6 +68,7 @@ struct ARImageTrackingOverlay: View {
                         }
                     } else {
                         startTime = -1.0
+                        displayText = false
                     }
                 }
             }
