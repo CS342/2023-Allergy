@@ -27,14 +27,20 @@ struct ARImageTrackingOverlay: View {
                     if (displayText) {
                         ZStack(alignment: .topLeading) {
                             Text("KEEP PHONE STILL FOR 3 SECONDS")
-                                .foregroundColor(.red)
+                                .foregroundColor(.blue)
                                 .font(.system(size: 24))
                                 .fontWeight(.bold)
                                 .padding(.horizontal, 20)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 10)
-                                        .stroke(Color.black, lineWidth: 2)
+                                        .stroke(Color.blue, lineWidth: 0)
+                                        .background(Color.blue)
                                 )
+                                .overlay(Text("KEEP PHONE STILL FOR 3 SECONDS").foregroundColor(.white)
+                                    .multilineTextAlignment(.center)
+                                    .font(.system(size: 20))
+                                    .fontWeight(.bold)
+                                    .padding(.horizontal, 20))
                                 .position(x: 200, y: 50)
                         }
                     }
