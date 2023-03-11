@@ -14,6 +14,7 @@ struct ARImageTrackingOverlay: View {
     @State var takeScreenshot = false
     @Binding var image: ImageState
     @Environment(\.dismiss) private var dismiss
+    @State var startTime = Double(-1)
     
     
     var body: some View {
@@ -24,8 +25,6 @@ struct ARImageTrackingOverlay: View {
             ARImageTrackingView(image: $image, takeScreenshot: $takeScreenshot, imageCoordindates: $imageCoordindates)
                 .overlay {
                     ZStack(alignment: .topLeading) {
-                        ForEach(imageCoordindates, id: \.debugDescription)
-                        { imageCoordinate in
                             Text("KEEP PHONE STILL FOR 3 SECONDS")
                                 .foregroundColor(.red)
                                 .font(.system(size: 24))
@@ -36,7 +35,6 @@ struct ARImageTrackingOverlay: View {
                                         .stroke(Color.black, lineWidth: 2)
                                 )
                                 .position(x: 200, y: 50)
-                        }
                     }
                 }
         }
@@ -49,8 +47,26 @@ struct ARImageTrackingOverlay: View {
                 guard !newImageCoordindates.isEmpty else {
                     return
                 }
-                // Call this when you want to take a screenshot:
-                // takeScreenshot = true
+                let screenSize = UIScreen.main.bounds.size
+                let centerCoordX = screenSize.width / 2
+                let centerCoordY = screenSize.height / 2
+
+                for coordinate in newImageCoordindates {
+                    let xCoord = Double(coordinate.x)
+                    let yCoord = Double(coordinate.y)
+                    if xCoord >= centerCoordX - 100 && xCoord <= centerCoordX + 100 && yCoord >= centerCoordY - 100 && yCoord <= centerCoordY + 100 {
+                        if startTime == -1.0 {
+                            startTime = Date().timeIntervalSinceReferenceDate
+                        } else {
+                            if Date().timeIntervalSinceReferenceDate - startTime >= 3.0 {
+                                takeScreenshot = true
+                                startTime = -1.0
+                            }
+                        }
+                    } else {
+                        startTime = -1.0
+                    }
+                }
             }
     }
 }
