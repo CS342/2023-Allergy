@@ -9,11 +9,9 @@
 import Foundation
 import SwiftUI
 
-
 struct EventContextView: View {
     let eventContext: EventContext
-    
-    
+
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
@@ -46,8 +44,7 @@ struct EventContextView: View {
             .disabled(eventContext.event.complete)
             .contentShape(Rectangle())
     }
-    
-    
+
     private func format(eventDate: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .none
@@ -56,15 +53,13 @@ struct EventContextView: View {
     }
 }
 
-
 #if DEBUG
 struct EventContextView_Previews: PreviewProvider {
     // We use a force unwrap in the preview as we can not recover from an error here
     // and the code will never end up in a production environment.
     // swiftlint:disable:next force_unwrapping
     private static let task = AllergyScheduler().tasks.first!
-    
-    
+
     static var previews: some View {
         EventContextView(
             eventContext: EventContext(

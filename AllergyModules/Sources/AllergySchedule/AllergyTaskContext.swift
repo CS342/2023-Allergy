@@ -19,8 +19,7 @@ public enum PhotoUploadContext: String, Codable, CaseIterable {
 public enum AllergyTaskContext: Codable, Identifiable {
     case questionnaire(Questionnaire)
     case photoUpload(PhotoUploadContext)
-    
-    
+
     public var id: String {
         switch self {
         case let .questionnaire(questionnaire):
@@ -29,7 +28,7 @@ public enum AllergyTaskContext: Codable, Identifiable {
             return photoUploadContext.rawValue
         }
     }
-    
+
     var actionType: String {
         switch self {
         case .questionnaire:
