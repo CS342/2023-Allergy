@@ -30,7 +30,6 @@ class PhotoUploadTests: XCTestCase {
                 let takePhotoStaticText = app.collectionViews.children(matching: .cell).element(boundBy: 2).staticTexts["Take Photo"]
                 takePhotoStaticText.tap()
                 app.buttons["Add"].tap()
-                
                 // Picks photo
                 app.collectionViews.buttons["Photo Picker"].tap()
                 let testPhoto = "Photo, March 12, 2011, 4:17 PM"
@@ -43,9 +42,6 @@ class PhotoUploadTests: XCTestCase {
                 app.buttons["Upload"].tap()
                 // Switch to gallery tab to check for existence of photo and text
                 app.tabBars["Tab Bar"].buttons["Gallery"].tap()
-                
-                // Check for existence of text
-                // XCTAssertTrue(app.staticTexts["Testing!"].waitForExistence(timeout: 2))
                 
                 // Check for existence of photo
                 app.images[testPhoto].exists
