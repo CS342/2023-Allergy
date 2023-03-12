@@ -1,9 +1,13 @@
 //
-//  SwiftUIView.swift
-//  
+// This source file is part of the CS342 2023 Allergy Team Application project
+// The source code is based on the Apple "Detecting Images in an AR Experience" example project.
+// https://developer.apple.com/documentation/arkit/content_anchors/detecting_images_in_an_ar_experience
 //
-//  Created by Paul Shmiedmayer on 3/8/23.
+// SPDX-FileCopyrightText: 2023 Stanford University
 //
+// SPDX-License-Identifier: MIT
+//
+
 
 import ImageSource
 import SwiftUI
