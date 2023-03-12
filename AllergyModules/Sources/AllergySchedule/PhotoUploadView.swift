@@ -9,14 +9,12 @@
 import ImageSource
 import SwiftUI
 
-
 struct PhotoUploadView: View {
     @State var image: UIImage?
     @State var comment: String = ""
     let photoUploadContext: PhotoUploadContext
     @Environment(\.presentationMode) private var presentationMode
-    
-    
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -30,10 +28,10 @@ struct PhotoUploadView: View {
                     .border(.blue)
                 Button("Upload") {
                     guard let image,
-                          let data = image.jpegData(compressionQuality: 0.8) else {
+                          let data = image.jpegData(compressionQuality: 0.4) else {
                         return
                     }
-                    
+
                     StorageManager.shared.uploadImage(data, subfolder: photoUploadContext.rawValue, comment: comment)
                     presentationMode.wrappedValue.dismiss()
                 }
@@ -43,7 +41,6 @@ struct PhotoUploadView: View {
         }
     }
 }
-
 
 struct PhotoUploadView_Previews: PreviewProvider {
     static var previews: some View {

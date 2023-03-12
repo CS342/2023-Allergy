@@ -15,7 +15,10 @@ import FHIRToFirestoreAdapter
 import FirebaseAccount
 import class FirebaseFirestore.FirestoreSettings
 import FirebaseStorage
+<<<<<<< HEAD
 import FirebaseConfiguration
+=======
+>>>>>>> origin/main
 import FirestoreDataStorage
 import FirestoreStoragePrefixUserIdAdapter
 import HealthKit

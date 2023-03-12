@@ -11,10 +11,12 @@ import FirebaseAuth
 import FirebaseCore
 import FirebaseStorage
 
-
 class StorageManager {
     static let shared = StorageManager()
+<<<<<<< HEAD
     
+=======
+>>>>>>> origin/main
     
     func uploadImage(_ data: Data, subfolder: String, comment: String) {
         let id = UUID().uuidString
@@ -23,7 +25,7 @@ class StorageManager {
         guard let userId = Auth.auth().currentUser?.uid else {
             fatalError("Uploading image without user authenticated ...")
         }
-        
+
         let storageRef = storage.reference().child("users/\(userId)/\(subfolder)/\(id).jpg")
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpg"

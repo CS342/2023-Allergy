@@ -6,23 +6,19 @@
 // SPDX-License-Identifier: MIT
 //
 
-
 import Questionnaires
 import Scheduler
 import SwiftUI
-
 
 public struct ScheduleView: View {
     @EnvironmentObject var scheduler: AllergyScheduler
     @State var eventContextsByDate: [Date: [EventContext]] = [:]
     @State var presentedContext: EventContext?
-    
-    
+
     var startOfDays: [Date] {
         Array(eventContextsByDate.keys)
     }
-    
-    
+
     public var body: some View {
         NavigationStack {
             List(startOfDays, id: \.timeIntervalSinceNow) { startOfDay in
@@ -49,11 +45,9 @@ public struct ScheduleView: View {
                 .navigationTitle(String(localized: "SCHEDULE_LIST_TITLE", bundle: .module))
         }
     }
-    
-    
+
     public init() {}
-    
-    
+
     private func destination(withContext eventContext: EventContext) -> some View {
         @ViewBuilder
         var destination: some View {
@@ -70,15 +64,14 @@ public struct ScheduleView: View {
         }
         return destination
     }
-    
-    
+
     private func format(startOfDay: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .none
         return dateFormatter.string(from: startOfDay)
     }
-    
+
     private func calculateEventContextsByDate() {
         let eventContexts = scheduler.tasks.flatMap { task in
             task
@@ -91,17 +84,16 @@ public struct ScheduleView: View {
                 }
         }
             .sorted()
-        
+
         let newEventContextsByDate = Dictionary(grouping: eventContexts) { eventContext in
             Calendar.current.startOfDay(for: eventContext.event.scheduledAt)
         }
-        
+
         if newEventContextsByDate != eventContextsByDate {
             eventContextsByDate = newEventContextsByDate
         }
     }
 }
-
 
 #if DEBUG
 struct SchedulerView_Previews: PreviewProvider {

@@ -19,8 +19,7 @@ public enum PhotoUploadContext: String, Codable, CaseIterable {
 public enum AllergyTaskContext: Codable, Identifiable {
     case questionnaire(Questionnaire)
     case photoUpload(PhotoUploadContext)
-    
-    
+
     public var id: String {
         switch self {
         case let .questionnaire(questionnaire):
@@ -29,13 +28,21 @@ public enum AllergyTaskContext: Codable, Identifiable {
             return photoUploadContext.rawValue
         }
     }
-    
+
     var actionType: String {
         switch self {
         case .questionnaire:
             return String(localized: "TASK_CONTEXT_ACTION_QUESTIONNAIRE", bundle: .module)
-        case .photoUpload:
-            return String(localized: "TASK_CONTEXT_ACTION_PHOTOUPLOAD", bundle: .module)
+        case .photoUpload(PhotoUploadContext.base):
+            return String(localized: "TASK_CONTEXT_ACTION_PHOTOUPLOAD1", bundle: .module)
+        case .photoUpload(PhotoUploadContext.day0):
+            return String(localized: "TASK_CONTEXT_ACTION_PHOTOUPLOAD2", bundle: .module)
+        case .photoUpload(PhotoUploadContext.day2):
+            return String(localized: "TASK_CONTEXT_ACTION_PHOTOUPLOAD3", bundle: .module)
+        case .photoUpload(PhotoUploadContext.day4):
+            return String(localized: "TASK_CONTEXT_ACTION_PHOTOUPLOAD4", bundle: .module)
+        case .photoUpload(PhotoUploadContext.optional):
+            return String(localized: "TASK_CONTEXT_ACTION_PHOTOUPLOAD5", bundle: .module)
         }
     }
 }
