@@ -28,7 +28,7 @@ struct PhotoUploadView: View {
                     .border(.blue)
                 Button("Upload") {
                     guard let image,
-                          let data = image.jpegData(compressionQuality: 0.8) else {
+                          let data = image.jpegData(compressionQuality: 0.4) else {
                         return
                     }
 

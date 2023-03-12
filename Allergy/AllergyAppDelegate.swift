@@ -14,6 +14,7 @@ import FHIR
 import FHIRToFirestoreAdapter
 import FirebaseAccount
 import class FirebaseFirestore.FirestoreSettings
+import FirebaseStorage
 import FirestoreDataStorage
 import FirestoreStoragePrefixUserIdAdapter
 import HealthKit
@@ -34,6 +35,7 @@ class AllergyAppDelegate: CardinalKitAppDelegate {
                 } else {
                     FirebaseAccountConfiguration()
                 }
+                FirestoreStorage()
                 firestore
             }
             if HKHealthStore.isHealthDataAvailable() {
