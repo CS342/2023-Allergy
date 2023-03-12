@@ -9,15 +9,13 @@
 import ImageSource
 import SwiftUI
 
-
 public struct AllergyImageSource: View {
     @Binding private var image: UIImage?
     @State private var showCamera = false
     @State private var showPhotosPicker = false
     @State private var showImageTracking = false
     @State private var imageState: ImageState = .empty
-    
-    
+
     public var body: some View {
         imageView
             .fullScreenCover(isPresented: $showImageTracking) {
@@ -33,8 +31,7 @@ public struct AllergyImageSource: View {
                 image = newImageState.image
             }
     }
-    
-    
+
     @ViewBuilder
     private var imageView: some View {
         GeometryReader { proxy in
@@ -59,15 +56,13 @@ public struct AllergyImageSource: View {
             }
         }
     }
-    
-    
+
     /// <#Description#>
     /// - Parameter image: <#image description#>
     public init(image: Binding<UIImage?> = Binding(get: { nil }, set: { _ in })) {
         self._image = image
     }
-    
-    
+
     private func removeMenu(proxy: GeometryProxy) -> some View {
         Menu(
             content: {
@@ -90,7 +85,7 @@ public struct AllergyImageSource: View {
             }
         )
     }
-    
+
     private func addMenu(proxy: GeometryProxy) -> some View {
         Menu(
             content: {
@@ -131,11 +126,9 @@ public struct AllergyImageSource: View {
     }
 }
 
-
 struct ImageSource_Previews: PreviewProvider {
     @State private static var image: UIImage?
-    
-    
+
     static var previews: some View {
         ImageSource(image: $image)
             .padding()

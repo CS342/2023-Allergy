@@ -13,7 +13,6 @@ import ImageSource
 import SceneKit
 import SwiftUI
 
-
 class ARImageTrackingViewCoordinator: NSObject {
     let image: Binding<ImageState>
     let screenCoordinates: Binding<[CGPoint]>
@@ -21,8 +20,7 @@ class ARImageTrackingViewCoordinator: NSObject {
     weak var sceneView: ARSCNView?
     var detectedImageCounter = 0
     var nodes: [SCNNode] = []
-    
-    
+
     init(image: Binding<ImageState>, screenCoordinates: Binding<[CGPoint]>, takeScreenshot: Binding<Bool>) {
         self.image = image
         self.screenCoordinates = screenCoordinates
@@ -35,12 +33,12 @@ extension ARImageTrackingViewCoordinator: ARSCNViewDelegate {
         guard let imageAnchor = anchor as? ARImageAnchor else {
             return
         }
-        
+
         nodes.append(node)
-        
+
         let referenceImage = imageAnchor.referenceImage
-        
-        DispatchQueue.global(qos: .userInitiated).async { [self] in
+
+        DispatchQueue.global(qos: .userInitiated).async { [] in
             // Create a plane to visualize the initial position of the detected image.
             let plane = SCNPlane(
                 width: referenceImage.physicalSize.width,
@@ -48,11 +46,11 @@ extension ARImageTrackingViewCoordinator: ARSCNViewDelegate {
             )
             let planeNode = SCNNode(geometry: plane)
             planeNode.opacity = 0.25
-            
+
             // `SCNPlane` is vertically oriented in its local coordinate space, but `ARImageAnchor` assumes the image
             // is horizontal in its local space, so rotate the plane to match.
             planeNode.eulerAngles.x = -.pi / 2
-            
+
             // Image anchors are not tracked after initial detection, so create an animation that limits the duration
             // for which the plane visualization appears.
             planeNode.runAction(
@@ -73,19 +71,16 @@ extension ARImageTrackingViewCoordinator: ARSCNViewDelegate {
 //                    }
                 }
             )
-            
-            
+
             // Add the plane visualization to the scene.
             node.addChildNode(planeNode)
         }
     }
-        
-        
+
         func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
             nodes.removeAll(where: { $0 == node })
         }
-        
-        
+
         func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
             var imageCoordindates: [CGPoint] = []
             for node in nodes {
@@ -93,20 +88,19 @@ extension ARImageTrackingViewCoordinator: ARSCNViewDelegate {
                 imageCoordindates.append(CGPoint(x: Double(screenCoordinate.x), y: Double(screenCoordinate.y)))
             }
             screenCoordinates.wrappedValue = imageCoordindates
-            
+
             if takeScreenshot.wrappedValue {
                 createScreenshot()
                 takeScreenshot.wrappedValue = false
             }
         }
-        
-        
+
         private func createScreenshot() {
             Task { @MainActor in
                 guard let screenshot = sceneView?.snapshot() else {
                     return
                 }
-                
+
                 self.image.wrappedValue = .success(screenshot)
             }
         }

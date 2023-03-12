@@ -10,7 +10,6 @@ import FHIR
 import Foundation
 import Scheduler
 
-
 /// A `Scheduler` using the `FHIR` standard as well as the ``AllergyTaskContext`` to schedule and manage tasks and events in the
 /// CardinalKit Allergy Applciation.
 public typealias AllergyScheduler = Scheduler<FHIR, AllergyTaskContext>
@@ -21,7 +20,7 @@ extension AllergyScheduler {
         dateComponents: .init(hour: 0, minute: 1),
         end: .numberOfEvents(1)
     )
-    
+
     private static let tasks = [
         Task(
             title: String(localized: "Allergy Task", bundle: .module),
@@ -81,8 +80,7 @@ extension AllergyScheduler {
             context: AllergyTaskContext.photoUpload(PhotoUploadContext.optional)
         )
     ]
-    
-    
+
     /// Creates a default instance of the ``AllergyScheduler`` by scheduling the tasks listed below.
     public convenience init() {
         self.init(tasks: AllergyScheduler.tasks)

@@ -8,7 +8,6 @@
 import ImageSource
 import SwiftUI
 
-
 struct ARImageTrackingOverlay: View {
     @State var imageCoordindates: [CGPoint] = []
     @State var takeScreenshot = false
@@ -16,7 +15,7 @@ struct ARImageTrackingOverlay: View {
     @Environment(\.dismiss) private var dismiss
     @State var startTime = Double(-1)
     @State var displayText = false
-    
+
     var body: some View {
         VStack {
             Button("Dismiss") {
@@ -24,7 +23,7 @@ struct ARImageTrackingOverlay: View {
             }
             ARImageTrackingView(image: $image, takeScreenshot: $takeScreenshot, imageCoordindates: $imageCoordindates)
                 .overlay {
-                    if (displayText) {
+                    if displayText {
                         ZStack(alignment: .topLeading) {
                             Text("KEEP PHONE STILL FOR 3 SECONDS")
                                 .foregroundColor(.blue)
@@ -45,13 +44,12 @@ struct ARImageTrackingOverlay: View {
                         }
                     }
                 }
-        }
-            .onChange(of: image) { newImage in
+        } .onChange(of: image) { newImage in
                 if newImage != .empty {
                     dismiss()
                 }
-            }
-            .onChange(of: imageCoordindates) { newImageCoordindates in
+                                }
+        .onChange(of: imageCoordindates) { newImageCoordindates in
                 guard !newImageCoordindates.isEmpty else {
                     return
                 }
@@ -77,14 +75,13 @@ struct ARImageTrackingOverlay: View {
                         displayText = false
                     }
                 }
-            }
+        }
     }
 }
 
 struct ARImageTrackingOverlay_Previews: PreviewProvider {
     @State private static var imageState: ImageState = .empty
-    
-    
+
     static var previews: some View {
         ARImageTrackingOverlay(image: $imageState)
     }
