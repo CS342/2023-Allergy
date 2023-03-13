@@ -34,7 +34,7 @@ class PhotoUploadTests: XCTestCase {
             task: "Take Baseline Photo",
             image: "Photo, March 12, 2011, 4:17 PM",
             comment: "Testing!",
-            index: 1
+            testImageName: "base-0"
         )
         
         // Day 0
@@ -42,7 +42,7 @@ class PhotoUploadTests: XCTestCase {
             task: "Take Photo After Application",
             image: "Photo, August 08, 2012, 2:29 PM",
             comment: "Testing!",
-            index: 3
+            testImageName: "day0-0"
         )
         
         // DAY 2
@@ -50,7 +50,7 @@ class PhotoUploadTests: XCTestCase {
             task: "Take Photo Two Days After Application",
             image: "Photo, October 09, 2009, 2:09 PM",
             comment: "Testing!",
-            index: 5
+            testImageName: "day2-0"
         )
         
         // DAY 4
@@ -58,8 +58,8 @@ class PhotoUploadTests: XCTestCase {
             task: "Take Photo Two Days After Removal",
             image: "Photo, August 08, 2012, 2:55 PM",
             comment: "Testing!",
-            index: 7,
-            scrollDown: true
+            testImageName: "day4-0",
+            testScrollDown: true
         )
         
         // Optional
@@ -67,38 +67,25 @@ class PhotoUploadTests: XCTestCase {
             task: "Take Optional Photo",
             image: "Photo, August 08, 2012, 2:55 PM",
             comment: "Testing!",
-            index: 9,
-            scrollDown: true
+            testImageName: "optional-0",
+            testScrollDown: true
         )
     }
 }
 
 
 extension XCUIApplication {
-    func investigateUploadImage(task: String, image: String, comment: String, index: Int, scrollDown: Bool = false) {
+    func investigateUploadImage(task: String, image: String, comment: String, testImageName: String, testScrollDown: Bool = false) {
         tabBars["Tab Bar"].buttons["Schedule"].tap()
         swipeUp(velocity: .slow)
         uploadImage(task: task, image: image, comment: comment)
         
-        // Switch to gallery tab to check for existence of photo and text
         tabBars["Tab Bar"].buttons["Gallery"].tap()
-        
-        if scrollDown {
+        if testScrollDown {
             swipeUp(velocity: .slow)
         }
         
-        // Check for existence of photo
-        XCTAssertTrue(
-            collectionViews
-                .children(matching: .cell)
-                .element(boundBy: index)
-                .scrollViews
-                .children(matching: .other)
-                .element(boundBy: 0)
-                .children(matching: .other)
-                .element
-                .waitForExistence(timeout: 2)
-        )
+        XCTAssert(collectionViews.scrollViews.otherElements.buttons[testImageName].waitForExistence(timeout: 2))
     }
     
     func uploadImage(task: String, image: String, comment: String) {
