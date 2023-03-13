@@ -29,7 +29,7 @@ class OnboardingTests: XCTestCase {
     func testOnboardingFlow() throws {
         let app = XCUIApplication()
         
-                try app.navigateOnboardingFlow()
+        try app.navigateOnboardingFlow()
         
         let tabBar = app.tabBars["Tab Bar"]
         XCTAssertTrue(tabBar.buttons["Schedule"].waitForExistence(timeout: 2))
@@ -41,7 +41,7 @@ class OnboardingTests: XCTestCase {
 
 extension XCUIApplication {
     func conductOnboardingIfNeeded() throws {
-        if self.staticTexts["CardinalKit\nAllergy Application"].waitForExistence(timeout: 2) {
+        if self.staticTexts["Allergy Patch Testing"].waitForExistence(timeout: 2) {
             try navigateOnboardingFlow()
         }
     }

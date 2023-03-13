@@ -14,151 +14,111 @@ import XCTHealthKit
 class PhotoUploadTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
-        
+
         continueAfterFailure = false
-        
+        try disablePasswordAutofill()
+
         let app = XCUIApplication()
-        app.launchArguments = ["--skipOnboarding"]
+        app.launchArguments = ["--showOnboarding"]
         app.deleteAndLaunch(withSpringboardAppName: "Allergy")
+
+        try app.conductOnboardingIfNeeded()
     }
     
     
-    // swiftlint:disable:next function_body_length
-            func testPhotoUpload() throws {
-                let app = XCUIApplication()
-                let collectionView = app.collectionViews
-                var takePhotoStaticText = collectionView.staticTexts["Take Baseline Photo"]
-                takePhotoStaticText.tap()
-                app.buttons["Add"].tap()
-                // Picks photo
-                app.collectionViews.buttons["Photo Picker"].tap()
-                var testPhoto = "Photo, March 12, 2011, 4:17 PM"
-                app.scrollViews.otherElements.images[testPhoto].tap()
+    func testPhotoUpload() throws {
+        let app = XCUIApplication()
         
-                // Enters a comment
-                app.textFields["Enter a comment (optional)"].tap()
-                app.textFields["Enter a comment (optional)"].typeText("Testing!")
-                // Upload photo
-                app.buttons["Upload"].tap()
-                // Switch to gallery tab to check for existence of photo and text
-                app.tabBars["Tab Bar"].buttons["Gallery"].tap()
-                
-                // Check for existence of photo
-                let galleryViewChildren = collectionView.children(matching: .cell)
-                XCTAssertTrue(galleryViewChildren
-                    .element(boundBy: 1)
-                    .scrollViews.children(matching: .other)
-                    .element(boundBy: 0)
-                    .children(matching: .other)
-                    .element.exists)
-                
-                // Day 0
-                app.tabBars["Tab Bar"].buttons["Schedule"].tap()
-                app.swipeUp()
-                takePhotoStaticText = collectionView
-                    .staticTexts["Take Photo After Application"]
-                takePhotoStaticText.tap()
-                app.buttons["Add"].tap()
-                // Picks photo
-                app.collectionViews.buttons["Photo Picker"].tap()
-                testPhoto = "Photo, August 08, 2012, 2:29 PM"
-                app.scrollViews.otherElements.images[testPhoto].tap()
+        // Baseline
+        app.investigateUploadImage(
+            task: "Take Baseline Photo",
+            image: "Photo, March 12, 2011, 4:17 PM",
+            comment: "Testing!",
+            index: 1
+        )
         
-                // Enters a comment
-                app.textFields["Enter a comment (optional)"].tap()
-                app.textFields["Enter a comment (optional)"].typeText("Testing!")
-                // Upload photo
-                app.buttons["Upload"].tap()
-                
-                // Switch to gallery tab to check for existence of photo and text
-                app.tabBars["Tab Bar"].buttons["Gallery"].tap()
-                
-                // Check for existence of photo
-                XCTAssertTrue(galleryViewChildren
-                    .element(boundBy: 3)
-                    .scrollViews.children(matching: .other)
-                    .element(boundBy: 0)
-                    .children(matching: .other)
-                    .element.exists)
-            
-                // DAY 2
-                
-                app.tabBars["Tab Bar"].buttons["Schedule"].tap()
-                app.swipeUp()
-                takePhotoStaticText = app.collectionViews.staticTexts["Take Photo Two Days After Application"]
-                takePhotoStaticText.tap()
-                app.buttons["Add"].tap()
-                // Picks photo
-                app.collectionViews.buttons["Photo Picker"].tap()
-                testPhoto = "Photo, October 09, 2009, 2:09 PM"
-                app.scrollViews.otherElements.images[testPhoto].tap()
+        // Day 0
+        app.investigateUploadImage(
+            task: "Take Photo After Application",
+            image: "Photo, August 08, 2012, 2:29 PM",
+            comment: "Testing!",
+            index: 3
+        )
         
-                // Enters a comment
-                app.textFields["Enter a comment (optional)"].tap()
-                app.textFields["Enter a comment (optional)"].typeText("Testing!")
-                // Upload photo
-                app.buttons["Upload"].tap()
-                
-                // Switch to gallery tab to check for existence of photo and text
-                app.tabBars["Tab Bar"].buttons["Gallery"].tap()
-                
-                // Check for existence of photo
-                XCTAssertTrue(galleryViewChildren
-                    .element(boundBy: 5)
-                    .scrollViews.children(matching: .other)
-                    .element(boundBy: 0)
-                    .children(matching: .other)
-                    .element.exists)
-                
-                // DAY 4
-                
-                app.tabBars["Tab Bar"].buttons["Schedule"].tap()
-                app.swipeUp()
-                takePhotoStaticText = app.collectionViews.staticTexts["Take Photo Two Days After Removal"]
-                takePhotoStaticText.tap()
-                app.buttons["Add"].tap()
-                // Picks photo
-                app.collectionViews.buttons["Photo Picker"].tap()
-                testPhoto = "Photo, August 08, 2012, 2:55 PM"
-                app.scrollViews.otherElements.images[testPhoto].tap()
+        // DAY 2
+        app.investigateUploadImage(
+            task: "Take Photo Two Days After Application",
+            image: "Photo, October 09, 2009, 2:09 PM",
+            comment: "Testing!",
+            index: 5
+        )
         
-                // Enters a comment
-                app.textFields["Enter a comment (optional)"].tap()
-                app.textFields["Enter a comment (optional)"].typeText("Testing!")
-                // Upload photo
-                app.buttons["Upload"].tap()
-                
-                // Switch to gallery tab to check for existence of photo and text
-                app.tabBars["Tab Bar"].buttons["Gallery"].tap()
-                
-                // Check for existence of photo
-                XCTAssertTrue(galleryViewChildren
-                    .element(boundBy: 7)
-                    .scrollViews.children(matching: .other)
-                    .element(boundBy: 0)
-                    .children(matching: .other)
-                    .element.exists)
-                
-                
-                // Optional
-                
-                app.tabBars["Tab Bar"].buttons["Schedule"].tap()
-                app.swipeUp()
-                takePhotoStaticText = app.collectionViews.staticTexts["Take Optional Photo"]
-                takePhotoStaticText.tap()
-                app.buttons["Add"].tap()
-                // Picks photo
-                app.collectionViews.buttons["Photo Picker"].tap()
-                testPhoto = "Photo, August 08, 2012, 2:55 PM"
-                app.scrollViews.otherElements.images[testPhoto].tap()
+        // DAY 4
+        app.investigateUploadImage(
+            task: "Take Photo Two Days After Removal",
+            image: "Photo, August 08, 2012, 2:55 PM",
+            comment: "Testing!",
+            index: 7
+        )
         
-                // Enters a comment
-                app.textFields["Enter a comment (optional)"].tap()
-                app.textFields["Enter a comment (optional)"].typeText("Testing!")
-                // Upload photo
-                app.buttons["Upload"].tap()
-                
-                // Switch to gallery tab to check for existence of photo and text
-                app.tabBars["Tab Bar"].buttons["Gallery"].tap()
+        // Optional
+        app.investigateUploadImage(
+            task: "Take Optional Photo",
+            image: "Photo, August 08, 2012, 2:55 PM",
+            comment: "Testing!",
+            index: 7
+        )
+    }
+}
+
+
+extension XCUIApplication {
+    func investigateUploadImage(task: String, image: String, comment: String, index: Int) {
+        tabBars["Tab Bar"].buttons["Schedule"].tap()
+        swipeUp(velocity: .slow)
+        uploadImage(task: task, image: image, comment: comment)
+        
+        // Switch to gallery tab to check for existence of photo and text
+        tabBars["Tab Bar"].buttons["Gallery"].tap()
+        
+        if !collectionViews.children(matching: .cell).element(boundBy: index).isHittable {
+            swipeUp(velocity: .slow)
+        }
+        
+        // Check for existence of photo
+        XCTAssertTrue(
+            collectionViews
+                .children(matching: .cell)
+                .element(boundBy: index)
+                .scrollViews.children(matching: .other)
+                .element(boundBy: 0)
+                .children(matching: .other)
+                .element
+                .waitForExistence(timeout: 2)
+        )
+    }
+    
+    func uploadImage(task: String, image: String, comment: String) {
+        var takePhotoStaticText = staticTexts[task]
+        XCTAssertTrue(takePhotoStaticText.waitForExistence(timeout: 2))
+        takePhotoStaticText.tap()
+        
+        let addButton = images["Add"]
+        XCTAssertTrue(addButton.waitForExistence(timeout: 2))
+        addButton.tap()
+        
+        // Picks photo
+        XCTAssertTrue(buttons["Photo Picker"].waitForExistence(timeout: 2))
+        buttons["Photo Picker"].tap()
+        
+        XCTAssertTrue(images[image].waitForExistence(timeout: 2))
+        images[image].tap()
+        
+        // Enters a comment
+        textFields["Enter a comment (optional)"].tap()
+        textFields["Enter a comment (optional)"].typeText(comment)
+        
+        // Upload photo
+        buttons["Upload"].tap()
     }
 }
