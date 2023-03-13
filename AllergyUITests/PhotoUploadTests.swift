@@ -58,7 +58,8 @@ class PhotoUploadTests: XCTestCase {
             task: "Take Photo Two Days After Removal",
             image: "Photo, August 08, 2012, 2:55 PM",
             comment: "Testing!",
-            index: 7
+            index: 7,
+            scrollDown: true
         )
         
         // Optional
@@ -66,14 +67,15 @@ class PhotoUploadTests: XCTestCase {
             task: "Take Optional Photo",
             image: "Photo, August 08, 2012, 2:55 PM",
             comment: "Testing!",
-            index: 7
+            index: 9,
+            scrollDown: true
         )
     }
 }
 
 
 extension XCUIApplication {
-    func investigateUploadImage(task: String, image: String, comment: String, index: Int) {
+    func investigateUploadImage(task: String, image: String, comment: String, index: Int, scrollDown: Bool = false) {
         tabBars["Tab Bar"].buttons["Schedule"].tap()
         swipeUp(velocity: .slow)
         uploadImage(task: task, image: image, comment: comment)
@@ -81,7 +83,7 @@ extension XCUIApplication {
         // Switch to gallery tab to check for existence of photo and text
         tabBars["Tab Bar"].buttons["Gallery"].tap()
         
-        if !collectionViews.children(matching: .cell).element(boundBy: index).isHittable {
+        if scrollDown {
             swipeUp(velocity: .slow)
         }
         
@@ -90,7 +92,8 @@ extension XCUIApplication {
             collectionViews
                 .children(matching: .cell)
                 .element(boundBy: index)
-                .scrollViews.children(matching: .other)
+                .scrollViews
+                .children(matching: .other)
                 .element(boundBy: 0)
                 .children(matching: .other)
                 .element
@@ -99,11 +102,11 @@ extension XCUIApplication {
     }
     
     func uploadImage(task: String, image: String, comment: String) {
-        var takePhotoStaticText = staticTexts[task]
+        let takePhotoStaticText = staticTexts[task]
         XCTAssertTrue(takePhotoStaticText.waitForExistence(timeout: 2))
         takePhotoStaticText.tap()
         
-        let addButton = images["Add"]
+        let addButton = buttons["Add Image"]
         XCTAssertTrue(addButton.waitForExistence(timeout: 2))
         addButton.tap()
         
