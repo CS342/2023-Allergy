@@ -22,7 +22,6 @@ class GalleryViewTests: XCTestCase {
     }
     
     
-    // swiftlint:disable:next function_body_length
     func testGalleryView() throws {
                 let app = XCUIApplication()
                 XCTAssertTrue(app.tabBars["Tab Bar"].buttons["Gallery"].waitForExistence(timeout: 2))
@@ -40,12 +39,5 @@ class GalleryViewTests: XCTestCase {
                 let app = XCUIApplication()
                 XCTAssertTrue(app.tabBars["Tab Bar"].buttons["Gallery"].waitForExistence(timeout: 2))
                 app.tabBars["Tab Bar"].buttons["Gallery"].tap()
-                
-
-
-        
-        
-
     }
-    
 }

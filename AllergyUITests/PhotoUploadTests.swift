@@ -25,9 +25,9 @@ class PhotoUploadTests: XCTestCase {
     
     // swiftlint:disable:next function_body_length
             func testPhotoUpload() throws {
-                
                 let app = XCUIApplication()
-                var takePhotoStaticText = app.collectionViews.staticTexts["Take Baseline Photo"]
+                let collectionView = app.collectionViews
+                var takePhotoStaticText = collectionView.staticTexts["Take Baseline Photo"]
                 takePhotoStaticText.tap()
                 app.buttons["Add"].tap()
                 // Picks photo
@@ -44,12 +44,19 @@ class PhotoUploadTests: XCTestCase {
                 app.tabBars["Tab Bar"].buttons["Gallery"].tap()
                 
                 // Check for existence of photo
-                XCTAssertTrue(app.collectionViews.children(matching: .cell).element(boundBy: 1).scrollViews.children(matching: .other).element(boundBy: 0).children(matching: .other).element.exists)
+                let galleryViewChildren = collectionView.children(matching: .cell)
+                XCTAssertTrue(galleryViewChildren
+                    .element(boundBy: 1)
+                    .scrollViews.children(matching: .other)
+                    .element(boundBy: 0)
+                    .children(matching: .other)
+                    .element.exists)
                 
                 // Day 0
                 app.tabBars["Tab Bar"].buttons["Schedule"].tap()
                 app.swipeUp()
-                takePhotoStaticText = app.collectionViews/*@START_MENU_TOKEN@*/.staticTexts["Take Photo After Application"]/*[[".cells.staticTexts[\"Take Photo After Application\"]",".staticTexts[\"Take Photo After Application\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+                takePhotoStaticText = collectionView
+                    .staticTexts["Take Photo After Application"]
                 takePhotoStaticText.tap()
                 app.buttons["Add"].tap()
                 // Picks photo
@@ -67,7 +74,12 @@ class PhotoUploadTests: XCTestCase {
                 app.tabBars["Tab Bar"].buttons["Gallery"].tap()
                 
                 // Check for existence of photo
-                XCTAssertTrue(app.collectionViews.children(matching: .cell).element(boundBy: 3).scrollViews.children(matching: .other).element(boundBy: 0).children(matching: .other).element.exists)
+                XCTAssertTrue(galleryViewChildren
+                    .element(boundBy: 3)
+                    .scrollViews.children(matching: .other)
+                    .element(boundBy: 0)
+                    .children(matching: .other)
+                    .element.exists)
             
                 // DAY 2
                 
@@ -91,7 +103,13 @@ class PhotoUploadTests: XCTestCase {
                 app.tabBars["Tab Bar"].buttons["Gallery"].tap()
                 
                 // Check for existence of photo
-                XCTAssertTrue(app.collectionViews.children(matching: .cell).element(boundBy: 5).scrollViews.children(matching: .other).element(boundBy: 0).children(matching: .other).element.exists)
+                XCTAssertTrue(galleryViewChildren
+                    .element(boundBy: 5)
+                    .scrollViews.children(matching: .other)
+                    .element(boundBy: 0)
+                    .children(matching: .other)
+                    .element.exists)
+                
                 // DAY 4
                 
                 app.tabBars["Tab Bar"].buttons["Schedule"].tap()
@@ -114,7 +132,12 @@ class PhotoUploadTests: XCTestCase {
                 app.tabBars["Tab Bar"].buttons["Gallery"].tap()
                 
                 // Check for existence of photo
-                XCTAssertTrue(app.collectionViews.children(matching: .cell).element(boundBy: 7).scrollViews.children(matching: .other).element(boundBy: 0).children(matching: .other).element.exists)
+                XCTAssertTrue(galleryViewChildren
+                    .element(boundBy: 7)
+                    .scrollViews.children(matching: .other)
+                    .element(boundBy: 0)
+                    .children(matching: .other)
+                    .element.exists)
                 
                 
                 // Optional
@@ -137,10 +160,5 @@ class PhotoUploadTests: XCTestCase {
                 
                 // Switch to gallery tab to check for existence of photo and text
                 app.tabBars["Tab Bar"].buttons["Gallery"].tap()
-                
-                
-                                
-                
     }
 }
-
