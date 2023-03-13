@@ -26,11 +26,11 @@ class GalleryViewTests: XCTestCase {
                 let app = XCUIApplication()
                 XCTAssertTrue(app.tabBars["Tab Bar"].buttons["Gallery"].waitForExistence(timeout: 2))
                 app.tabBars["Tab Bar"].buttons["Gallery"].tap()
+                XCTAssertTrue(app.staticTexts["base"].waitForExistence(timeout: 2))
                 XCTAssertTrue(app.staticTexts["day0"].waitForExistence(timeout: 2))
                 XCTAssertTrue(app.staticTexts["day2"].waitForExistence(timeout: 2))
-                XCTAssertTrue(app.staticTexts["day4"].waitForExistence(timeout: 2))
-                XCTAssertTrue(app.staticTexts["base"].waitForExistence(timeout: 2))
                 app.swipeUp()
+                XCTAssertTrue(app.staticTexts["day4"].waitForExistence(timeout: 2))
                 XCTAssertTrue(app.staticTexts["optional"].waitForExistence(timeout: 2))
     }
     
