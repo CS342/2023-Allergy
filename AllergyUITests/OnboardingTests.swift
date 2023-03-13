@@ -34,7 +34,6 @@ class OnboardingTests: XCTestCase {
         let tabBar = app.tabBars["Tab Bar"]
         XCTAssertTrue(tabBar.buttons["Schedule"].waitForExistence(timeout: 2))
         XCTAssertTrue(tabBar.buttons["Instructions"].waitForExistence(timeout: 2))
-        XCTAssertTrue(tabBar.buttons["Mock Upload"].waitForExistence(timeout: 2))
         XCTAssertTrue(tabBar.buttons["Gallery"].waitForExistence(timeout: 2))
     }
 }
