@@ -29,19 +29,19 @@ class OnboardingTests: XCTestCase {
     func testOnboardingFlow() throws {
         let app = XCUIApplication()
         
-                try app.navigateOnboardingFlow()
+        try app.navigateOnboardingFlow()
         
         let tabBar = app.tabBars["Tab Bar"]
         XCTAssertTrue(tabBar.buttons["Schedule"].waitForExistence(timeout: 2))
-        XCTAssertTrue(tabBar.buttons["Contacts"].waitForExistence(timeout: 2))
-        XCTAssertTrue(tabBar.buttons["Mock Upload"].waitForExistence(timeout: 2))
+        XCTAssertTrue(tabBar.buttons["Instructions"].waitForExistence(timeout: 2))
+        XCTAssertTrue(tabBar.buttons["Gallery"].waitForExistence(timeout: 2))
     }
 }
 
 
 extension XCUIApplication {
     func conductOnboardingIfNeeded() throws {
-        if self.staticTexts["CardinalKit\nAllergy Application"].waitForExistence(timeout: 2) {
+        if self.staticTexts["Allergy Patch Testing"].waitForExistence(timeout: 2) {
             try navigateOnboardingFlow()
         }
     }

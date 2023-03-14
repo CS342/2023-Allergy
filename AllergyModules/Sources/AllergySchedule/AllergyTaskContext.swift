@@ -8,6 +8,7 @@
 
 import FHIR
 
+
 public enum PhotoUploadContext: String, Codable, CaseIterable {
     case base
     case day0
@@ -15,6 +16,8 @@ public enum PhotoUploadContext: String, Codable, CaseIterable {
     case day4
     case optional
 }
+
+
 /// The context attached to each task in the CS342 2023 Allergy Team Application.
 public enum AllergyTaskContext: Codable, Identifiable {
     case questionnaire(Questionnaire)

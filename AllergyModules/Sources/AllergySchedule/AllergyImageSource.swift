@@ -120,6 +120,7 @@ public struct AllergyImageSource: View {
                         .foregroundColor(.clear)
                         .frame(width: proxy.size.width, height: proxy.size.height)
                     Image(systemName: "plus")
+                        .accessibilityLabel(Text("Add Image"))
                 }
             }
         )

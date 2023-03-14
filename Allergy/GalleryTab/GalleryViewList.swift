@@ -23,13 +23,13 @@ struct GalleryViewList: View {
     var body: some View {
         ScrollView(.horizontal) {
             LazyHGrid(rows: rows) {
-                ForEach(Array(galleryLister.images.values), id: \.self) { image in
-                    NavigationLink(destination: IndividualPhotoView(photo: image)) {
-                        Image(uiImage: image)
+                ForEach(Array(galleryLister.images.values.enumerated()), id: \.offset) { image in
+                    NavigationLink(destination: IndividualPhotoView(photo: image.element)) {
+                        Image(uiImage: image.element)
                             .resizable()
                             .scaledToFit()
+                            .accessibilityLabel(Text("\(photoUploadContext.rawValue)-\(image.offset)"))
                             .frame(width: 100)
-                            .accessibilityHidden(true)
                     }
                 }
             }
@@ -39,9 +39,3 @@ struct GalleryViewList: View {
         }
     }
 }
-
-// struct GalleryViewList_Previews: PreviewProvider {
-//     static var previews: some View {
-//         GalleryViewList(photoUploadContext: .base)
-//     }
-// }
