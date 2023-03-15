@@ -7,7 +7,6 @@
 //
 
 import AllergyContacts
-import AllergyMockDataStorageProvider
 import AllergySchedule
 import AllergySharedContext
 import SwiftUI
@@ -17,7 +16,6 @@ struct HomeView: View {
     enum Tabs: String {
         case schedule
         case contact
-        case mockUpload
         case galleryView
     }
     
@@ -52,7 +50,6 @@ struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
             .environmentObject(AllergyScheduler())
-            .environmentObject(MockDataStorageProvider())
     }
 }
 #endif
