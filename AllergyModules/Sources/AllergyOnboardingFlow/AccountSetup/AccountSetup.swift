@@ -10,6 +10,8 @@ import Account
 import AllergySharedContext
 import class FHIR.FHIR
 import FirebaseAccount
+import FirebaseAuth
+import FirebaseFirestore
 import Onboarding
 import SwiftUI
 
@@ -39,6 +41,19 @@ struct AccountSetup: View {
         )
             .onReceive(account.objectWillChange) {
                 if account.signedIn {
+                    if let user = Auth.auth().currentUser {
+                        let uid = user.uid
+                        let name = user.displayName?.components(separatedBy: " ")
+                        let firstName = name?[0] ?? ""
+                        let lastName = name?[1] ?? ""
+                        let data: [String: Any] = ["firstName": firstName, "id": uid, "lastName": lastName]
+                        Firestore.firestore().collection("users").document(uid).setData(data) { err in
+                            if let err = err {
+                                print("Error updating document: \(err)")
+                            }
+                        }
+                    }
+                    
                     completedOnboardingFlow = true
                 }
             }
