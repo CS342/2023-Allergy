@@ -19,7 +19,6 @@ let package = Package(
     ],
     products: [
         .library(name: "AllergyContacts", targets: ["AllergyContacts"]),
-        .library(name: "AllergyMockDataStorageProvider", targets: ["AllergyMockDataStorageProvider"]),
         .library(name: "AllergyOnboardingFlow", targets: ["AllergyOnboardingFlow"]),
         .library(name: "AllergySchedule", targets: ["AllergySchedule"]),
         .library(name: "AllergySharedContext", targets: ["AllergySharedContext"])
@@ -35,17 +34,6 @@ let package = Package(
             dependencies: [
                 .target(name: "AllergySharedContext"),
                 .product(name: "Contact", package: "CardinalKit")
-            ],
-            resources: [
-                .process("Resources")
-            ]
-        ),
-        .target(
-            name: "AllergyMockDataStorageProvider",
-            dependencies: [
-                .target(name: "AllergySharedContext"),
-                .product(name: "CardinalKit", package: "CardinalKit"),
-                .product(name: "FHIR", package: "CardinalKit")
             ],
             resources: [
                 .process("Resources")

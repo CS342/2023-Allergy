@@ -6,7 +6,6 @@
 // SPDX-License-Identifier: MIT
 //
 
-import AllergyMockDataStorageProvider
 import AllergySchedule
 import AllergySharedContext
 import CardinalKit
@@ -42,7 +41,6 @@ class AllergyAppDelegate: CardinalKitAppDelegate {
                 healthKit
             }
             QuestionnaireDataSource()
-            MockDataStorageProvider()
         }
     }
     
