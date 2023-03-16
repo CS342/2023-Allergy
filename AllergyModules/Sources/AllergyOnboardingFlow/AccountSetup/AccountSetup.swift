@@ -87,6 +87,9 @@ struct AccountSetup: View {
             if account.signedIn {
                 UserView()
                     .padding()
+                Button("Logout", role: .destructive) {
+                    try? Auth.auth().signOut()
+                }
             }
         }
     }
