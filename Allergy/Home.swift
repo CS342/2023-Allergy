@@ -38,7 +38,7 @@ struct HomeView: View {
             GalleryTab()
                 .tag(Tabs.galleryView)
                 .tabItem {
-                    Label("GALLERYVIEW_TAB_TITLE", systemImage: "list.clipboard")
+                    Label("GALLERYVIEW_TAB_TITLE", systemImage: "photo")
                 }
         }
     }
