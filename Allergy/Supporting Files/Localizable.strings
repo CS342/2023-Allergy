@@ -11,10 +11,6 @@
 "CONTACTS_TAB_TITLE" = "Instructions";
 
 
-// MARK: - Mock Upload Data Storage Provider
-"MOCK_UPLOAD_TAB_TITLE" = "Mock Upload";
-
-
 // MARK: - Schedule
 "SCHEDULE_TAB_TITLE" = "Schedule";
 

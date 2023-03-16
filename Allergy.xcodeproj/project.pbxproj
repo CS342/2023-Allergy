@@ -25,7 +25,6 @@
 		2F4E23812989C5930013F3D9 /* XCTHealthKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2F4E23802989C5930013F3D9 /* XCTHealthKit */; };
 		2F4E23832989D51F0013F3D9 /* AllergyAppTestingSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E23822989D51F0013F3D9 /* AllergyAppTestingSetup.swift */; };
 		2F59B93D298C628800C5107F /* AllergyContacts in Frameworks */ = {isa = PBXBuildFile; productRef = 2F59B93C298C628800C5107F /* AllergyContacts */; };
-		2F59B93F298C628800C5107F /* AllergyMockDataStorageProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 2F59B93E298C628800C5107F /* AllergyMockDataStorageProvider */; };
 		2F59B941298C628800C5107F /* AllergyOnboardingFlow in Frameworks */ = {isa = PBXBuildFile; productRef = 2F59B940298C628800C5107F /* AllergyOnboardingFlow */; };
 		2F59B943298C628800C5107F /* AllergySchedule in Frameworks */ = {isa = PBXBuildFile; productRef = 2F59B942298C628800C5107F /* AllergySchedule */; };
 		2F59B945298C628800C5107F /* AllergySharedContext in Frameworks */ = {isa = PBXBuildFile; productRef = 2F59B944298C628800C5107F /* AllergySharedContext */; };
@@ -99,7 +98,6 @@
 				2F1DB33029AFD26C00A59211 /* ImageSource in Frameworks */,
 				2F49B7822980419C00BCB272 /* Questionnaires in Frameworks */,
 				2F49B77E2980407C00BCB272 /* Scheduler in Frameworks */,
-				2F59B93F298C628800C5107F /* AllergyMockDataStorageProvider in Frameworks */,
 				2F39333329A89EB50035A05C /* FirebaseFirestore in Frameworks */,
 				2F9056E2299E2433003D3802 /* FirestoreDataStorage in Frameworks */,
 				2F49B77A2980407C00BCB272 /* HealthKitDataSource in Frameworks */,
@@ -248,7 +246,6 @@
 				2F49B7812980419C00BCB272 /* Questionnaires */,
 				2F49B783298041F300BCB272 /* Contact */,
 				2F59B93C298C628800C5107F /* AllergyContacts */,
-				2F59B93E298C628800C5107F /* AllergyMockDataStorageProvider */,
 				2F59B940298C628800C5107F /* AllergyOnboardingFlow */,
 				2F59B942298C628800C5107F /* AllergySchedule */,
 				2F59B944298C628800C5107F /* AllergySharedContext */,
@@ -883,10 +880,6 @@
 		2F59B93C298C628800C5107F /* AllergyContacts */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AllergyContacts;
-		};
-		2F59B93E298C628800C5107F /* AllergyMockDataStorageProvider */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = AllergyMockDataStorageProvider;
 		};
 		2F59B940298C628800C5107F /* AllergyOnboardingFlow */ = {
 			isa = XCSwiftPackageProductDependency;
